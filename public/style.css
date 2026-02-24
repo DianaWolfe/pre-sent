@@ -478,6 +478,26 @@ body {
     pointer-events: all;
 }
 
+.cycle-end__message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #2a2a28;
+    letter-spacing: 0.15em;
+    opacity: 0;
+    transition: opacity 2s ease;
+    white-space: nowrap;
+}
+
+.cycle-end.active .cycle-end__message {
+    opacity: 1;
+    transition-delay: 5s;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .gallery {
