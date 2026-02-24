@@ -138,7 +138,7 @@ ERAS = {
             "NO warm colors. NO cartoon elements. NO illustration style. "
             "Cool palette only: blues, cool whites, pale gray-blue flesh tones. "
             "Generous negative space. The blue breathes. The composition does not crowd itself. "
-            "All figures are female. "
+            "All figures are female. All figures are fully clothed. "
             "{subject} "
             "Color: {color}. "
             "The mood: {mood}. "

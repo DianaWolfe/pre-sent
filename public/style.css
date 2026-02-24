@@ -245,7 +245,7 @@ body {
 .poem-card {
     position: absolute;
     inset: 0;
-    background: #141412;
+    background: #f2f2ee;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -257,7 +257,7 @@ body {
     font-size: 0.65rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: #6a6a62;
+    color: #aaa;
     margin-bottom: 28px;
 }
 
@@ -265,19 +265,25 @@ body {
     font-size: 1.25rem;
     font-weight: 300;
     font-style: italic;
-    color: #c8c4be;
+    color: #2a2a28;
     line-height: 2.1;
     text-align: center;
     letter-spacing: 0.03em;
     max-width: 380px;
     margin-bottom: 32px;
+    animation: fade-in-poem 2.5s ease both;
+}
+
+@keyframes fade-in-poem {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .poem-card__spinner {
     width: 18px;
     height: 18px;
-    border: 1px solid #2a2a25;
-    border-top-color: #5a5a52;
+    border: 1px solid #d4d4cf;
+    border-top-color: #2a2a28;
     border-radius: 50%;
     animation: spin 2s linear infinite;
 }

@@ -13,14 +13,14 @@
   const empty = document.getElementById("empty");
   const eraLabel = document.getElementById("era-label");
   const eraAge = document.getElementById("era-age");
-  const eraPoem = document.getElementById("era-poem");
   const sliderLabels = document.getElementById("slider-labels");
   const cycleEnd = document.getElementById("cycle-end");
 
   let eras = [];
   let firstLoad = true;
 
-  const DISPLAY_DURATION = 30000;   // 30s per image
+  const DISPLAY_DURATION = 20000;   // 20s per image
+  const POEM_MIN_DURATION = 7000;   // poem card shows for at least 7s
   const PREFETCH_DELAY = 9000;      // start prefetch 9s after image appears
   const RATE_LIMIT_RETRY = 10000;   // wait 10s if rate limited
 
@@ -55,7 +55,11 @@
     setEraInfo(era);
     showLoading(era);
 
-    const data = await getImage(era);
+    // Enforce minimum poem card display time (except first load — entrance card handles that)
+    const imagePromise = getImage(era);
+    const timerPromise = firstLoad ? Promise.resolve() : sleep(POEM_MIN_DURATION);
+    const [data] = await Promise.all([imagePromise, timerPromise]);
+
     await revealImage(data.image);
 
     // Prefetch next era in background
@@ -195,7 +199,6 @@
     if (!era) return;
     eraLabel.textContent = era.label;
     eraAge.textContent = era.age_range;
-    eraPoem.innerHTML = era.bio_poem.replace(/\n/g, "<br>");
   }
 
   function renderSliderLabels() {
