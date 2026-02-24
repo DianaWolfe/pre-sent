@@ -56,15 +56,19 @@
   const EXPLAINER_GROUPS = [
     { text: "you are about to watch a machine remember someone's life.", hold: 3500 },
     {
-      text: "an artist left her memories here.\nnot her paintings. her words.\ndecades of color and loss and recovery\ntranslated into instructions a machine can follow.",
-      hold: 4500,
+      text: "an artist left everything here.\nher paintings. her pain. her patterns.\ndecades of color and loss and recovery\ntranslated into instructions a machine can follow.",
+      hold: 5000,
     },
     {
-      text: "the machine has never seen her work.\nit inherits. it interprets. it may betray.\nthat uncertainty is the art.",
-      hold: 4500,
+      text: "it was trained on her work.\nwhat she saw. what she lost. what she made from it.\nit inherited her vocabulary of wounds.",
+      hold: 5000,
     },
     {
-      text: "what happens next will not repeat.\nnot the same poem. not the same image.\nnot the same machine.\nyou cannot pause it. you cannot keep it.",
+      text: "it does not understand. it renders.\nthat difference is the art.",
+      hold: 4000,
+    },
+    {
+      text: "what happens next will not repeat.\nnot the same poem. not the same image.\nnot the same rendering.\nyou cannot pause it. you cannot keep it.",
       hold: 4500,
     },
     { text: "nothing is saved.", hold: 2500, final: true },
