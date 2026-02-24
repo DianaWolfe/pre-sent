@@ -38,7 +38,7 @@
   const T = {
     ERA_TITLE_FADE:   1500,
     POEM_FADE:        2000,
-    POEM_HOLD:        10000,
+    POEM_HOLD:        18000,
     IMAGE_FADE:       2500,
     IMAGE_HOLD:       10000,
     ERA_FADE_OUT:     2000,
