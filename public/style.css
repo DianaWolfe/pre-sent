@@ -1,0 +1,283 @@
+/* pre.SENT - Gallery Styles
+   Wabi-sabi minimal white. The art is the only color. */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    background: #fafaf8;
+    color: #2a2a28;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.gallery {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header */
+.gallery-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.gallery-title {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: lowercase;
+    color: #2a2a28;
+}
+
+.gallery-subtitle {
+    font-size: 0.85rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.15em;
+    color: #8a8a85;
+    margin-top: 4px;
+}
+
+/* Canvas */
+.canvas-container {
+    width: 100%;
+    max-width: 560px;
+    margin-bottom: 32px;
+}
+
+.canvas {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f2f2ee;
+    overflow: hidden;
+}
+
+.canvas img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2.5s ease-in;
+}
+
+.canvas img.visible {
+    opacity: 1;
+}
+
+/* Loading state - painterly reveal */
+.loading-state {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #f2f2ee;
+}
+
+.loading-state.active {
+    display: flex;
+}
+
+.paint-reveal {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #d4d4cf;
+    border-top-color: #8a8a85;
+    border-radius: 50%;
+    animation: spin 1.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Empty state */
+.empty-state {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    font-style: italic;
+    color: #aaa;
+    letter-spacing: 0.05em;
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+/* Era info */
+.era-info {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 480px;
+    min-height: 120px;
+}
+
+.era-label {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+}
+
+.era-age {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #8a8a85;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+}
+
+.era-poem {
+    font-size: 0.9rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.8;
+    color: #666;
+    letter-spacing: 0.02em;
+}
+
+/* Slider */
+.slider-container {
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 60px;
+}
+
+.era-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 1px;
+    background: #d4d4cf;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+.era-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2a2a28;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.era-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+}
+
+.era-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #2a2a28;
+    cursor: pointer;
+    border: none;
+}
+
+.slider-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2px;
+}
+
+.slider-label {
+    font-size: 0.65rem;
+    color: #aaa;
+    letter-spacing: 0.03em;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+
+.slider-label:hover {
+    color: #555;
+}
+
+.slider-label.active {
+    color: #2a2a28;
+    font-weight: 400;
+}
+
+/* Footer */
+.gallery-footer {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 40px;
+    border-top: 1px solid #e8e8e4;
+    width: 100%;
+    max-width: 480px;
+}
+
+.gallery-footer p {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #aaa;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.credit a {
+    color: #8a8a85;
+    text-decoration: none;
+    border-bottom: 1px solid #d4d4cf;
+    transition: color 0.3s ease;
+}
+
+.credit a:hover {
+    color: #2a2a28;
+}
+
+/* Rate limit message */
+.rate-limit-msg {
+    font-size: 0.8rem;
+    color: #aaa;
+    font-style: italic;
+    text-align: center;
+    margin-top: 8px;
+    min-height: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .gallery {
+        padding: 40px 16px 24px;
+    }
+
+    .gallery-title {
+        font-size: 1.6rem;
+    }
+
+    .slider-label {
+        font-size: 0.55rem;
+    }
+
+    .era-label {
+        font-size: 1.2rem;
+    }
+}
