@@ -7,11 +7,10 @@ aesthetic boundaries of each life stage.
 
 The assembly process:
 1. Select the era's prompt template
-2. Choose a random subject from the era's subject pool
-3. Choose a random color emphasis from the era's palette
-4. Choose a random mood from the era's mood pool
-5. Prepend the baseline aesthetic layer
-6. Return the assembled prompt for gpt-image-1
+2. Choose a random subject from the era's subject pool (color is embedded in each subject)
+3. Choose a random mood from the era's mood pool
+4. Prepend the baseline aesthetic layer
+5. Return the assembled prompt for gpt-image-1
 """
 
 import random
@@ -43,13 +42,11 @@ def assemble_prompt(era_position):
     era_key, era = get_era_by_position(era_position)
 
     subject = random.choice(era["subjects"])
-    color = random.choice(era["color_palette"])
     mood = random.choice(era["moods"])
     composition = random.choice(COMPOSITION_MODIFIERS)
 
     era_prompt = era["prompt_template"].format(
         subject=subject,
-        color=color,
         mood=mood,
     )
 

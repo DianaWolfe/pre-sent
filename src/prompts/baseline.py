@@ -25,8 +25,6 @@ BASELINE = (
     "Spirit animals appear as witnesses, companions, and guardians: "
     "ravens, wolves, foxes, black dogs. "
     "These animals are not decoration. They are presences. "
-    "PALETTE RULE: cool tones only. No warm colors. No oranges, no yellows, no warm reds, no golden tones. "
-    "Favor blues, blue-grays, cool greens, cool whites, ink black, and muted cool neutrals. "
     "COMPOSITION RULE: use the full square canvas with intention. "
     "Compositions may be intimate or expansive, but never cramped. "
     "Allow breathing room around the subject. "
