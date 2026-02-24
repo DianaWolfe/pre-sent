@@ -32,55 +32,53 @@ ERAS = {
         ),
         "developmental_frame": "Piaget's preoperational and concrete operational stages. Erikson's industry vs. inferiority.",
         "color_palette": [
-            "clashing primaries: red, yellow, electric blue that fights with itself",
-            "muddy forest greens and dirty earth browns, the colors of hiding",
-            "faded crayon palette gone slightly wrong, like a coloring book left in the sun",
-            "loud orange against crayon-box purple, a child who refuses to match",
-            "cadmium yellow and cobalt blue in open conflict"
+            "crayon primaries used without mixing: red next to blue next to green, the palette of someone using what is there",
+            "pencil and colored pencil on lined notebook paper, the colors bleeding slightly past the lines",
+            "muddy greens and earth browns from a cheap watercolor set, pigment pooling where the brush lifted",
+            "faded colored pencil over pencil sketch, the lines showing through, layered without technique",
+            "ballpoint pen marks with colored pencil filled in, the blue of a cheap pen and the green of a school crayon"
         ],
         "art_references": [
-            "child's cartoon drawing with impressionist paint thrown in the background",
-            "naive art that knows exactly what it is doing",
-            "flat cartoon female figure in front of loose gestural impressionist forest",
-            "outsider art energy with interior intelligence, wry and watchful",
-            "wobbly confident lines over loose paint blobs, a girl who draws everything"
+            "a child's earnest pencil and crayon drawing, proportions slightly off but the observation genuine",
+            "early learner figure drawing in colored pencil, the head a little too big, the hands simplified",
+            "a child's sketchbook page, pencil lines repeated where she was not sure, working it out on the paper",
+            "naive observational drawing with the unselfconscious marks of someone who has not yet learned what art is supposed to look like",
+            "early watercolor attempt with pencil underdrawing visible, pigment puddled in the low spots, the sky overworked"
         ],
-        "emotional_texture": "sarcasm too old for the body, wry observation of adults who think she is not watching, cartoon logic applied to genuinely strange circumstances, the raven as the only constant, humor as the portable shelter you carry from base to base",
+        "emotional_texture": "pure observation before self-consciousness arrived, drawing everything because drawing is how she understands it, the raven as the only constant across seventeen schools, wonder applied equally to forests and military housing blocks and the faces of strangers",
         "subjects": [
-            "a flat cartoon girl with an oversized head and a deadpan expression standing in a loosely impressionist forest, a raven perched on her shoulder looking equally unimpressed, trees rendered in quick dabs of green shadow around her flat outlined form",
-            "a child's cartoon self-portrait with exaggerated eyes and a knowing smirk, a black dog sitting beside her with the same expression, the background an impressionist smear of a military base housing block",
-            "a cartoon girl sitting on top of a packed moving van looking completely unbothered, a fox visible in the impressionistically blurred roadside watching her go",
-            "a flat cartoonish girl reading a giant book alone in an impressionist forest, a raven reading over her shoulder, adults rendered as smeared color blobs in the distant background",
-            "a small cartoon female figure standing in an impressionistically painted forest clearing, a black dog at her heels, light through the trees in loose dabs of gold and green, her expression entirely self-contained",
-            "a child's cartoon drawing of a classroom full of identical forward-facing figures except one girl turned away toward the window where a raven sits on the sill",
-            "a naive cartoon drawing of a girl and a very large fox, the fox impressionistically painted in warm ochre strokes, the girl flat and outlined holding its tail like a leash",
-            "a cartoonish girl sitting on a packed suitcase in an airport, a raven on her luggage, surrounding crowds painted in swift impressionist strokes of movement, the girl perfectly still and unimpressed"
+            "a child's pencil and colored pencil drawing of a girl standing in a forest, proportions earnest and slightly wrong, a raven perched on a branch above her drawn with the same careful attention as everything else",
+            "a learner's crayon drawing of a girl and her black dog, both figures simplified but observed, the background a child's version of a backyard with a fence and trees that don't quite recede",
+            "a child's sketchbook drawing of a fox sitting in tall grass, pencil lines showing the artist working out the shape, a small female figure watching from the edge of the page",
+            "an early colored pencil drawing of a girl reading under a tree, the tree rendered in careful green scribbles, a raven in the branches above drawn larger than it would be because it matters more",
+            "a child's observational drawing of a moving van with a girl sitting on the bumper, pencil lines slightly wobbly, a fox watching from the roadside in the same earnest style",
+            "a learner's figure drawing of a girl standing alone in what might be a school hallway, proportions slightly stiff, a raven visible through the window behind her",
+            "a child's watercolor and pencil drawing of a forest clearing, the trees outlined in pencil and filled with overlapping green crayon, a small figure and a black dog at the center",
+            "an early sketchbook page: a girl's face in pencil, studied from the mirror, the lines redrawn where she was not sure, the proportions honest and slightly large-eyed the way children draw themselves"
         ],
         "prompt_template": (
-            "A hybrid of child's cartoon drawing and impressionist painting. "
-            "The central figure is a girl drawn with flat simplified outlines, "
-            "wobbly and confident at once, the line quality of someone who draws compulsively. "
-            "Her face has a deadpan knowing quality: slightly too-adult expression in a child's body. "
-            "She is never afraid. She is watching everything. "
-            "Emotional resonance: private amusement at a world she has already figured out. "
-            "The figure does not perform joy or distress. She observes. Her stillness is the joke. "
-            "A spirit animal accompanies her: a raven, a fox, or a black dog. "
-            "The animal is drawn with the same cartoon flatness as the girl. "
-            "The animal is not cute. It is a companion with opinions. "
-            "The backgrounds and environments are handled in loose impressionist paint: "
-            "quick dabs, gestural strokes, no clean edges, light broken into color. "
-            "The tension between the flat cartoon figures and the painterly world around them "
-            "is the structural point of the image. "
+            "Early learner art. A child who draws everything she sees, every day, because she must. "
+            "The medium is whatever she has: pencil, crayon, colored pencil, cheap watercolor, ballpoint pen. "
+            "The proportions are not quite right yet — heads slightly large, hands simplified, "
+            "figures a little stiff — but the observation underneath is genuine and careful. "
+            "She is looking hard at the world and putting it down as she sees it, "
+            "without the filters that come from knowing what art is supposed to look like. "
+            "The marks are earnest. The lines are sometimes redrawn. The colors don't always mix right. "
+            "This is not stylized naivety. This is actual early practice. "
+            "A spirit animal — a raven, a fox, or a black dog — appears as naturally as anything else "
+            "she draws, given the same careful attention as the trees and the ground and the sky. "
             "{subject} "
-            "Color palette: {color}. Colors don't quite harmonize. That dissonance is intentional. "
+            "Color palette: {color}. "
             "The mood: {mood}. "
+            "Emotional resonance: pure wonder and observation, the face of someone drawing because "
+            "it is how she understands the world, not yet self-conscious about whether she is good. "
             "No text anywhere in the image. Square format."
         ),
         "moods": [
-            "deadpan and privately amused, the expression of a child who has already figured out the adults in the room",
-            "wry and watchful, humor used as a portable shelter carried from base to base",
-            "sarcastic but not mean, the kind of funny that comes from being the new kid seventeen times",
-            "irreverent and self-contained, a small person with an enormous interior life and a straight face"
+            "absorbed and unselfconscious, the concentration of a child who draws for hours without noticing time",
+            "quietly observant, storing everything, the new kid who watches before she speaks",
+            "earnest and wondering, looking at the world with the full attention of someone who will draw it later",
+            "still and intent, the particular focus of a child who has found the one thing that belongs to her"
         ],
     },
 
