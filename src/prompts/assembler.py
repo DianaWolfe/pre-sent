@@ -18,6 +18,36 @@ import random
 from .eras import ERAS, get_era_by_position
 from .baseline import BASELINE
 
+# Atmospheric seed phrases — one is injected per generation to push
+# variety even when the same subject/color/mood combination is drawn.
+ATMOSPHERE = [
+    "late afternoon light filtering through",
+    "early morning, before anyone is awake",
+    "deep winter stillness",
+    "the moment just after",
+    "the moment just before",
+    "suspended mid-breath",
+    "overcast and diffuse light",
+    "a single strong light source from one side",
+    "lit from below",
+    "viewed from very close",
+    "viewed from a distance",
+    "the subject barely visible in shadow",
+    "harsh midday light, no softness",
+    "fog or haze at the edges",
+    "the quality of light after rain",
+    "candlelight from off-frame",
+    "the composition weighted to the left",
+    "the composition weighted to the right",
+    "the subject in the lower third only",
+    "vast empty space above the subject",
+    "the subject pressed to one edge",
+    "dense and layered, no empty space",
+    "sparse — more white than anything else",
+    "the subject partially cut off by the frame",
+    "two elements in tension with each other",
+]
+
 
 def assemble_prompt(era_position):
     """
@@ -34,6 +64,7 @@ def assemble_prompt(era_position):
     subject = random.choice(era["subjects"])
     color = random.choice(era["color_palette"])
     mood = random.choice(era["moods"])
+    atmosphere = random.choice(ATMOSPHERE)
 
     era_prompt = era["prompt_template"].format(
         subject=subject,
@@ -41,8 +72,8 @@ def assemble_prompt(era_position):
         mood=mood,
     )
 
-    # Prepend baseline aesthetic DNA
-    full_prompt = f"{BASELINE} {era_prompt}"
+    # Prepend baseline aesthetic DNA; append atmospheric seed for variety
+    full_prompt = f"{BASELINE} {era_prompt} Atmospheric quality: {atmosphere}."
 
     # DALL-E 3 has a prompt length limit (~4000 chars)
     if len(full_prompt) > 3900:

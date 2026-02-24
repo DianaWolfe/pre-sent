@@ -33,13 +33,6 @@
       eras = await res.json();
       renderSliderLabels();
 
-      // Populate era 1 poem in entrance card
-      const era1 = eras.find((e) => e.slider_position === 1);
-      if (era1) {
-        const poemEl = document.getElementById("entrance-poem");
-        if (poemEl) poemEl.innerHTML = era1.bio_poem.replace(/\n/g, "<br>");
-      }
-
       loop(1);
     } catch (e) {
       console.error("Failed to load eras:", e);
@@ -154,20 +147,30 @@
   function revealImage(src) {
     return new Promise((resolve) => {
       artwork.onload = () => {
-        loading.classList.remove("active");
-
         if (firstLoad) {
           firstLoad = false;
           const card = document.querySelector(".entrance-card");
           if (card) card.classList.add("fading");
-          // Cross-fade: start showing artwork while entrance card fades
-          setTimeout(() => artwork.classList.add("visible"), 400);
-          // After fade completes, hide the empty state and resolve
+
+          // After entrance card fades, show Wonder poem card
           setTimeout(() => {
             empty.classList.add("hidden");
-            resolve();
+            const era1 = eras.find((e) => e.slider_position === 1);
+            if (era1) {
+              document.getElementById("loading-era-name").textContent = era1.label;
+              document.getElementById("loading-poem-text").innerHTML =
+                era1.bio_poem.replace(/\n/g, "<br>");
+              loading.classList.add("active");
+            }
+            // After poem minimum time, reveal artwork
+            setTimeout(() => {
+              loading.classList.remove("active");
+              artwork.classList.add("visible");
+              resolve();
+            }, POEM_MIN_DURATION);
           }, 2200);
         } else {
+          loading.classList.remove("active");
           artwork.classList.add("visible");
           resolve();
         }
