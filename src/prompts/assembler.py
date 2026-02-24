@@ -11,7 +11,7 @@ The assembly process:
 3. Choose a random color emphasis from the era's palette
 4. Choose a random mood from the era's mood pool
 5. Prepend the baseline aesthetic layer
-6. Return the assembled prompt for DALL-E 3
+6. Return the assembled prompt for gpt-image-1
 """
 
 import random
@@ -53,5 +53,4 @@ def assemble_prompt(era_position):
         "era_key": era_key,
         "era_label": era["label"],
         "era_description": era["description"],
-        "style": "vivid" if era_key in ("becoming", "reclamation") else "natural",
     }

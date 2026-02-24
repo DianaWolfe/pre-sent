@@ -74,7 +74,7 @@ ERAS = {
             "{subject} "
             "Color palette: {color}. Colors don't quite harmonize. That dissonance is intentional. "
             "The mood: {mood}. "
-            "No text anywhere in the image. Square format. Style: natural."
+            "No text anywhere in the image. Square format."
         ),
         "moods": [
             "deadpan and privately amused, the expression of a child who has already figured out the adults in the room",
@@ -146,7 +146,7 @@ ERAS = {
             "before the world decides for her. She does not perform vulnerability. She studies herself. "
             "The painting is an act of self-determination. "
             "The face holds its own gaze. Nothing idealized. Nothing flinched from. "
-            "No text anywhere in the image. Square format. Style: natural."
+            "No text anywhere in the image. Square format."
         ),
         "moods": [
             "self-conscious and steady, the look of someone who has decided to stop looking away",
@@ -220,7 +220,7 @@ ERAS = {
             "Posture upright, expression controlled. She is holding something together with will. "
             "Not distressed. Not free. The body of someone performing mastery while building courage. "
             "Controlled but reaching. The surface composed. Something gathering underneath. "
-            "No text anywhere in the image. Square format. Style: natural."
+            "No text anywhere in the image. Square format."
         ),
         "moods": [
             "composed and quietly ambitious, the surface of a life that looks right from the outside",
@@ -297,7 +297,7 @@ ERAS = {
             "Not collapsed. Not performed. The body still standing but altered permanently. "
             "If she screams, it is honest not theatrical. If she is still, the stillness is enormous. "
             "The kind of beauty that comes only from not looking away. "
-            "No text in the image. Square format. Style: natural."
+            "No text in the image. Square format."
         ),
         "moods": [
             "grief past the acute phase, hollow and clear-eyed, the body still standing even though something permanent is gone",
@@ -373,7 +373,7 @@ ERAS = {
             "Posture open, gaze forward, arms loose. The ease of a body that has chosen to trust itself again. "
             "Not performing confidence. Actually in it. The difference is visible. "
             "More controlled, more chosen, quieter but not diminished. "
-            "No text anywhere in the image. Square format. Style: natural."
+            "No text anywhere in the image. Square format."
         ),
         "moods": [
             "grounded and forward-moving, the particular grace of a body that has learned to trust itself again",
@@ -452,7 +452,7 @@ ERAS = {
             "She is not arriving anywhere. She is already there. "
             "The animals at her feet and shoulder are not props. They are her court. She earned them. "
             "Every element should feel earned. "
-            "No text anywhere in the image. Square format. Style: vivid."
+            "No text anywhere in the image. Square format."
         ),
         "moods": [
             "sovereign and unhurried, the particular calm of someone who has finally stopped explaining herself to anyone",

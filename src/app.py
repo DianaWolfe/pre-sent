@@ -77,7 +77,6 @@ async def generate(request: Request):
     # Generate image
     result = generator.generate(
         prompt=prompt_data["prompt"],
-        style=prompt_data["style"],
     )
 
     if result is None:
