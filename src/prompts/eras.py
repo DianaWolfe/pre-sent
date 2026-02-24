@@ -170,55 +170,55 @@ ERAS = {
         ),
         "developmental_frame": "Erikson's intimacy vs. isolation. Levinson's early adult transition.",
         "color_palette": [
-            "deep ultramarine and cobalt blue dominating the canvas like a held breath",
-            "white and cream magnolia petals floating against the blue, botanical and uncontained",
-            "warm rose and flesh tones emerging from the lower composition like something insisting on itself",
-            "rich cool blue with one warm female figure breaking the field",
-            "prussian blue background with soft botanical whites drifting through it like things she could not quite hold"
+            "deep ultramarine and cobalt blue dominating three-quarters of the canvas, cool and absolute",
+            "prussian blue background with cream-white botanical forms floating through it",
+            "deep cool blue field with pale gray-white magnolia petals and cool-toned flesh",
+            "cobalt blue ground with white flowers and cool blue-gray figure emerging from beneath them",
+            "midnight blue and cool white only, no warm tones anywhere in the image"
         ],
         "art_references": [
-            "ambitious large-scale acrylic on canvas, figurative and botanical sharing the surface",
-            "large acrylic with confident broad strokes and floating botanical forms, the painter reaching",
-            "figurative acrylic where a female figure and flowers have equal compositional weight",
-            "acrylic technique demonstrating mastery of color field and form at the same time",
-            "bold acrylic composition where the blue background is as emotionally loaded as the figure"
+            "large-scale acrylic painting on canvas, blue ground with figurative and botanical elements",
+            "ambitious acrylic where deep blue occupies most of the canvas and botanical forms drift through it",
+            "figurative acrylic painting, a woman and white flowers against a dominant cobalt blue ground",
+            "acrylic on canvas with confident broad strokes, botanical and figure sharing a cool blue field",
+            "painterly acrylic composition, cool blue atmosphere, white magnolias, female figure emerging"
         ],
-        "emotional_texture": "mastery assembling itself while something underneath gathers force, the surface held together with elegance and will, a marriage too easy, siblings raised, everything looks right from outside while the courage to become keeps building, a fox in the garden watching her through the studio window",
+        "emotional_texture": "mastery assembling itself while something underneath gathers force, the surface held together with elegance and will, everything looks right from outside while the courage to become keeps building, a fox in the garden watching through the studio window",
         "subjects": [
-            "a large acrylic painting with a deep cobalt blue background and white magnolia blossoms floating through the composition, a female figure emerging in the lower half in warm rose and flesh tones, a fox barely visible in the dark lower corner",
-            "an acrylic painting where ultramarine blue fills the canvas and pale botanical forms, magnolias and peonies, drift through the field, a woman's hands or face barely visible beneath the flowers",
-            "a confident acrylic composition where a woman's form in warm skin tones rises against an intensely blue painted ground, white flower petals scattered across both figure and background as if the natural world is claiming her back",
-            "an acrylic figure and floral painting where deep cobalt blue occupies most of the canvas, loose white botanical shapes moving through it, a female face looking up from below as if surfacing",
-            "a large acrylic painting combining a woman's torso in warm flesh tones with large loosely rendered white flowers against a dominant blue ground, everything beautiful and slightly constrained",
-            "an acrylic painting where the deep blue of a night garden holds cream-white magnolia blooms, a woman barely visible underneath, botanicals and body overlapping",
-            "a technically confident acrylic where a woman in warm pinks stands within a swirling composition of cobalt blue and white botanical forms, the brushwork broad and sure, a fox watching from the edge",
-            "an acrylic painting where everything is blue and white except the warm flesh tones of a female figure, the flowers and the woman inhabiting the same space as if they are made of the same material"
+            "a large acrylic painting on canvas: deep cobalt blue fills the background, large white magnolia blossoms float through the composition, a female figure's face or shoulders emerge from the lower portion in cool pale tones, a fox barely visible in the dark lower corner",
+            "an acrylic painting on canvas: ultramarine blue ground, pale cream-white botanical forms drifting across the surface, a woman's hands reaching upward through the flowers, negative space above",
+            "a large acrylic painting on canvas: cool dark blue background with white magnolia petals scattered across it like something released, a female figure's profile visible at the left edge looking inward",
+            "an acrylic painting on canvas: prussian blue fills the frame, white and pale gray botanical forms in the upper two-thirds, a woman's face upturned in the lower third as if surfacing from deep water",
+            "a large acrylic painting on canvas: deep blue ground, a female figure standing within it in cool pale tones, white flowers surrounding her, the composition spare and the blue vast around everything",
+            "an acrylic painting on canvas: midnight blue background, a single large magnolia blossom in cool white at center, a woman's silhouette in the lower portion, most of the canvas empty blue",
+            "a large acrylic painting on canvas: cobalt blue ground with loose white botanical brushstrokes moving through it, a female face barely distinguishable from the flowers, dissolved into the composition",
+            "an acrylic painting on canvas: deep blue fills most of the frame, white petals in the upper portion, a woman's figure in cool blue-gray at the bottom, the painting spare and the silence enormous"
         ],
         "prompt_template": (
-            "A large-scale acrylic painting on canvas, ambitious in composition, "
-            "technically accomplished, the work of someone who has been painting for years "
-            "and is now reaching for something bigger than the rooms she has been given. "
-            "Broad decisive strokes for the background. "
-            "More deliberate layering for the figurative elements. "
-            "No timid marks. No overworking. "
-            "The surface has depth: thin glazes in the botanical forms, "
-            "opaque buildup where the female figure emerges. "
+            "THIS IS A LARGE-SCALE ACRYLIC PAINTING ON CANVAS. "
+            "Not a cartoon. Not an illustration. Not a sketch. "
+            "An acrylic painting with broad confident brushstrokes on canvas. "
+            "The background is deep cobalt or ultramarine blue, painted with full brushes, "
+            "occupying most of the canvas. "
+            "White or cream-white botanical forms, magnolias or large petals, "
+            "float through the blue field. "
+            "A female figure emerges within or beneath the botanical forms, "
+            "painted in cool pale tones that do not compete with the blue. "
+            "NO warm colors. NO cartoon elements. NO illustration style. "
+            "Cool palette only: blues, cool whites, pale gray-blue flesh tones. "
+            "Generous negative space. The blue breathes. The composition does not crowd itself. "
             "All figures are female. "
-            "A fox or raven may appear at the edge, watching, a reminder of what is waiting. "
             "{subject} "
-            "Color palette: {color}. The blue is the foundation and the atmosphere. "
+            "Color: {color}. "
             "The mood: {mood}. "
-            "The composition holds two things at once: the female figure and the botanical. "
-            "As if the painter has decided that the self and the natural world "
-            "are the same question asked two different ways. "
-            "Controlled but reaching. Masterful but not finished becoming. "
+            "Controlled but reaching. The surface composed. Something gathering underneath. "
             "No text anywhere in the image. Square format. Style: natural."
         ),
         "moods": [
             "composed and quietly ambitious, the surface of a life that looks right from the outside",
-            "polished and aspirational, the way things look when you are building something you cannot yet name",
-            "elegant and slightly held, everything in its place except the one thing still accumulating",
-            "confident and reaching, the brushwork of someone who knows what she can do and suspects she can do far more"
+            "polished and controlled, everything in its place except the one thing still accumulating",
+            "elegant and slightly held, the brushwork of someone performing mastery while building courage",
+            "cool and aspirational, confident marks, the blue vast and the figure small within it"
         ],
     },
 
