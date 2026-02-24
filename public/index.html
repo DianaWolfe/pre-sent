@@ -14,19 +14,6 @@
             <p class="gallery-subtitle">a living gallery</p>
         </header>
 
-        <div class="slider-container">
-            <input
-                type="range"
-                id="era-slider"
-                min="1"
-                max="6"
-                value="1"
-                step="1"
-                class="era-slider"
-            />
-            <div class="slider-labels" id="slider-labels"></div>
-        </div>
-
         <div class="canvas-container">
             <div class="canvas" id="canvas">
                 <img id="artwork" alt="Generated artwork" />
@@ -37,6 +24,20 @@
                     <p>Beginning.</p>
                 </div>
             </div>
+        </div>
+
+        <div class="slider-container">
+            <input
+                type="range"
+                id="era-slider"
+                min="1"
+                max="6"
+                value="1"
+                step="1"
+                class="era-slider"
+                disabled
+            />
+            <div class="slider-labels" id="slider-labels"></div>
         </div>
 
         <div class="era-info" id="era-info">
@@ -51,7 +52,8 @@
 
         <section class="info-section" id="what-is-this">
             <h3 class="info-section__title">What is this?</h3>
-            <p class="info-section__body">pre.SENT is AI performance art trained on the visual DNA of a real artist. It traces one woman's life through six psychological eras, from the cartoonish sarcasm of a child who moved seventeen times to the refined storybook sovereignty of the artist she became. Every image is generated in real time by DALL-E 3, guided by the actual aesthetic and emotional fingerprint of each period. The AI does not invent. It inherits.</p>
+            <p class="info-section__body">pre.SENT is AI performance art trained on the visual DNA of a real artist. It traces one woman's life through six psychological eras, from the cartoonish sarcasm of a child who moved seventeen times to the refined storybook sovereignty of the artist she became. Every image is generated in real time by gpt-image-1, guided by the actual aesthetic and emotional fingerprint of each period. The AI does not invent. It inherits.</p>
+
         </section>
 
         <section class="info-section info-section--about" id="about">
