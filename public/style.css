@@ -263,6 +263,55 @@ body {
     min-height: 1.2em;
 }
 
+/* Info sections */
+.info-section {
+    width: 100%;
+    max-width: 560px;
+    padding: 48px 0 40px;
+    border-top: 1px solid #e8e8e4;
+    text-align: center;
+}
+
+.info-section--about {
+    padding-bottom: 60px;
+}
+
+.info-section__title {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.info-section__body {
+    font-size: 0.9rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.85;
+    color: #666;
+    letter-spacing: 0.01em;
+    margin-bottom: 16px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-section__link {
+    color: #8a8a85;
+    text-decoration: none;
+    border-bottom: 1px solid #d4d4cf;
+    font-style: normal;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    transition: color 0.3s ease;
+}
+
+.info-section__link:hover {
+    color: #2a2a28;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
     .gallery {
