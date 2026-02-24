@@ -341,7 +341,7 @@
         const eraKey = ERA_KEYS[i];
         const position = i + 1;
 
-        if (eraKey === "reconstruction") {
+        if (eraKey === "unraveling") {
           await runTransitionSlide();
         }
 
