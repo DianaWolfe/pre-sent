@@ -1,152 +1,164 @@
 # pre.SENT
 
-A living art gallery that generates ephemeral artwork in real time based on the psychological eras of a human life. Every visit produces art that has never existed before and will never exist again.
+AI performance art trained on the visual DNA of a real artist. A living gallery that traces one woman's life through six psychological eras, from the cartoonish sarcasm of childhood through the confessional line work of crisis to the refined storybook sovereignty of now. Every image generated in real time. Nothing saved. The AI does not invent. It inherits.
+
+**Live:** [pre-sent.onrender.com](https://pre-sent.onrender.com)
+
+---
 
 ## What Is This
 
-pre.SENT is a web-based generative art installation. Visitors arrive at a minimal gallery page and use a slider to select a life era: from the magical thinking of childhood through the fractures of crisis to the sovereignty of reclamation. The system generates original artwork on the spot using DALL-E 3, filtered through the emotional and aesthetic DNA of each developmental period.
+pre.SENT is a web-based generative art installation. Visitors arrive at a minimal gallery and use a slider to move through six psychological eras of one woman's life. The system generates original artwork on the spot using DALL-E 3, guided by the actual aesthetic fingerprint of each period: the medium she used, the mark quality, the subjects she returned to, the emotional register of the work.
 
-The art is ephemeral. Nothing is saved. When you leave, the images are gone. The gallery exists only in the present tense. That is the point.
+The gallery auto-advances through the eras. You can take over at any time by moving the slider yourself.
+
+The art is ephemeral. Nothing is stored. When you leave, every image disappears. The gallery exists only in the present tense. That is the point.
+
+---
 
 ## The Eras
 
-The slider maps to six psychological stages of a life. Each era carries its own visual language: color palette, art movement references, emotional texture, subject matter tendencies, and compositional rules.
+The slider maps to six stages of a real artistic life. Each era carries its own visual language built from actual practice: medium, mark quality, color palette, compositional instincts, and the spirit animals that ran alongside each period.
 
-| Era | Label | Developmental Frame | Visual Language |
-|-----|-------|--------------------|----|
-| 1 | **Wonder** | Childhood (~0-12). Animistic thinking, magical realism. Piaget's preoperational and concrete stages. The world is alive and everything means something. | Bright saturated color, fairy tale imagery, golden light, picture book illustration, hidden creatures, enchanted landscapes |
-| 2 | **Becoming** | Adolescence (~13-17). Identity formation (Erikson). Everything is intense, everything matters, nothing is settled. | High contrast, dramatic lighting, portraiture with obscured faces, storm imagery, chiaroscuro, Pre-Raphaelite influence |
-| 3 | **The Proving Years** | Early adulthood (~18-27). Intimacy vs. isolation. Performance, ambition, the construction of a self for public consumption. | Sharp geometric composition, architectural subjects, clean lines, muted professional palette with flashes of aspiration, Art Deco influence |
-| 4 | **The Unraveling** | Crisis/Divorce. Disillusionment, grief, the collapse of constructed identity. Kübler-Ross meets existential psychology. | Fragmentation, torn textures, desaturated color with isolated moments of vivid warmth, abstract expressionist influence, empty rooms, broken symmetry |
-| 5 | **The Reconstruction** | Rebuilding (~30s-40s). Post-traumatic growth. Generativity (Erikson). Integration of the broken pieces into something stronger. | Kintsugi aesthetic, warm earth tones returning, botanical imagery, gold veining through dark surfaces, wabi-sabi imperfection, layered mixed media |
-| 6 | **The Reclamation** | Now. Self-authorship (Kegan Stage 5). Sovereignty, earned complexity, the dark sublime. | Deep moody palette (sage, umber, midnight), classical romantic painting, mystical and occult imagery, lighthouses, veiled figures, candlelit interiors, old world with modern edge |
+| # | Era | Life Stage | Visual Language |
+|---|-----|-----------|----------------|
+| 1 | **Wonder** | Childhood. Army brat. Always moving. Art as the only room she kept. | Cartoon figures with deadpan expressions in front of loose impressionist environments. Clashing primaries. The humor of a child who has seen too much. A raven follows her. |
+| 2 | **Becoming** | Adolescence. The self-portrait as act of self-determination. | Naturalistic acrylic on canvas, painted from the mirror. Cool gray-green flesh tones. Honest asymmetry. The face as the only thing she could control. |
+| 3 | **Proving Years** | Early adulthood. A marriage too easy. Everything looks perfect from the outside. | Large-scale acrylic: deep cobalt blue ground, white magnolias floating through it, a female figure emerging. The paintings got ambitious while she stayed composed. |
+| 4 | **Unraveling** | Crisis. The brush went down. The fineliner came up. | Single-weight pen and ink on white paper. No hatching. No wash. One red element per image: a thread, a wound, a signal. Black dogs as grief. Ravens as witnesses. |
+| 5 | **Reconstruction** | Rebuilding. Color returned, but chosen this time. | Pen and ink with controlled watercolor washes. Cool blue-gray dominant. Wolves and foxes as chosen companions. The body moving forward on purpose. |
+| 6 | **Reclamation** | Now. The artist at full power. | Refined dark storybook aesthetic. Rich, deep, warm from within. Ravens at the shoulder. Wolves at the feet. Every element earned. |
+
+**Consistent across all eras:** cool palette only, generous negative space, female figures exclusively, spirit animals as presences not decoration.
+
+---
 
 ## Architecture
 
 ```
-┌──────────────────────────────────────────────┐
-│              VISITOR BROWSER                  │
-│                                               │
-│  ┌─────────────────────────────────────────┐  │
-│  │         ERA SLIDER (1-6)                │  │
-│  │  Wonder ──────────── Reclamation        │  │
-│  └──────────────┬──────────────────────────┘  │
-│                 │                              │
-│  ┌──────────────▼──────────────────────────┐  │
-│  │         GALLERY CANVAS                  │  │
-│  │    (generated art appears here)         │  │
-│  │                                         │  │
-│  │    [loading state: slow painterly       │  │
-│  │     reveal as image generates]          │  │
-│  │                                         │  │
-│  └─────────────────────────────────────────┘  │
-│                                               │
-│  ┌─────────────────────────────────────────┐  │
-│  │  ERA LABEL + BRIEF PSYCHOLOGICAL NOTE   │  │
-│  └─────────────────────────────────────────┘  │
-└──────────────┬───────────────────────────────┘
-               │ API call
-               ▼
-┌──────────────────────────────────────────────┐
-│              SERVER                           │
-│                                               │
-│  1. Receive era selection                     │
-│  2. Select prompt template for era            │
-│  3. Inject randomized elements (subject,      │
-│     composition, time of day, weather)        │
-│  4. Call DALL-E 3 API                         │
-│  5. Return image to client                    │
-│  6. Image is NOT stored anywhere              │
-│                                               │
-└──────────────────────────────────────────────┘
+VISITOR
+  │
+  ▼
+Slider (1–6) ──► POST /api/generate
+                        │
+                        ▼
+              era-specific prompt template
+                   + baseline aesthetic DNA
+                   + randomized subject/mood
+                        │
+                        ▼
+                   DALL-E 3 API
+                        │
+                        ▼
+              base64 image → browser
+              (NOT stored anywhere)
+                        │
+                        ▼
+              2.5s opacity fade-in on canvas
 ```
+
+---
 
 ## How It Works
 
-1. Visitor opens the gallery page
-2. A default era is selected and art begins generating
-3. Visitor moves the slider to explore different life stages
-4. Each slider position triggers a new generation using era-specific prompt templates
-5. The prompt template includes fixed aesthetic DNA (palette, style, mood) plus randomized elements (specific subject, composition, lighting) so no two generations are identical
-6. Images appear with a slow painterly reveal (opacity fade simulating a painting emerging)
-7. When the visitor leaves, everything disappears
+1. Visitor opens the gallery. Era 1 begins generating immediately.
+2. After each image appears, the gallery auto-advances to the next era after 12 seconds.
+3. Moving the slider pauses auto-advance and generates for the selected era.
+4. Each generation pulls from era-specific prompt templates + a shared aesthetic baseline.
+5. Randomized subject and mood ensure no two generations are identical.
+6. Images appear via opacity transition. Nothing is saved to disk or database.
 
-## For Builders: Fork Your Own Gallery
+---
 
-This repo is designed to be forked. To create your own living gallery:
+## Fork Your Own Gallery
 
-1. **Define your eras** in `src/prompts/eras.py`. Each era needs a label, description, and prompt template with visual DNA.
-2. **Set your aesthetic baseline** in `src/prompts/baseline.py`. This is the consistent style layer that runs underneath all eras (your personal artistic sensibility).
-3. **Add your API key** to `.env`
-4. **Deploy** to Vercel, Railway, or any Node/Python host
+This repo is designed to be forked. To build your own living gallery:
 
-The system separates *your* content (era definitions, aesthetic DNA) from the *engine* (prompt assembly, API calls, gallery frontend). Fork the engine, replace the content.
+1. **Define your eras** in `src/prompts/eras.py`. Each era needs a label, prompt template, subjects, moods, and color palette. The system handles the rest.
+2. **Set your baseline** in `src/prompts/baseline.py`. This is your consistent aesthetic DNA — the fingerprint that runs under every era. Include your medium preferences, compositional instincts, any absolute rules.
+3. **Add your key** — copy `.env.example` to `.env` and add your `OPENAI_API_KEY`.
+4. **Deploy** — see deployment instructions below.
+
+See `docs/FORKING_GUIDE.md` for a full walkthrough.
+
+---
+
+## Running Locally
+
+```bash
+git clone https://github.com/DianaWolfe/pre-sent.git
+cd pre-sent
+pip install -r requirements.txt
+cp .env.example .env
+# Add your OpenAI API key to .env
+cd src && uvicorn app:app --reload --port 8000
+# Open http://localhost:8000
+```
+
+---
+
+## Deploying to Render
+
+The repo includes a `render.yaml`. On Render:
+
+1. New → Web Service → connect this repo
+2. Render detects `render.yaml` and pre-fills all config
+3. Add `OPENAI_API_KEY` in the Environment tab
+4. Deploy
+
+---
+
+## Cost
+
+DALL-E 3 at standard quality costs $0.04 per image. The rate limiter defaults to one generation per 15 seconds per visitor. At typical browsing pace a 10-minute visit generates roughly 5–8 images ($0.20–0.32). The global hourly cap is configurable in `render.yaml`.
+
+---
 
 ## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
-| Frontend | HTML/CSS/JS (vanilla, no framework needed) |
-| Backend | Python (FastAPI) |
-| Image Generation | DALL-E 3 (OpenAI API) |
-| Hosting | Vercel / Railway / any Python host |
+| Frontend | Vanilla HTML / CSS / JS |
+| Backend | Python, FastAPI |
+| Image Generation | DALL-E 3 via OpenAI API |
+| Hosting | Render (included `render.yaml`) |
+
+---
 
 ## Project Structure
 
 ```
 pre-sent/
 ├── README.md
-├── LICENSE
+├── render.yaml              # One-click Render deployment config
 ├── requirements.txt
 ├── .env.example
 ├── src/
-│   ├── app.py                   # FastAPI server
-│   ├── api/
-│   │   ├── __init__.py
-│   │   └── generate.py          # DALL-E 3 API integration
+│   ├── app.py               # FastAPI server, static file serving
+│   ├── api/generate.py      # DALL-E 3 integration
 │   ├── prompts/
-│   │   ├── __init__.py
-│   │   ├── eras.py              # Era definitions and prompt templates
-│   │   ├── baseline.py          # Your aesthetic DNA (consistent style layer)
-│   │   └── assembler.py         # Combines era + baseline + randomization
+│   │   ├── eras.py          # Era definitions, prompt templates, subjects, moods
+│   │   ├── baseline.py      # Consistent aesthetic DNA (palette, composition rules)
+│   │   └── assembler.py     # Combines era + baseline into final prompt
 │   └── gallery/
-│       ├── __init__.py
-│       └── rate_limiter.py      # Prevent runaway API costs
+│       └── rate_limiter.py  # Per-visitor and global API cost control
 ├── public/
-│   ├── index.html               # Gallery frontend
-│   ├── style.css                # Gallery styling
-│   └── gallery.js               # Slider interaction + image display
+│   ├── index.html           # Gallery frontend
+│   ├── style.css
+│   └── gallery.js           # Slider, auto-advance, generation, fade-in
 └── docs/
-    ├── CONCEPT.md               # Artistic and psychological framing
-    └── FORKING_GUIDE.md         # How to build your own gallery
+    ├── CONCEPT.md
+    └── FORKING_GUIDE.md
 ```
-
-## Running Locally
-
-```bash
-git clone https://github.com/yourusername/pre-sent.git
-cd pre-sent
-pip install -r requirements.txt
-cp .env.example .env
-# Add your OpenAI API key to .env
-python src/app.py
-# Open http://localhost:8000
-```
-
-## Cost
-
-Each DALL-E 3 generation costs $0.04-0.08 depending on size and quality. The rate limiter defaults to one generation per 15 seconds to prevent runaway costs. At typical browsing pace, a 10-minute visit generates roughly 5-8 images ($0.20-0.64).
-
-## Research Context
-
-pre.SENT sits within a broader research program on identity, AI collaboration, and what it means to have a creative practice that exists outside your own hands. The gallery explores whether a generative system, given the right psychological and aesthetic constraints, can produce art that feels genuinely autobiographical, even though the system has no autobiography.
-
-It also asks: what is an art gallery when nothing in it persists? What is a self-portrait when it's different every time you look?
-
-## License
-
-MIT. See [LICENSE](LICENSE).
 
 ---
 
-*Built by [Diana Wolfe, PhD](https://dianawolfe.com) as part of the Experiments series on applied AI research.*
+## Research Context
+
+pre.SENT sits within a broader research program on identity, AI collaboration, and what it means to have a creative practice that exists outside your own hands. The gallery asks whether a generative system, given precise psychological and aesthetic constraints built from real artistic history, can produce work that feels genuinely autobiographical — even though the system has no autobiography.
+
+It also asks: what is a self-portrait when it is different every time you look? What is a style when it is inherited rather than made?
+
+---
+
+*Built by [Diana Wolfe, PhD](https://dianawolfe.com)*
