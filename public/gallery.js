@@ -60,12 +60,8 @@
       hold: 5000,
     },
     {
-      text: "it was trained on her work.\nwhat she saw. what she lost. what she made from it.\nit inherited her vocabulary of wounds.",
-      hold: 5000,
-    },
-    {
-      text: "it does not understand. it renders.\nthat difference is the art.",
-      hold: 4000,
+      text: "the machine has never seen her work.\nit inherits. it interprets. it may betray.\nthat uncertainty is the art.\n \nit was trained on her work.\nwhat she saw. what she lost. what she made from it.\nit inherited her vocabulary of wounds.\nit does not understand. it renders.\nthat difference is the art.",
+      hold: 7000,
     },
     {
       text: "what happens next will not repeat.\nnot the same poem. not the same image.\nnot the same rendering.\nyou cannot pause it. you cannot keep it.",

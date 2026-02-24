@@ -56,8 +56,13 @@ async def _generate_era(session_id: str, era_key: str) -> None:
     era_position = era["slider_position"]
     loop = asyncio.get_event_loop()
 
+    # Stagger image requests: era 1 at 0s, era 2 at 5s, ... era 6 at 25s.
+    # Poems all start immediately (fast); images stagger to avoid rate limits.
+    image_delay = (era_position - 1) * 5
+
     try:
         poem_future = loop.run_in_executor(_executor, _gen_poem, era_key)
+        await asyncio.sleep(image_delay)
         image_future = loop.run_in_executor(_executor, _gen_image, era_position)
         poem, image = await asyncio.gather(poem_future, image_future)
 
@@ -72,13 +77,13 @@ async def _generate_era(session_id: str, era_key: str) -> None:
             }
             logger.info(f"Session {session_id[:8]} era '{era_key}' ready")
     except Exception as exc:
-        logger.error(f"Session {session_id[:8]} era '{era_key}' failed: {exc}")
+        logger.error(f"Session {session_id[:8]} era '{era_key}' failed: {exc}", exc_info=True)
         if session_id in sessions:
             sessions[session_id]["data"][era_key] = {
                 "era_key": era_key,
                 "era_label": era["label"],
                 "age_range": era["age_range"],
-                "poem": "the memory failed\nsomething that was\ncouldn't hold its shape\nbut the feeling remained",
+                "poem": era.get("bio_poem", "the memory held\nbut the words came out wrong\nsomething was here\nand now it isn't"),
                 "image": None,
                 "ready": True,  # mark ready so gallery doesn't hang
             }
