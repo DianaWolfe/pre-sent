@@ -23,11 +23,19 @@
   let autoAdvanceTimer = null;
   let userInteracting = false;
   let userInteractTimer = null;
+  let prefetchTimer = null;
 
-  // How long to display each image before advancing (ms)
-  const AUTO_ADVANCE_DELAY = 12000;
+  // Prefetch cache: era_position -> full response data
+  const prefetchCache = {};
+  // In-flight prefetches: era_position -> Promise
+  const prefetchInFlight = {};
+
+  // How long to display each image before auto-advancing (ms)
+  const AUTO_ADVANCE_DELAY = 30000;
   // How long after manual interaction before auto-play resumes (ms)
   const RESUME_DELAY = 30000;
+  // Delay before firing prefetch — must exceed server rate limit (15s)
+  const PREFETCH_DELAY = 16000;
 
   // Load era definitions from server
   async function loadEras() {
@@ -36,7 +44,6 @@
       eras = await res.json();
       renderSliderLabels();
       updateEraInfo(1);
-      // Auto-start at era 1
       generate(1);
     } catch (e) {
       console.error("Failed to load eras:", e);
@@ -57,7 +64,6 @@
       sliderLabels.appendChild(label);
     });
     highlightLabel(1);
-    // Position after paint so slider has rendered width
     requestAnimationFrame(positionLabels);
   }
 
@@ -83,7 +89,6 @@
   function updateEraInfo(position) {
     const era = eras.find((e) => e.slider_position === position);
     if (!era) return;
-
     eraLabel.textContent = era.label;
     eraAge.textContent = era.age_range;
     eraPoem.innerHTML = era.bio_poem.replace(/\n/g, "<br>");
@@ -103,7 +108,36 @@
     }, AUTO_ADVANCE_DELAY);
   }
 
-  // Generate artwork for the current era
+  // Fire a background generation request and cache the result
+  async function prefetch(eraPosition) {
+    if (prefetchCache[eraPosition] || prefetchInFlight[eraPosition]) return;
+
+    const promise = fetch("/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ era: eraPosition }),
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data && data.image) {
+          prefetchCache[eraPosition] = data;
+        }
+        delete prefetchInFlight[eraPosition];
+      })
+      .catch(() => {
+        delete prefetchInFlight[eraPosition];
+      });
+
+    prefetchInFlight[eraPosition] = promise;
+  }
+
+  function schedulePrefetch(currentEra) {
+    clearTimeout(prefetchTimer);
+    const next = currentEra >= 6 ? 1 : currentEra + 1;
+    prefetchTimer = setTimeout(() => prefetch(next), PREFETCH_DELAY);
+  }
+
+  // Generate artwork for the given era
   async function generate(eraPosition) {
     if (generating) {
       pendingEra = eraPosition;
@@ -111,37 +145,50 @@
     }
 
     generating = true;
-
-    // Show loading state
     empty.classList.add("hidden");
     loading.classList.add("active");
     artwork.classList.remove("visible");
 
     try {
-      const res = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ era: eraPosition }),
-      });
+      let data;
 
-      if (res.status === 429) {
-        const data = await res.json();
-        showRateLimit(data.error);
-        return;
+      if (prefetchCache[eraPosition]) {
+        // Instant: already generated in the background
+        data = prefetchCache[eraPosition];
+        delete prefetchCache[eraPosition];
+      } else if (prefetchInFlight[eraPosition]) {
+        // Almost ready: wait for the in-flight prefetch to finish
+        await prefetchInFlight[eraPosition];
+        if (prefetchCache[eraPosition]) {
+          data = prefetchCache[eraPosition];
+          delete prefetchCache[eraPosition];
+        }
       }
 
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
+      if (!data) {
+        // No cache — generate now
+        const res = await fetch("/api/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ era: eraPosition }),
+        });
 
-      const data = await res.json();
+        if (res.status === 429) {
+          const errData = await res.json();
+          showRateLimit(errData.error);
+          return;
+        }
+
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        data = await res.json();
+      }
 
       artwork.onload = function () {
         loading.classList.remove("active");
         setTimeout(() => {
           artwork.classList.add("visible");
-          // Schedule advance to next era after image is visible
           scheduleAutoAdvance();
+          schedulePrefetch(eraPosition);
         }, 200);
       };
 
@@ -150,11 +197,9 @@
     } catch (e) {
       console.error("Generation failed:", e);
       loading.classList.remove("active");
-      // Still try to advance even on error
       scheduleAutoAdvance();
     } finally {
       generating = false;
-
       if (pendingEra !== null) {
         const next = pendingEra;
         pendingEra = null;
@@ -172,23 +217,19 @@
       document.querySelector(".slider-container").appendChild(msg);
     }
     msg.textContent = message;
-    setTimeout(() => {
-      msg.textContent = "";
-    }, 5000);
+    setTimeout(() => { msg.textContent = ""; }, 5000);
   }
 
-  // Slider interaction with debounce
   function onSliderChange() {
     const position = parseInt(slider.value);
     highlightLabel(position);
     updateEraInfo(position);
 
-    // Mark as user-interacting, pause auto-advance
     userInteracting = true;
     clearTimeout(autoAdvanceTimer);
     clearTimeout(userInteractTimer);
+    clearTimeout(prefetchTimer);
 
-    // Resume auto-play after inactivity
     userInteractTimer = setTimeout(() => {
       userInteracting = false;
     }, RESUME_DELAY);
@@ -202,6 +243,5 @@
   slider.addEventListener("input", onSliderChange);
   window.addEventListener("resize", positionLabels);
 
-  // Initialize
   loadEras();
 })();
