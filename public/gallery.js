@@ -2,9 +2,9 @@
  * pre.SENT v2 — Gallery
  *
  * A performance in four screens. No viewer control.
- * Screen 1: Explainer  (~15s)
+ * Screen 1: Explainer  (~20s)
  * Screen 2: Breather   (~13s)
- * Screen 3: Gallery    (~2.5 min, 6 eras auto-advancing)
+ * Screen 3: Gallery    (~3 min, 6 eras auto-advancing)
  * Screen 4: Ending     (black, sequential text, holds indefinitely)
  */
 
@@ -34,16 +34,15 @@
     "unraveling", "reconstruction", "sovereign",
   ];
 
-  // Timing (ms) — mirrors performance_text.py GALLERY_TIMING
+  // Timing (ms)
   const T = {
-    ERA_TITLE_FADE:   1500,
-    POEM_FADE:        2000,
-    POEM_HOLD:        18000,
-    IMAGE_FADE:       2500,
-    IMAGE_HOLD:       10000,
-    ERA_FADE_OUT:     2000,
-    INTER_ERA_PAUSE:  1500,
-    UNRAVELING_PAUSE: 4000,  // white silence before reconstruction
+    ERA_TITLE_FADE:  1500,
+    POEM_FADE:       2000,
+    POEM_HOLD:       18000,
+    IMAGE_FADE:      2500,
+    IMAGE_HOLD:      10000,
+    ERA_FADE_OUT:    2000,
+    INTER_ERA_PAUSE: 1500,
   };
 
   // ── Utilities ─────────────────────────────────────────────────────────────
@@ -82,12 +81,10 @@
       explainerBody.innerHTML = "";
       explainerBody.appendChild(el);
 
-      // Trigger fade in
       await sleep(50);
       el.style.opacity = "1";
       await sleep(1500 + hold);
 
-      // Fade out (except final group — whole explainer fades)
       if (!final) {
         el.style.transition = "opacity 1s ease";
         el.style.opacity = "0";
@@ -95,7 +92,6 @@
       }
     }
 
-    // Fade entire explainer out
     explainer.classList.add("fading");
     await sleep(1500);
     explainer.style.display = "none";
@@ -104,20 +100,16 @@
   // ── Screen 2: Breather ────────────────────────────────────────────────────
 
   async function runBreather() {
-    // Breather is visible from HTML load; voice lines start hidden (opacity 0 in CSS)
     const line1 = document.getElementById("breather-line-1");
     const line2 = document.getElementById("breather-line-2");
 
-    // Let breathing animation play for ~7s before machine speaks
     await sleep(7000);
 
-    // The generative speaks (roman type — tonal shift)
     line1.style.opacity = "1";
     await sleep(2500);
     line2.style.opacity = "1";
     await sleep(3000);
 
-    // Fade out breather
     breather.style.opacity = "0";
     await sleep(1500);
     breather.classList.add("hidden");
@@ -144,7 +136,7 @@
     canvasPoem.style.opacity = "0";
     canvasPoemText.innerHTML = "";
 
-    // Fade in era name + age above canvas
+    // Era name + age above canvas
     eraName.textContent = data.era_label;
     eraAge.textContent = data.age_range;
     eraDisplay.style.opacity = "1";
@@ -157,11 +149,11 @@
 
     // Crossfade: poem out, image in — or hold poem if no image
     if (data.image) {
-      canvasPoem.style.opacity = "0";   // poem fades out
-      await revealImage(data.image);    // image fades in simultaneously
+      canvasPoem.style.opacity = "0";
+      await revealImage(data.image);
       await sleep(T.IMAGE_HOLD);
     } else {
-      await sleep(T.IMAGE_HOLD);        // poem holds in canvas for full image window
+      await sleep(T.IMAGE_HOLD);
     }
 
     // Fade out everything together
@@ -185,6 +177,10 @@
         artwork.classList.add("visible");
         setTimeout(resolve, T.IMAGE_FADE);
       };
+      // If image fails to load, resolve anyway so gallery doesn't hang
+      artwork.onerror = () => {
+        setTimeout(resolve, T.IMAGE_FADE);
+      };
       artwork.src = src;
     });
   }
@@ -195,7 +191,7 @@
     const slide = document.getElementById("transition-slide");
     const text  = document.getElementById("transition-slide-text");
 
-    // Appear instantly — no fade, just cuts in
+    // Cut in instantly
     slide.style.opacity = "1";
     slide.style.pointerEvents = "all";
 
@@ -206,7 +202,7 @@
       ["#ffffff",  80],
       ["#0c0c0a", 110],
       ["#ffffff", 140],
-      ["#fafaf8", 500],  // settle back to site background
+      ["#fafaf8", 500],
     ];
     for (const [bg, dur] of flashes) {
       slide.style.background = bg;
@@ -216,7 +212,7 @@
     // Generative speaks in Aptos
     text.innerHTML = '<del>i</del> am not broken.<br>WE are breaking.';
     text.style.opacity = "1";
-    await sleep(1500 + 5000);  // 1.5s fade-in + 5s hold
+    await sleep(1500 + 5000);
 
     // Fade text then slide out
     text.style.opacity = "0";
@@ -239,15 +235,15 @@
     const line2 = document.getElementById("cycle-end-line-2");
     const line3 = document.getElementById("cycle-end-line-3");
 
-    // Fade to black (3s transition)
+    // Fade to black (3s)
     cycleEnd.classList.add("active");
-    await sleep(3000 + 2000); // fade + 2s black silence
+    await sleep(3000 + 2000);
 
     // "the moment has ended." — holds 4s
     line1.style.opacity = "1";
     await sleep(2000 + 4000);
 
-    // "what you saw was hers..." — holds 5s
+    // "what you saw was ours..." — holds 5s
     line2.style.opacity = "1";
     await sleep(2000 + 5000);
 
@@ -257,19 +253,27 @@
 
   // ── Session ───────────────────────────────────────────────────────────────
 
-  async function startSession() {
-    const res = await fetch("/api/session/start", { method: "POST" });
-    const data = await res.json();
-    return data.session_id;
-  }
-
   async function waitForEra(eraKey) {
-    while (true) {
-      const res = await fetch(`/api/session/${sessionId}/era/${eraKey}`);
-      const data = await res.json();
-      if (data.ready) return data;
+    const MAX_RETRIES = 60; // 2 minutes max
+    for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+      try {
+        const res = await fetch(`/api/session/${sessionId}/era/${eraKey}`);
+        const data = await res.json();
+        if (data.ready) return data;
+      } catch (e) {
+        // network blip — keep trying
+      }
       await sleep(2000);
     }
+    // Timed out — return fallback so gallery doesn't hang
+    return {
+      era_key:   eraKey,
+      era_label: eraKey,
+      age_range: "",
+      poem:      "the machine is still\ntrying to remember\nsomething was here\nit is not gone",
+      image:     null,
+      ready:     true,
+    };
   }
 
   // ── Slider helpers ────────────────────────────────────────────────────────
@@ -321,7 +325,6 @@
 
   async function init() {
     try {
-      // Start session + load era labels in parallel (maximise generation buffer)
       const [erasData, sessionData] = await Promise.all([
         fetch("/api/eras").then((r) => r.json()),
         fetch("/api/session/start", { method: "POST" }).then((r) => r.json()),
@@ -331,29 +334,22 @@
       sessionId = sessionData.session_id;
       renderSliderLabels();
 
-      // Screen 1: Explainer (~15s, generation runs in background)
       await runExplainer();
-
-      // Screen 2: Breather (~13s, more buffer)
       await runBreather();
 
-      // Screen 3: Gallery
       for (let i = 0; i < ERA_KEYS.length; i++) {
         const eraKey = ERA_KEYS[i];
         const position = i + 1;
 
-        // Flash transition between unraveling and reconstruction
         if (eraKey === "reconstruction") {
           await runTransitionSlide();
         }
 
-        // Retrieve pre-generated content (should be ready by now)
         const data = await waitForEra(eraKey);
         await runEra(data, position);
         await sleep(T.INTER_ERA_PAUSE);
       }
 
-      // Screen 4: Ending
       await runEnding();
 
     } catch (e) {

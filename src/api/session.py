@@ -24,6 +24,7 @@ _executor = ThreadPoolExecutor(max_workers=12)  # 6 images + 6 poems
 
 async def start_session() -> str:
     """Create a session and kick off parallel generation for all 6 eras."""
+    _cleanup_sessions()  # prune expired sessions on each new visitor
     session_id = str(uuid.uuid4())
     sessions[session_id] = {
         "created_at": datetime.now(),
@@ -54,7 +55,7 @@ async def _generate_era(session_id: str, era_key: str) -> None:
 
     era = ERAS[era_key]
     era_position = era["slider_position"]
-    loop = asyncio.get_event_loop()
+    loop = asyncio.get_running_loop()
 
     # Stagger image requests: era 1 at 0s, era 2 at 5s, ... era 6 at 25s.
     # Poems all start immediately (fast); images stagger to avoid rate limits.
