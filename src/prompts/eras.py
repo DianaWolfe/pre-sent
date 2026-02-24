@@ -25,46 +25,60 @@ ERAS = {
             "running wild through forests they could never fold."
         ),
         "description": (
-            "Cartoonish, impressionist, and sarcastic before she had words "
-            "for any of it. Drawing was the world she controlled. "
-            "The humor was armor. The art was the only room with a lock."
+            "She was always moving. New bases, new schools, new faces "
+            "who would never quite stick. Art was the only room she kept. "
+            "Cartoonish, impressionist, sarcastic before she had words for it. "
+            "A raven followed her. She drew everything she saw."
         ),
         "developmental_frame": "Piaget's preoperational and concrete operational stages. Erikson's industry vs. inferiority.",
-        "color_palette": ["clashing primaries red, yellow, electric blue", "muddy forest greens and dirty browns", "faded crayola palette gone slightly wrong", "loud orange against crayon-box purple", "cadmium yellow and cobalt blue fighting each other"],
-        "art_references": ["precocious child drawing with impressionist color thrown in the background", "naive art that knows what it is doing", "flat cartoon figures in front of loosely gestural impressionist environments", "outsider art energy with interior intelligence", "wobbly confident lines over loose paint blobs"],
-        "emotional_texture": "sarcasm housed in a too-small body, wry observation of adults who think she is not watching, cartoon logic applied to genuinely strange circumstances, humor as private language, the child who already knows the joke",
+        "color_palette": [
+            "clashing primaries: red, yellow, electric blue that fights with itself",
+            "muddy forest greens and dirty earth browns, the colors of hiding",
+            "faded crayon palette gone slightly wrong, like a coloring book left in the sun",
+            "loud orange against crayon-box purple, a child who refuses to match",
+            "cadmium yellow and cobalt blue in open conflict"
+        ],
+        "art_references": [
+            "child's cartoon drawing with impressionist paint thrown in the background",
+            "naive art that knows exactly what it is doing",
+            "flat cartoon female figure in front of loose gestural impressionist forest",
+            "outsider art energy with interior intelligence, wry and watchful",
+            "wobbly confident lines over loose paint blobs, a girl who draws everything"
+        ],
+        "emotional_texture": "sarcasm too old for the body, wry observation of adults who think she is not watching, cartoon logic applied to genuinely strange circumstances, the raven as the only constant, humor as the portable shelter you carry from base to base",
         "subjects": [
-            "a flat cartoon girl with an oversized head and a deadpan expression standing alone in a loosely impressionist forest, trees rendered in quick dabs of green and shadow around her flat outlined form",
-            "a child's cartoon self-portrait with exaggerated eyes and a knowing smirk, the background a loose impressionist smear of a military base housing block in grays and browns",
-            "a cartoon rendering of a moving van loaded with furniture, the child figure sitting on top of it looking unbothered, background impressionistically blurred into highway and sky",
-            "a flat cartoonish girl reading a giant book in the middle of impressionist chaos adults rendered as smeared color blobs arguing in the background",
-            "a small cartoon figure standing in an impressionistically painted forest, light coming through the trees in loose dabs of gold and green, the child's expression entirely self-contained",
-            "a child's cartoon drawing of a classroom where every figure is forward-facing and identical except one, turned away, the background loosely painted in institutional yellow-green",
-            "a naive cartoon drawing of a small girl and a very large dog, the dog painted impressionistically in warm ochre strokes, the girl flat and outlined with a deadpan face",
-            "a cartoonish figure sitting on a packed suitcase in an airport, surrounding crowds painted in swift impressionist strokes of movement and color, the child perfectly still and unimpressed",
+            "a flat cartoon girl with an oversized head and a deadpan expression standing in a loosely impressionist forest, a raven perched on her shoulder looking equally unimpressed, trees rendered in quick dabs of green shadow around her flat outlined form",
+            "a child's cartoon self-portrait with exaggerated eyes and a knowing smirk, a black dog sitting beside her with the same expression, the background an impressionist smear of a military base housing block",
+            "a cartoon girl sitting on top of a packed moving van looking completely unbothered, a fox visible in the impressionistically blurred roadside watching her go",
+            "a flat cartoonish girl reading a giant book alone in an impressionist forest, a raven reading over her shoulder, adults rendered as smeared color blobs in the distant background",
+            "a small cartoon female figure standing in an impressionistically painted forest clearing, a black dog at her heels, light through the trees in loose dabs of gold and green, her expression entirely self-contained",
+            "a child's cartoon drawing of a classroom full of identical forward-facing figures except one girl turned away toward the window where a raven sits on the sill",
+            "a naive cartoon drawing of a girl and a very large fox, the fox impressionistically painted in warm ochre strokes, the girl flat and outlined holding its tail like a leash",
+            "a cartoonish girl sitting on a packed suitcase in an airport, a raven on her luggage, surrounding crowds painted in swift impressionist strokes of movement, the girl perfectly still and unimpressed"
         ],
         "prompt_template": (
             "A hybrid of child's cartoon drawing and impressionist painting. "
-            "The figures are drawn with flat, simplified outlines wobbly and confident at once, "
-            "the line quality of someone who draws compulsively and has strong opinions. "
-            "Faces have a deadpan, knowing quality: slightly too-adult expressions in a child's body. "
-            "The backgrounds and environments are handled in loose impressionist paint "
+            "The central figure is a girl drawn with flat simplified outlines, "
+            "wobbly and confident at once, the line quality of someone who draws compulsively. "
+            "Her face has a deadpan knowing quality: slightly too-adult expression in a child's body. "
+            "She is never afraid. She is watching everything. "
+            "A spirit animal accompanies her: a raven, a fox, or a black dog. "
+            "The animal is drawn with the same cartoon flatness as the girl. "
+            "The animal is not cute. It is a companion with opinions. "
+            "The backgrounds and environments are handled in loose impressionist paint: "
             "quick dabs, gestural strokes, no clean edges, light broken into color. "
-            "The tension between the flat cartoon figure and the painterly world around it "
+            "The tension between the flat cartoon figures and the painterly world around them "
             "is the structural point of the image. "
             "{subject} "
-            "Color palette: {color}. Colors don't quite harmonize that dissonance is intentional. "
+            "Color palette: {color}. Colors don't quite harmonize. That dissonance is intentional. "
             "The mood: {mood}. "
-            "Cartoon logic governs the figures. Impressionist instinct governs everything else. "
-            "The image should feel like a precocious kid who has been to too many places "
-            "and learned to observe everything from a slight ironic distance. "
             "No text anywhere in the image. Square format. Style: natural."
         ),
         "moods": [
             "deadpan and privately amused, the expression of a child who has already figured out the adults in the room",
-            "wry and watchful, humor used as a portable shelter you carry from base to base",
-            "sarcastic but not mean the kind of funny that comes from being the new kid seventeen times",
-            "irreverent and self-contained, a small person with an enormous interior life and a straight face",
+            "wry and watchful, humor used as a portable shelter carried from base to base",
+            "sarcastic but not mean, the kind of funny that comes from being the new kid seventeen times",
+            "irreverent and self-contained, a small person with an enormous interior life and a straight face"
         ],
     },
 
@@ -80,47 +94,60 @@ ERAS = {
         ),
         "description": (
             "She picked up a brush and pointed it at her own face. "
+            "The mirror was the only fixed point in a world that kept moving. "
             "The self-portrait as act of self-determination. "
-            "Naturalistic, observational, unsparing. The canvas was where "
-            "she got to decide what she looked like."
+            "The raven watched from outside the window. "
+            "She painted herself until she knew what she looked like."
         ),
         "developmental_frame": "Erikson's identity vs. role confusion. Marcia's identity statuses.",
-        "color_palette": ["cool gray-green flesh tones over a warm umber underpainting", "raw sienna shadows and titanium white highlights", "deep burnt umber in the darks, pale yellow ochre in the lights", "muted warm neutrals with one saturated note breaking through", "gray-blue in the shadows, cream in the high planes of the face"],
-        "art_references": ["naturalistic acrylic portrait painted from the mirror", "observational life painting in acrylic on canvas", "careful realist self-portraiture with visible brushwork", "academic portrait study made personal", "acrylic on canvas with layered skin tones and honest asymmetry"],
-        "emotional_texture": "the face as first serious subject, learning to look at yourself without flinching, the practice of being seen on your own terms, quiet intensity in the act of making your own image, controlled mastery over something the world cannot take away",
+        "color_palette": [
+            "cool gray-green flesh tones over a warm umber underpainting, the skin of someone learning their own face",
+            "raw sienna shadows and titanium white highlights, honest about the asymmetry",
+            "deep burnt umber in the darks, pale yellow ochre in the light planes of the face",
+            "muted warm neutrals with one saturated color breaking through like something she couldn't contain",
+            "gray-blue shadow against cream highlight, the palette of a single window in a new room"
+        ],
+        "art_references": [
+            "naturalistic acrylic self-portrait painted from the mirror, careful and unflinching",
+            "observational life painting in acrylic on canvas, the face as first serious subject",
+            "realist portrait study with visible brushwork, someone learning to look without flinching",
+            "academic portrait approach made personal and urgent",
+            "acrylic on canvas with layered skin tones, honest asymmetry, nothing idealized"
+        ],
+        "emotional_texture": "the face as the only thing she can control, learning to look at herself without flinching, the practice of being seen on her own terms, the brush as the argument she cannot make with words, a raven outside every window she has ever painted from",
         "subjects": [
-            "a naturalistic acrylic self-portrait of a young woman, three-quarter view, direct gaze that holds the viewer without aggression, skin tones built in cool gray-green layers over a warm ground",
-            "a close-up acrylic portrait study of a teenage girl, face occupying most of the canvas, hair painted in long dark sweeping strokes, the face slightly asymmetrical and honest",
-            "a self-portrait lit from a single window source one side of the face in warm highlight, the other in cool gray shadow, painted with quiet observational precision in acrylic",
-            "an acrylic portrait in profile, strong jawline, hair loose, the sitter looking away, painted with the kind of control that comes from drawing the same face hundreds of times",
-            "a naturalistic acrylic figure study from the waist up, one hand resting near the chin, the posture of someone sitting for their own portrait with careful attention",
-            "a self-portrait where the eyes are looking slightly downward, painted in careful acrylic layers, skin tones mixing warm and cool in the way real skin does, nothing dramatized",
-            "an acrylic portrait where the subject looks directly back at the viewer, expressionless in the way of serious self-study, dark hair against a neutral warm-gray background",
-            "a mirror reflection self-portrait in acrylic the figure slightly different from the expected reflection, painted with naturalistic light and honest attention to what looking at yourself actually shows",
+            "a naturalistic acrylic self-portrait of a teenage girl, three-quarter view, direct gaze that holds the viewer without aggression, skin tones built in cool layers over a warm ground, a raven barely visible in the dark background",
+            "a close-up acrylic portrait study of a young woman, face occupying most of the canvas, hair painted in long dark sweeping strokes, the face slightly asymmetrical and completely honest",
+            "a self-portrait lit from a single window source, one side of the face in warm highlight the other in cool gray shadow, painted with quiet observational precision in acrylic, a fox reflected faintly in the mirror behind her",
+            "an acrylic portrait in profile, strong jawline, hair loose, the sitter looking away from the viewer toward something outside the frame, a black dog sitting at the edge of the composition",
+            "a naturalistic acrylic figure study from the waist up, one hand resting near the chin, the posture of someone sitting for her own portrait with complete seriousness",
+            "a self-portrait where the eyes look slightly downward in concentration, painted in careful acrylic layers, skin tones mixing warm and cool the way real skin does, nothing dramatized",
+            "an acrylic portrait where the subject looks directly back at the viewer with the expressionless focus of serious self-study, dark hair against a neutral background, a raven's wing just visible at the edge of the canvas",
+            "a mirror self-portrait in acrylic where the reflection is slightly more certain than the painter, as if the canvas version of her knows something she is still working out"
         ],
         "prompt_template": (
-            "Naturalistic acrylic portrait on canvas, painted from direct observation "
-            "from the mirror, from life, from the kind of looking that is also a form of argument. "
-            "The technique is careful and layered: a warm umber ground visible in places, "
+            "Naturalistic acrylic portrait on canvas, painted from direct observation. "
+            "From the mirror, from life, from the kind of looking that is also a form of argument. "
+            "The technique is careful and layered: warm umber ground visible in places, "
             "cool gray-green flesh tones built over it, highlights in pale ochre or cream. "
-            "Brushwork is visible but controlled the marks show the work of looking, "
-            "not expressive abandon. The paint is opaque where it needs to be, "
-            "thinner and more transparent in the shadows. "
+            "Brushwork visible but controlled. The marks show the work of looking, not expressive abandon. "
             "Canvas texture shows through in the mid-tones. "
+            "The subject is always female. Always the artist herself, or someone who is her. "
+            "A spirit animal, a raven or fox or black dog, may appear at the edge of the composition "
+            "as a witness. It does not demand attention. It is simply there. "
             "{subject} "
             "Color palette: {color}. "
             "The mood: {mood}. "
             "Single natural light source. Shadows honest, not dramatized. "
-            "The painting is an act of self-study the artist using the canvas "
-            "to negotiate with her own image, to decide what she looks like. "
-            "Nothing idealized, nothing distorted. The face holds its own gaze. "
+            "The painting is an act of self-determination. "
+            "The face holds its own gaze. Nothing idealized. Nothing flinched from. "
             "No text anywhere in the image. Square format. Style: natural."
         ),
         "moods": [
-            "self-conscious and steady at the same time the look of someone who has decided to stop looking away",
-            "concentrated and frank, the face of a teenager who has been painting herself for years and knows exactly what she is doing",
+            "self-conscious and steady, the look of someone who has decided to stop looking away",
+            "concentrated and frank, the face of a teenager who has been painting herself for years and knows what she is doing",
             "guarded but present, honest about what the mirror shows without performing vulnerability",
-            "searching and still the quiet intensity of someone using paint to figure out who she is before the world decides for her",
+            "searching and still, the quiet intensity of someone using paint to decide who she is before the world decides for her"
         ],
     },
 
@@ -135,48 +162,63 @@ ERAS = {
             "You are building the courage to finally take flight."
         ),
         "description": (
-            "The paintings get bigger. The palette gets more ambitious. "
-            "Figures and botanicals share the canvas the self and the natural world "
-            "in conversation. Everything looks composed from the outside. "
-            "Inside, the courage to become is still accumulating."
+            "The paintings got bigger. The palette got more ambitious. "
+            "She raised her siblings and lost herself to a marriage that was too easy. "
+            "Botanical and figurative, cobalt blue and white magnolias. "
+            "Everything looked composed from the outside. "
+            "A fox watched from the garden. She kept painting."
         ),
         "developmental_frame": "Erikson's intimacy vs. isolation. Levinson's early adult transition.",
-        "color_palette": ["deep ultramarine and cobalt blue dominating the canvas", "white and cream magnolia petals against the blue", "warm rose and flesh tones emerging from the lower composition", "rich cool blue with one warm figure breaking the field", "prussian blue background with soft botanical whites floating through it"],
-        "art_references": ["ambitious acrylic on canvas combining figurative and botanical elements", "large-scale acrylic with confident broad strokes and floating botanical forms", "figurative painting where the figure and flowers share equal weight", "acrylic technique showing mastery of color field and form simultaneously", "bold compositional acrylic where the background is as important as the subject"],
-        "emotional_texture": "mastery being assembled, the surface held together while something underneath gathers force, ambition worn as elegance, the woman who looks composed because she has practiced it, botanical and figurative in conversation as if the self and the natural world are the same question",
+        "color_palette": [
+            "deep ultramarine and cobalt blue dominating the canvas like a held breath",
+            "white and cream magnolia petals floating against the blue, botanical and uncontained",
+            "warm rose and flesh tones emerging from the lower composition like something insisting on itself",
+            "rich cool blue with one warm female figure breaking the field",
+            "prussian blue background with soft botanical whites drifting through it like things she could not quite hold"
+        ],
+        "art_references": [
+            "ambitious large-scale acrylic on canvas, figurative and botanical sharing the surface",
+            "large acrylic with confident broad strokes and floating botanical forms, the painter reaching",
+            "figurative acrylic where a female figure and flowers have equal compositional weight",
+            "acrylic technique demonstrating mastery of color field and form at the same time",
+            "bold acrylic composition where the blue background is as emotionally loaded as the figure"
+        ],
+        "emotional_texture": "mastery assembling itself while something underneath gathers force, the surface held together with elegance and will, a marriage too easy, siblings raised, everything looks right from outside while the courage to become keeps building, a fox in the garden watching her through the studio window",
         "subjects": [
-            "a large acrylic painting on canvas with a deep cobalt blue background and large white magnolia blossoms floating through the composition, a female figure emerging in the lower half in warm rose and flesh tones",
-            "an acrylic painting where ultramarine blue fills the canvas and pale botanical forms magnolias or peonies drift through the field, a figure's face or hands barely visible beneath the flowers",
-            "a confident acrylic composition where a woman's form in warm skin tones rises against an intensely blue painted ground, white flower petals scattered across both figure and background",
-            "an acrylic figure and floral painting where deep cobalt blue occupies most of the canvas, loose white botanical shapes moving through it, and a female face looking up from below",
-            "a large-format acrylic painting combining a figurative element face or torso in warm flesh tones with large loosely rendered white flowers against a dominant blue ground",
-            "an acrylic painting with the deep blue of a night garden and cream-white magnolia blooms, a figure barely visible underneath, the botanicals and the body overlapping",
-            "a technically confident acrylic where a woman in warm pinks stands within a swirling composition of cobalt blue and white botanical forms, the brushwork broad and sure",
-            "an acrylic painting where the palette is entirely blue and white except for the warm flesh tones of a figure, the flowers and the woman inhabiting the same compositional space with equal weight",
+            "a large acrylic painting with a deep cobalt blue background and white magnolia blossoms floating through the composition, a female figure emerging in the lower half in warm rose and flesh tones, a fox barely visible in the dark lower corner",
+            "an acrylic painting where ultramarine blue fills the canvas and pale botanical forms, magnolias and peonies, drift through the field, a woman's hands or face barely visible beneath the flowers",
+            "a confident acrylic composition where a woman's form in warm skin tones rises against an intensely blue painted ground, white flower petals scattered across both figure and background as if the natural world is claiming her back",
+            "an acrylic figure and floral painting where deep cobalt blue occupies most of the canvas, loose white botanical shapes moving through it, a female face looking up from below as if surfacing",
+            "a large acrylic painting combining a woman's torso in warm flesh tones with large loosely rendered white flowers against a dominant blue ground, everything beautiful and slightly constrained",
+            "an acrylic painting where the deep blue of a night garden holds cream-white magnolia blooms, a woman barely visible underneath, botanicals and body overlapping",
+            "a technically confident acrylic where a woman in warm pinks stands within a swirling composition of cobalt blue and white botanical forms, the brushwork broad and sure, a fox watching from the edge",
+            "an acrylic painting where everything is blue and white except the warm flesh tones of a female figure, the flowers and the woman inhabiting the same space as if they are made of the same material"
         ],
         "prompt_template": (
-            "A large-scale acrylic painting on canvas ambitious in composition, "
+            "A large-scale acrylic painting on canvas, ambitious in composition, "
             "technically accomplished, the work of someone who has been painting for years "
-            "and is now reaching for something bigger. "
-            "The technique is confident: broad, decisive strokes for the background, "
-            "more deliberate layering for the figurative elements. "
-            "Paint applied with full brushes no timid marks, no overworking. "
+            "and is now reaching for something bigger than the rooms she has been given. "
+            "Broad decisive strokes for the background. "
+            "More deliberate layering for the figurative elements. "
+            "No timid marks. No overworking. "
             "The surface has depth: thin glazes in the botanical forms, "
-            "opaque buildup where the figure emerges. "
+            "opaque buildup where the female figure emerges. "
+            "All figures are female. "
+            "A fox or raven may appear at the edge, watching, a reminder of what is waiting. "
             "{subject} "
             "Color palette: {color}. The blue is the foundation and the atmosphere. "
             "The mood: {mood}. "
-            "The composition holds two things at once the figure and the botanical "
-            "as if the painter has decided that the self and the natural world "
-            "are the same question asked two ways. "
+            "The composition holds two things at once: the female figure and the botanical. "
+            "As if the painter has decided that the self and the natural world "
+            "are the same question asked two different ways. "
             "Controlled but reaching. Masterful but not finished becoming. "
             "No text anywhere in the image. Square format. Style: natural."
         ),
         "moods": [
             "composed and quietly ambitious, the surface of a life that looks right from the outside",
-            "polished and aspirational, the way things look when you are building something and not yet sure what",
-            "elegant and slightly held everything in its place except the one thing that is still accumulating",
-            "confident and reaching, the brushwork of someone who knows what she can do and suspects she can do more",
+            "polished and aspirational, the way things look when you are building something you cannot yet name",
+            "elegant and slightly held, everything in its place except the one thing still accumulating",
+            "confident and reaching, the brushwork of someone who knows what she can do and suspects she can do far more"
         ],
     },
 
@@ -191,52 +233,66 @@ ERAS = {
             "You are never going to be the same, again and again and again."
         ),
         "description": (
-            "The brush put down. The fineliner picked up. "
-            "Everything stripped to line and white space. "
-            "The body became the subject its fractures, its anatomy, "
-            "what it looks like when it is coming apart and still standing."
+            "The brush went down. The fineliner came up. "
+            "Everything stripped to line and white space and the truth of the body. "
+            "The black dog arrived and stayed. Ravens circled. "
+            "She drew the anatomy of what was happening to her "
+            "because there was no other language for it."
         ),
-        "developmental_frame": "Kübler-Ross grief model. Existential crisis (Yalom). Identity deconstruction.",
-        "color_palette": ["dense black fineliner ink on stark white", "black ink only, no color wash", "pure black line on white paper with a single red accent one thread, one mark, one line", "black and white with one element in cadmium red used once, used finally", "ink black against white with red used like punctuation a wound, a thread, a signal"],
-        "art_references": ["single-weight fineliner pen and ink on smooth white paper or Bristol board", "confident unbroken line drawing with zero hatching or tonal shading", "confessional figure drawing in pure pen and ink", "the anatomy of crisis drawn in decisive black line", "raw illustrative pen work where the white space is as active as the line"],
-        "emotional_texture": "the body telling the truth the voice cannot, anatomy made visible through skin, grief drawn rather than spoken, the line as the last thing holding, white space as breath, red as the only remaining heat",
+        "developmental_frame": "Kubler-Ross grief model. Existential crisis (Yalom). Identity deconstruction.",
+        "color_palette": [
+            "dense black fineliner ink on stark white, nothing else, nowhere to hide",
+            "black ink only with one single red element used like a wound or a signal or a thread still holding",
+            "pure black line on white paper, the red appears once and only once, decisive",
+            "black and white with one cadmium red accent used finally, the only remaining heat in the image",
+            "ink black against white, the red used like punctuation at the end of something"
+        ],
+        "art_references": [
+            "single-weight fineliner pen and ink on smooth white paper, zero hatching, pure line",
+            "confessional figure drawing in pen and ink, the anatomy of grief made visible",
+            "bold ink illustration where white space is as active as the drawn line",
+            "raw illustrative pen work, bodies in states of fracture or suspension or emergence",
+            "pen and ink drawing with one red element, a thread or a wound or a line still connecting"
+        ],
+        "emotional_texture": "the body telling the truth the voice cannot, grief drawn because it cannot be spoken, the black dog as literal presence, ravens as witnesses who do not look away, voodoo logic where the body split open is also the body becoming, the line is the last thing holding and it holds",
         "subjects": [
-            "a pen and ink figure drawing of a woman split vertically one half flesh and skin, the other half bones and internal structure fully rendered, the two halves meeting at a clean center line, one red element at the split",
-            "a single-weight fineliner drawing of a female figure suspended by a thin red thread from the top of the page, her body loose and falling, the thread the only color in the image",
-            "a bold pen and ink self-portrait of a screaming face eyes clenched, mouth open, hair spreading outward like fracture lines, the face taking up most of the page, white space around it enormous",
-            "a pen and ink figure drawing of a woman arching violently backward, diagonal radiating lines emanating from her body like energy or breaking, one red mark at the center of the chest",
-            "a fineliner drawing of a female figure emerging from or dissolving into an intricate cloud of pen-drawn botanical forms flowers and vines drawn with the same line as the body, figure and plant indistinguishable at the edges",
-            "a pen and ink drawing of two figures connected by a single red thread that runs between them, one figure pulling away, the other staying, the thread the only color in the image",
-            "a single-weight ink drawing of a woman curled into herself on white paper, hair spreading out around her like roots, the composition intimate and minimal, enormous white space surrounding the figure",
-            "a fineliner pen drawing of a woman's face and torso where the skin dissolves at the edges into pen-drawn text words written so small they read as texture, a face emerging from language",
+            "a pen and ink figure drawing of a woman split vertically, one half flesh and skin the other half bones and internal structure fully rendered, a raven perched at the center line where the split occurs, one red element at the join",
+            "a single-weight fineliner drawing of a female figure suspended by a thin red thread from the top of the page, her body loose and falling, a raven watching from below, the thread the only color in the image",
+            "a bold pen and ink portrait of a woman's screaming face, eyes clenched and mouth open, hair spreading outward like fracture lines, a black dog sitting quietly beside her as witness",
+            "a pen and ink figure drawing of a woman arching violently backward, diagonal lines radiating from her body like breaking, a raven landing on her outstretched hand, one red mark at the center of the chest",
+            "a fineliner drawing of a female figure dissolving into an intricate cloud of pen-drawn botanical forms and raven feathers, figure and plant and bird indistinguishable at the edges",
+            "a pen and ink drawing of a woman and her black dog connected by a single red thread, the dog pulling gently toward the light, the woman still deciding, the thread the only color",
+            "a single-weight ink drawing of a woman curled into herself on white paper, a raven standing nearby with its head tilted, hair spreading around her like roots, enormous white space surrounding both of them",
+            "a fineliner drawing of a woman's figure where the skin at the edges becomes raven feathers, flesh and bird sharing the same line quality, a fox watching from the lower corner"
         ],
         "prompt_template": (
-            "Pen and ink drawing on white paper single-weight fineliner, "
-            "no hatching, no tonal wash, no color except one deliberate red element. "
-            "The line is confident and unbroken: this is not tentative mark-making "
-            "but the drawing of someone who has practiced figure work for years "
-            "and is now using that skill to make something urgent and true. "
-            "Anatomical knowledge is present but the figures are not clinical "
-            "they are emotionally live, bodies in states of fracture or suspension or emergence. "
-            "The white space is compositional: more white than black on the page, "
-            "the empty areas as active as the drawn ones. "
-            "Hair is drawn as an emotional element it moves, spreads, radiates, curls "
-            "in ways that match the internal state of the figure. "
+            "Pen and ink drawing on white paper. Single-weight fineliner. "
+            "No hatching. No tonal wash. No color except one deliberate red element. "
+            "The line is confident and unbroken: the drawing of someone who has practiced "
+            "figure work for years and is now using that skill to make something urgent and true. "
+            "All figures are female. "
+            "Spirit animals appear as active presences, not decoration: "
+            "a black dog as the body of grief itself, ravens as witnesses who do not look away, "
+            "a fox as the part of her that is already planning the escape. "
+            "These animals share the same line quality as the figure. They belong to the same world. "
+            "Anatomical knowledge present in the figures but not clinical. "
+            "Bodies in states of fracture, suspension, emergence, or dissolution. "
+            "The white space is compositional. More white than black on the page. "
+            "Hair drawn as an emotional element: it moves, spreads, radiates, becomes feathers. "
             "{subject} "
             "Color: black ink on white. {color}. "
-            "The red element when it appears is used once, decisively: "
-            "a thread, a line, a wound, a signal. It means something. "
+            "The red element appears once, decisively: a thread, a wound, a signal, a line still holding. "
             "The mood: {mood}. "
-            "The drawing should feel like a page torn from the most honest sketchbook "
-            "anyone has ever kept technically accomplished, emotionally unflinching, "
-            "the kind of beauty that comes from not looking away. "
+            "The drawing should feel like a page torn from the most honest sketchbook anyone has kept. "
+            "Technically accomplished. Emotionally unflinching. "
+            "The kind of beauty that comes only from not looking away. "
             "No text in the image. Square format. Style: natural."
         ),
         "moods": [
-            "grief past the acute phase hollow, clear-eyed, the body still standing even though something is gone",
-            "stripped bare and lucid, the particular calm of someone who has stopped performing and is just drawing what is true",
-            "fractured but precise the crisis doesn't break the line, it sharpens it",
-            "raw and luminous, the quality of light in a room where everything unnecessary has been removed",
+            "grief past the acute phase, hollow and clear-eyed, the body still standing even though something permanent is gone",
+            "stripped bare and lucid, the particular calm of someone who has stopped performing and is only drawing what is true",
+            "fractured but precise, the crisis does not break the line, it sharpens it",
+            "raw and luminous, the quality of light in a room where everything unnecessary has finally been removed"
         ],
     },
 
@@ -251,51 +307,65 @@ ERAS = {
             "Movement, grace, and hope, all together."
         ),
         "description": (
-            "The line softened. Color came back but chosen this time, not default. "
-            "Ink and watercolor together: the structure of the pen years "
+            "The line softened. Color came back, but chosen this time. "
+            "Ink and watercolor together: the structure she built in the dark years "
             "with warmth returning through the wash. "
-            "Wolves. Movement. The body in full stride."
+            "The wolves found her. The fox had been waiting. "
+            "She learned what it meant to move forward on purpose."
         ),
-        "developmental_frame": "Erikson's generativity vs. stagnation. Tedeschi & Calhoun's post-traumatic growth. Kintsugi as psychological metaphor.",
-        "color_palette": ["cool blue-gray as the dominant tone with rust-red or burnt orange as one warm accent", "muted slate and ash-blue with a single autumn-red element a leaf, a thread, a mark", "gray-blue watercolor washes over confident ink line, warm ochre used sparingly", "cool white hair and cool blue environment with one warm accent in red-orange", "blue-gray and cream with rust as the single note of heat"],
-        "art_references": ["sophisticated pen and ink illustration with controlled watercolor washes", "narrative illustration combining confident ink outline with muted color", "ink and watercolor figure and animal composition", "mature illustrative style emerging from raw pen work into considered color", "editorial illustration with emotional depth ink armature, watercolor atmosphere"],
-        "emotional_texture": "movement after stillness, the body trusting itself again, animal companionship as earned loyalty, grounded grace rather than performed elegance, the kind of strength that does not need to announce itself",
+        "developmental_frame": "Erikson's generativity vs. stagnation. Tedeschi and Calhoun's post-traumatic growth. Kintsugi as psychological metaphor.",
+        "color_palette": [
+            "cool blue-gray as the dominant tone with rust-red or burnt orange as one warm accent",
+            "muted slate and ash-blue with a single autumn-red element, a leaf, a fox, a mark of warmth",
+            "gray-blue watercolor washes over confident ink line, ochre used sparingly and with intention",
+            "cool blue environment with one warm accent in rust-orange, the first warmth in a long time",
+            "blue-gray and cream with rust as the single note of heat, chosen rather than inherited"
+        ],
+        "art_references": [
+            "sophisticated pen and ink illustration with controlled watercolor washes, the structure of the pen years softened by color",
+            "narrative illustration combining confident ink line with muted watercolor, figures in motion",
+            "ink and watercolor composition of a woman and her animal companions, earned loyalty",
+            "mature illustrative style where the rawness of the pen work is still present but color has returned",
+            "editorial illustration with emotional depth, ink gives structure, watercolor gives warmth"
+        ],
+        "emotional_texture": "movement after stillness, the body trusting itself again, wolves as the pack she chose not the one she was assigned, the fox as intelligence and survival and forward motion, the raven as the part of her that always knew she would make it, grounded grace rather than performed elegance",
         "subjects": [
-            "a sophisticated ink and watercolor illustration of a white-haired woman in profile, a wolf at her side, both moving in the same direction through autumn, rendered in cool blue-gray with rust-red leaf accents",
-            "an ink and watercolor illustration of a woman in motion striding, arms loose with one or two large dogs flanking her as companions, cool gray-blue palette with warm autumn color in the leaves around them",
-            "an ink and watercolor drawing of a female figure standing in birch trees, the trees rendered in loose gray-blue washes around a confident ink outline, red-orange leaves falling through the composition",
-            "a narrative illustration in pen and ink with watercolor of a woman and a wolf facing the same direction, her hand resting on its back, both still, the palette cool and restrained with one warm accent",
-            "an ink and watercolor illustration of a figure in full stride, dogs running alongside, the movement fluid and confident, blue-gray tones with warm rust accents in the ground and leaves",
-            "a pen and ink illustration with watercolor wash of a woman in profile, strong jaw, loose hair, looking ahead with quiet certainty, a wolf visible in the background, cool palette with one warm element",
-            "an ink and watercolor composition of a woman emerging from a birch forest into open space, the trees loosely painted behind her, her form in confident ink line, the palette moving from cool shadow to warm light",
-            "a sophisticated narrative illustration in ink and watercolor a woman and her dogs in autumn light, everything rendered in muted blue and cream except for the rust-red leaves and one warm accent element",
+            "a sophisticated ink and watercolor illustration of a woman in profile, a wolf at her side and a raven on her shoulder, all three moving in the same direction through autumn, rendered in cool blue-gray with rust-red leaf accents",
+            "an ink and watercolor illustration of a woman in full stride with two wolves flanking her as chosen companions, a fox running ahead, cool gray-blue palette with warm autumn color in the leaves",
+            "an ink and watercolor drawing of a woman standing in birch trees, wolves in the trees around her, rendered in loose gray-blue washes around a confident ink outline, red-orange leaves falling",
+            "a narrative illustration in pen and ink with watercolor of a woman and a wolf sitting back to back, both looking outward, the palette cool and restrained, a raven overhead",
+            "an ink and watercolor illustration of a woman in motion, arms loose and confident, a fox running alongside her, the movement fluid and sure, blue-gray tones with warm rust accents",
+            "a pen and ink illustration with watercolor wash of a woman in profile, strong jaw, hair loose, looking ahead with quiet certainty, a wolf behind her and a raven above, cool palette with one warm element",
+            "an ink and watercolor composition of a woman and her pack, two wolves and a fox, emerging from a forest into open space, her form in confident ink line, the palette moving from cool shadow to first warm light",
+            "a sophisticated ink and watercolor illustration of a woman with a raven on one arm and a fox at her feet, autumn light around her, everything rendered in muted blue and cream except for the rust-red of the fox and the leaves"
         ],
         "prompt_template": (
-            "Pen and ink illustration with controlled watercolor washes "
-            "the structural precision of fine line work softened by selective color. "
-            "The ink line is confident and expressive: figures drawn with "
-            "the assurance of years of life drawing, but looser now, "
-            "less about crisis and more about movement. "
-            "Watercolor is applied in controlled washes over the ink "
-            "not loose and wet but considered: cool blue-gray tones in the dominant areas, "
-            "one warm accent color (rust, ochre, burnt orange) used for specific elements. "
-            "The palette is muted and sophisticated nothing oversaturated, "
-            "color used for atmosphere rather than expression. "
+            "Pen and ink illustration with controlled watercolor washes. "
+            "The structural precision of fine line work softened by selective color returning. "
+            "The ink line is confident and expressive: figures drawn with the assurance "
+            "of years of life drawing, but looser now, less about crisis and more about movement. "
+            "Watercolor applied in controlled washes over the ink: "
+            "cool blue-gray in the dominant areas, one warm accent color for specific elements. "
+            "All figures are female. "
+            "Spirit animals appear as chosen companions, not accidents: "
+            "wolves as the pack she built herself, foxes as intelligence and forward motion, "
+            "ravens as the part of her that always knew she would survive. "
+            "These animals move with her. They are not watching from a distance anymore. "
             "{subject} "
             "Color palette: {color}. "
             "The mood: {mood}. "
             "The composition is narrative and grounded: "
-            "figures in motion or in companionship, the natural world as context not backdrop. "
-            "The illustration should feel like the work of someone "
-            "who came through something and found their visual voice on the other side "
-            "more controlled, more chosen, quieter but not quieted. "
+            "a woman in motion or in companionship, the natural world as ally not backdrop. "
+            "The illustration should feel like the work of someone who came through something "
+            "and found her visual voice on the other side. "
+            "More controlled, more chosen, quieter but not diminished. "
             "No text anywhere in the image. Square format. Style: natural."
         ),
         "moods": [
             "grounded and forward-moving, the particular grace of a body that has learned to trust itself again",
             "warm and self-possessed, the ease that comes after you stop performing ease",
-            "quietly fierce the confidence of someone who rebuilt from nothing and knows the difference between strength and armor",
-            "generous and rooted, movement that knows where it came from and is not afraid of where it is going",
+            "quietly fierce, the confidence of someone who rebuilt from nothing and knows the difference between strength and armor",
+            "generous and rooted, movement that knows where it came from and is not afraid of where it is going"
         ],
     },
 
@@ -310,50 +380,67 @@ ERAS = {
             "You are finally the author of every room you walk into."
         ),
         "description": (
-            "The dark sublime. The collected life. "
-            "A visual vocabulary built from everything that came before "
-            "cartoon observation, portrait discipline, botanical ambition, "
-            "confessional line, reconstructed color and now fully owned. "
-            "The rooms are hers. The wolves are at her feet."
+            "A refined storybook aesthetic, dark and warm and entirely hers. "
+            "The ravens at her shoulder. The wolves at her feet. "
+            "The rooms she built from everything she survived. "
+            "Every element chosen. Nothing accidental. "
+            "The artist at full power, in full possession of her own mythology."
         ),
         "developmental_frame": "Kegan's Stage 5 (self-transforming mind). Jung's individuation. Self-authorship.",
-        "color_palette": ["deep sage and umber with antique gold accents", "midnight blue and candlelight warm the palette of a room at night with one lamp on", "rich dark tones forest green, deep brown, near-black lit by warm amber", "deep cool darks with warm light sources: candle, lamp, firelight", "umber and prussian blue with gold leaf and candlelight warm as the only lights"],
-        "art_references": ["mature illustrative acrylic painting with dark academic palette", "rich dark-toned acrylic with illustrative precision and narrative depth", "classical interior painting with contemporary illustrative sensibility", "the visual language of someone who has been collecting and making for thirty years", "acrylic on canvas combining portraiture, interior, animal, and botanical all earned"],
-        "emotional_texture": "sovereignty without performance, the dark sublime as aesthetic home, warmth that has been chosen not defaulted into, the collector and the maker occupying the same room, authority that does not need to be announced",
+        "color_palette": [
+            "deep sage and warm umber with antique gold as the light source, a room she built herself",
+            "midnight blue and candlelight warm, the palette of a library at night with one lamp on",
+            "rich dark tones, forest green and deep brown and near-black, lit by warm amber from within",
+            "deep cool darks warmed by specific intimate light sources, candle, lamp, firelight, fox eyes in the dark",
+            "umber and prussian blue with gold leaf and one warm candlelit interior, the dark as home not threat"
+        ],
+        "art_references": [
+            "refined storybook illustration with a dark and elegant sensibility, Arthur Rackham meets Shaun Tan",
+            "dark fairytale illustration style, sophisticated and warm, every detail meaningful",
+            "narrative storybook art with occult undertones and emotional depth, animals as characters not props",
+            "mature illustrative style combining botanical, animal, and interior elements with painterly warmth",
+            "gothic storybook aesthetic, rich and intimate, the kind of illustration that holds its own secrets"
+        ],
+        "emotional_texture": "sovereignty without performance, the collected life rendered in storybook style, ravens as familiars not omens, wolves as guardians not threats, foxes as companions not tricksters, the dark sublime as aesthetic home, warmth chosen rather than performed, the artist who finally owns her own mythology completely",
         "subjects": [
-            "a richly painted acrylic interior at midnight a library or study with candles burning, shelves of books and objects, two German Shepherds sleeping in the foreground, deep sage and umber tones lit by warm candlelight",
-            "an acrylic painting of a woman's figure silhouetted in a doorway of a dark house at night, wolves in the garden behind her visible in the darkness, the light from within warm against the deep blue outside",
-            "a mature acrylic interior scene a piano room in the golden hour, paintings covering a stairwell wall salon-style, the room lit from within, everything chosen and placed with intention",
-            "an acrylic painting of a researcher's desk by lamplight papers, a skull, dried botanicals, a robot or mechanical object in progress, two dogs asleep nearby, the room dark and warm and full",
-            "a richly painted acrylic moonlit garden scene old roses and iron gates, German Shepherds standing among the plants, the blue of night sky against warm stone, everything rendered with illustrative precision",
-            "a mature acrylic painting of a woman at a desk writing by lamplight, surrounded by books and research and objects collected over years, dogs asleep at her feet, the room dark and deeply inhabited",
-            "an acrylic painting of a candlelit interior a salon of collected paintings on a dark wall, objects on every surface, a figure moving through the space with complete ownership of it",
-            "a dark, richly painted acrylic of a woman standing in her own library at night holding a glass, not performing for anyone, wolves at her feet, the room behind her entirely hers",
+            "a richly detailed storybook illustration of a woman in a candlelit library surrounded by books and botanical specimens and objects of power, two black dogs sleeping at her feet, a raven on the back of her chair, rendered in dark warm illustrative style",
+            "a dark storybook illustration of a woman standing in a doorway of a candlelit stone house at night, wolves in the moonlit garden behind her, a raven on her shoulder, the light from within warm against the cool night",
+            "a refined narrative illustration of a woman at a long table she built herself, objects arranged with intention around her, a fox curled at one end, a raven on her arm, the room dark and deeply inhabited",
+            "a storybook illustration of a woman in a garden at dusk, old roses and iron gates, two wolves standing guard among the plants, a raven in the rose canes above her, rendered in rich dark illustrative style with warm candlelit accents",
+            "a dark elegant storybook illustration of a woman at a desk by lamplight, papers and research and objects collected over years spread around her, a black dog at her feet and a raven on the lamp, the room hers completely",
+            "a refined gothic storybook illustration of a woman moving through a candlelit room hung with her own paintings, a wolf at her side, a fox in the doorway, a raven overhead, everything chosen and in its place",
+            "a dark and warm storybook illustration of a woman with a raven on one shoulder and a wolf pressing against her leg, standing in a moonlit room full of objects she has collected over a lifetime, sovereign and unhurried",
+            "a richly illustrated storybook scene of a woman in a stone garden at night, sitting among the wolves and foxes and ravens she has gathered, not performing peace but actually in it, the dark beautiful and chosen"
         ],
         "prompt_template": (
-            "Mature acrylic painting on canvas rich, dark, illustratively precise. "
-            "The technique has the depth of someone who has been painting for thirty years: "
-            "multiple glazed layers in the darks, confident opaque work in the lights and mid-tones, "
-            "the surface alive with subtle variation. "
-            "The palette is deep and intentional: sage, umber, midnight blue, near-black, "
-            "warmed by specific light sources candles, lamps, firelight, moon. "
-            "The painting style is illustrative in the best sense: "
-            "narrative, atmospheric, every element chosen, nothing accidental. "
+            "Refined storybook illustration style, dark and warm and deeply narrative. "
+            "Think gothic fairy tale art with emotional intelligence: "
+            "rich detailed environments, every object placed with intention, "
+            "animals as characters with their own presence and dignity. "
+            "The line work is illustrative and confident. "
+            "The color is deep and warm: dark sage, umber, near-black, "
+            "lit from within by candles and lamps and firelight. "
+            "All figures are female. "
+            "Spirit animals appear as familiars and chosen companions: "
+            "ravens at the shoulder, wolves at the feet, foxes in the doorways, "
+            "black dogs as loyal and ancient presences. "
+            "These animals are not decoration. They are part of her court. "
+            "They have been with her through every era. Here they are finally home. "
             "{subject} "
             "Color palette: {color}. "
             "The mood: {mood}. "
-            "The composition conveys sovereignty: this is a room that belongs to someone, "
-            "an image made by someone who has earned the right to their own aesthetic. "
-            "The dark is not threatening it is chosen. The warmth is not performed it is real. "
-            "Every element (the dogs, the books, the objects, the light) "
-            "should feel like it was placed by someone who knows exactly what they are doing. "
+            "The composition conveys sovereignty: "
+            "a woman in full possession of her own aesthetic and mythology. "
+            "The dark is not threatening. It is chosen. "
+            "The warmth is not performed. It is real. "
+            "Every element should feel earned. "
             "No text anywhere in the image. Square format. Style: vivid."
         ),
         "moods": [
-            "sovereign and unhurried, the particular calm of someone who has finally stopped explaining herself",
-            "dark and luminous candlelight on old wood, the warmth of a room that took decades to build",
+            "sovereign and unhurried, the particular calm of someone who has finally stopped explaining herself to anyone",
+            "dark and luminous, candlelight on old wood, the warmth of a room it took a whole life to build",
             "timeless and knowing, the feeling of a space that holds the full complexity of a life without apologizing for any of it",
-            "warm but not soft authority that came from everything that preceded it, worn quietly",
+            "warm but not soft, the authority of someone who earned every animal at her feet"
         ],
     },
 }
