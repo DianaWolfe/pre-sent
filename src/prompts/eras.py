@@ -125,7 +125,7 @@ ERAS = {
     },
 
     "proving": {
-        "label": "The Proving Years",
+        "label": "Proving Years",
         "age_range": "Early Adulthood (~18-29)",
         "slider_position": 3,
         "bio_poem": (
@@ -181,7 +181,7 @@ ERAS = {
     },
 
     "unraveling": {
-        "label": "The Unraveling",
+        "label": "Unraveling",
         "age_range": "Crisis (~30)",
         "slider_position": 4,
         "bio_poem": (
@@ -241,7 +241,7 @@ ERAS = {
     },
 
     "reconstruction": {
-        "label": "The Reconstruction",
+        "label": "Reconstruction",
         "age_range": "Rebuilding (~31-37)",
         "slider_position": 5,
         "bio_poem": (
@@ -300,7 +300,7 @@ ERAS = {
     },
 
     "reclamation": {
-        "label": "The Reclamation",
+        "label": "Reclamation",
         "age_range": "Now",
         "slider_position": 6,
         "bio_poem": (
