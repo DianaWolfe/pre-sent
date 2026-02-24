@@ -30,37 +30,38 @@ ERAS = {
             "Safety and danger coexist in the same fairy tale."
         ),
         "developmental_frame": "Piaget's preoperational and concrete operational stages. Erikson's industry vs. inferiority.",
-        "color_palette": ["cobalt blue", "cream white", "soft pink wash", "ink black", "sage green"],
-        "art_references": ["Japanese ink illustration", "whimsical pen and ink", "elegant line drawing", "botanical illustration meets fairy tale", "multimedia sketchbook art"],
-        "emotional_texture": "safe danger, enchantment, curiosity, animism, secret worlds, precocious precision",
+        "color_palette": ["primary red and yellow", "muddy greens and browns", "bright mismatched colors", "faded crayon palette", "loud orange and electric blue"],
+        "art_references": ["child's cartoon drawing with impressionist paint blobs", "naive art meets loose impressionism", "sarcastic cartoon illustration", "wobbly figure drawing with gestural color", "outsider art with knowing humor"],
+        "emotional_texture": "sarcasm too old for the body, wry observation, cartoon logic applied to real pain, humor as armor, precocious irreverence",
         "subjects": [
-            "an elaborate bouquet of flowers erupting from stylized clouds, petals scattering like confetti",
-            "a single feather with intricate barb detail resting inside a geometric shape",
-            "a tree that is also a map, with branches becoming rivers and leaves becoming countries",
-            "a field of wildflowers drawn with obsessive botanical detail where tiny creatures hide",
-            "a bird with impossibly elegant tail feathers perched on a stack of old books",
-            "a glass jar filled with fireflies sitting on a windowsill with rain outside",
-            "a compass rose made of flowers and vines with a small animal at the center",
-            "an old suitcase open to reveal an entire miniature world growing inside it",
+            "a cartoon self-portrait of a small girl with an oversized head and a deadpan expression, surrounded by loose impressionist color blobs",
+            "a wobbly cartoon figure standing in a military base housing block, the buildings impressionistically smeared behind her",
+            "a child's exaggerated cartoon rendering of adults at a dinner party, faces distorted with knowing sarcasm, paint applied loosely",
+            "a small cartoonish girl alone in a forest clearing, trees rendered in impressionist dabs, her expression unimpressed and self-contained",
+            "a cartoon drawing of a crowded classroom where only one figure is turned away, painted in loose gestural color",
+            "an oversized cartoon sun with a sarcastic face beaming down on tiny impressionistic houses",
+            "a child cartoon figure sitting on a suitcase surrounded by blurry impressionist landscapes, looking bored and knowing",
+            "a naive cartoon drawing of a dog and a small girl, the dog impressionistically painted, the girl rendered in flat cartoon style",
         ],
         "prompt_template": (
-            "Clean pen and ink illustration with a multimedia quality. "
-            "The style is cartoonish but elegant, precise and whimsical, "
-            "like a gifted child drawing with adult-level control. "
+            "A child's drawing style that is cartoonish and flat, "
+            "but with loose impressionist paint blobs and gestural color washes behind the figures. "
+            "The cartoon lines are wobbly and expressive — not precise, but not accidental. "
             "{subject} "
             "Color palette dominated by {color}. "
             "The mood is {mood}. "
-            "Fine detailed linework on white or cream paper. "
-            "Some areas left as pure ink, others with delicate watercolor wash. "
-            "The drawing should feel both innocent and strangely sophisticated. "
+            "The figures are simplified and slightly sarcastic-looking, "
+            "like a precocious child who finds the world mildly ridiculous. "
+            "Impressionist color and light in the backgrounds and surroundings, "
+            "cartoon logic in the figures. The tension between the two styles is the point. "
             "No text. "
             "Aspect ratio 1:1. Style: natural."
         ),
         "moods": [
-            "enchanted and safe, like the moment before a bedtime story",
-            "curious and alive, as if the world is holding its breath",
-            "golden and warm, the way summer afternoons felt when they lasted forever",
-            "quietly mysterious, a secret that only children can see",
+            "deadpan and quietly amused, the expression of a child who has seen too much",
+            "wry and self-contained, humor used as a private language",
+            "sarcastic but not mean, the kind of funny that only lonely kids understand",
+            "irreverent and watchful, an observer who draws what she notices",
         ],
     },
 
@@ -80,38 +81,38 @@ ERAS = {
             "scaffolding is visible."
         ),
         "developmental_frame": "Erikson's identity vs. role confusion. Marcia's identity statuses.",
-        "color_palette": ["crimson magenta", "burnt gold", "ultramarine blue", "emerald green", "deep violet"],
-        "art_references": ["thick impasto acrylic", "palette knife painting", "expressive color field", "figurative charcoal study", "raw textural painting"],
-        "emotional_texture": "intensity, longing, self-consciousness, defiance, raw beauty, thick emotion",
+        "color_palette": ["warm skin tones and raw umber", "muted earth tones with one saturated accent", "cool gray-green flesh tones", "ochre and burnt sienna", "deep shadow brown against pale highlight"],
+        "art_references": ["naturalistic acrylic self-portrait", "observational figure painting in acrylic", "realist portrait study", "life painting from the mirror", "careful acrylic portraiture with emotional directness"],
+        "emotional_texture": "studied self-observation, the face as question, learning to see yourself clearly, the body as first subject, quiet intensity in the act of looking",
         "subjects": [
-            "a mass of flowers rendered in violent impasto, petals built up in thick ridges of crimson and magenta",
-            "a figure study in charcoal with wild flowing hair, the body twisting with energy",
-            "a landscape where the sky is built from aggressive palette knife strokes of gold and red",
-            "hands covered in paint reaching upward, rendered in heavy acrylic texture",
-            "a bouquet that is more texture than form, paint so thick it casts shadows",
-            "a stormy seascape in thick acrylic where the waves are sculpted from the paint itself",
-            "a single rose rendered so thickly the petals seem to peel off the canvas",
-            "an abstract explosion of color against a gray field, like emotion breaking through",
+            "a naturalistic acrylic self-portrait of a teenage girl, three-quarter view, looking directly at the viewer with guarded frankness",
+            "an acrylic portrait study focused on hands — one hand holding a brush, rendered with careful observational detail",
+            "a self-portrait where the face is half in shadow, painted from life with honest attention to asymmetry and uncertainty",
+            "an acrylic figure study of a young woman seated at a table, the posture self-conscious but the painting controlled",
+            "a close-up naturalistic acrylic portrait, eyes slightly downcast, the skin tones carefully layered from observation",
+            "a self-portrait in profile painted in acrylic, hair loose, the light from one window, rendered with quiet precision",
+            "an acrylic study of a figure reflected in a mirror, the reflection slightly different from the painter, painted naturalistically",
+            "a naturalistic acrylic portrait where the subject holds her own gaze — the painting of someone learning what her face means",
         ],
         "prompt_template": (
-            "Thick impasto acrylic painting with heavy palette knife texture. "
-            "The paint should look three-dimensional, built up in ridges and layers. "
+            "Naturalistic acrylic portrait painting, painted from observation. "
+            "The style is careful and direct — realist without being photographic, "
+            "with the visible brushwork of someone learning by looking hard. "
             "{subject} "
             "Color palette dominated by {color}. "
             "The mood is {mood}. "
-            "Aggressive, physical brushwork. Paint applied so thickly you can "
-            "feel the emotion in the texture. Bold, saturated color. "
-            "The painting should feel like it was made by someone who is "
-            "learning their own power and cannot contain it. "
-            "Visible canvas texture beneath heavy paint. "
+            "Skin tones built up in careful layers. Shadows honest, not dramatized. "
+            "The painting should feel like an act of self-study — the artist "
+            "using the canvas to figure out what she looks like, who she is. "
+            "Acrylic technique that shows the work of looking. Naturalistic light. "
             "No text. "
-            "Aspect ratio 1:1. Style: vivid."
+            "Aspect ratio 1:1. Style: natural."
         ),
         "moods": [
-            "fierce and tender at the same time, like a bruise that is also beautiful",
-            "storm-lit and urgent, the way everything feels at sixteen",
-            "lonely in a way that is also defiant, chosen solitude",
-            "electric and unstable, the moment before something changes forever",
+            "self-conscious and steady, the look of someone practicing being seen",
+            "quietly intense, the concentration of a teenager painting her own face for the hundredth time",
+            "frank and a little guarded, honest about what the mirror shows",
+            "searching, the way you look when you are trying to find yourself in your own reflection",
         ],
     },
 
