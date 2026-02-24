@@ -87,7 +87,7 @@ ERAS = {
     "becoming": {
         "label": "Becoming",
         "age_range": "Adolescence (~13-17)",
-        "slider_position": 3,
+        "slider_position": 2,
         "bio_poem": (
             "Anger always had a place to go, but intellect had none.\n"
             "The small world is too small. Spread your wings.\n"
@@ -103,78 +103,6 @@ ERAS = {
         ),
         "developmental_frame": "Erikson's identity vs. role confusion. Marcia's identity statuses.",
         "color_palette": [
-            "cool gray-green flesh tones over a warm umber underpainting, the skin of someone learning their own face",
-            "raw sienna shadows and titanium white highlights, honest about the asymmetry",
-            "deep burnt umber in the darks, pale yellow ochre in the light planes of the face",
-            "muted warm neutrals with one saturated color breaking through like something she couldn't contain",
-            "gray-blue shadow against cream highlight, the palette of a single window in a new room"
-        ],
-        "art_references": [
-            "naturalistic acrylic self-portrait painted from the mirror, careful and unflinching",
-            "observational life painting in acrylic on canvas, the face as first serious subject",
-            "realist portrait study with visible brushwork, someone learning to look without flinching",
-            "academic portrait approach made personal and urgent",
-            "acrylic on canvas with layered skin tones, honest asymmetry, nothing idealized"
-        ],
-        "emotional_texture": "the face as the only thing she can control, learning to look at herself without flinching, the practice of being seen on her own terms, the brush as the argument she cannot make with words, a raven outside every window she has ever painted from",
-        "subjects": [
-            "a naturalistic acrylic self-portrait of a teenage girl, three-quarter view, direct gaze that holds the viewer without aggression, skin tones built in cool layers over a warm ground, a raven barely visible in the dark background",
-            "a close-up acrylic portrait study of a young woman, face occupying most of the canvas, hair painted in long dark sweeping strokes, the face slightly asymmetrical and completely honest",
-            "a self-portrait lit from a single window source, one side of the face in warm highlight the other in cool gray shadow, painted with quiet observational precision in acrylic, a fox reflected faintly in the mirror behind her",
-            "an acrylic portrait in profile, strong jawline, hair loose, the sitter looking away from the viewer toward something outside the frame, a black dog sitting at the edge of the composition",
-            "a naturalistic acrylic figure study from the waist up, one hand resting near the chin, the posture of someone sitting for her own portrait with complete seriousness",
-            "a self-portrait where the eyes look slightly downward in concentration, painted in careful acrylic layers, skin tones mixing warm and cool the way real skin does, nothing dramatized",
-            "an acrylic portrait where the subject looks directly back at the viewer with the expressionless focus of serious self-study, dark hair against a neutral background, a raven's wing just visible at the edge of the canvas",
-            "a mirror self-portrait in acrylic where the reflection is slightly more certain than the painter, as if the canvas version of her knows something she is still working out"
-        ],
-        "prompt_template": (
-            "Naturalistic acrylic portrait on canvas, painted from direct observation. "
-            "From the mirror, from life, from the kind of looking that is also a form of argument. "
-            "The technique is careful and layered: warm umber ground visible in places, "
-            "cool gray-green flesh tones built over it, highlights in pale ochre or cream. "
-            "Brushwork visible but controlled. The marks show the work of looking, not expressive abandon. "
-            "Canvas texture shows through in the mid-tones. "
-            "The subject is always female. Always the artist herself, or someone who is her. "
-            "A spirit animal, a raven or fox or black dog, may appear at the edge of the composition "
-            "as a witness. It does not demand attention. It is simply there. "
-            "{subject} "
-            "Color palette: {color}. "
-            "The mood: {mood}. "
-            "Single natural light source. Shadows honest, not dramatized. "
-            "Emotional resonance: the figure is concentrated, guarded, and completely present. "
-            "Her expression is not soft and not hard. It is the face of someone deciding who she is "
-            "before the world decides for her. She does not perform vulnerability. She studies herself. "
-            "The painting is an act of self-determination. "
-            "The face holds its own gaze. Nothing idealized. Nothing flinched from. "
-            "No text anywhere in the image. Square format."
-        ),
-        "moods": [
-            "self-conscious and steady, the look of someone who has decided to stop looking away",
-            "concentrated and frank, the face of a teenager who has been painting herself for years and knows what she is doing",
-            "guarded but present, honest about what the mirror shows without performing vulnerability",
-            "searching and still, the quiet intensity of someone using paint to decide who she is before the world decides for her"
-        ],
-    },
-
-    "proving": {
-        "label": "Proving Years",
-        "age_range": "Early Adulthood (~18-29)",
-        "slider_position": 2,
-        "bio_poem": (
-            "Ups and downs and turn arounds,\n"
-            "two steps forward and one step back.\n"
-            "Everything looks perfect from the outside.\n"
-            "You are building the courage to finally take flight."
-        ),
-        "description": (
-            "The paintings got bigger. The palette got more ambitious. "
-            "She raised her siblings and lost herself to a marriage that was too easy. "
-            "Botanical and figurative, cobalt blue and white magnolias. "
-            "Everything looked composed from the outside. "
-            "A fox watched from the garden. She kept painting."
-        ),
-        "developmental_frame": "Erikson's intimacy vs. isolation. Levinson's early adult transition.",
-        "color_palette": [
             "deep ultramarine and cobalt blue dominating three-quarters of the canvas, cool and absolute",
             "prussian blue background with cream-white botanical forms floating through it",
             "deep cool blue field with pale gray-white magnolia petals and cool-toned flesh",
@@ -188,7 +116,7 @@ ERAS = {
             "acrylic on canvas with confident broad strokes, botanical and figure sharing a cool blue field",
             "painterly acrylic composition, cool blue atmosphere, white magnolias, female figure emerging"
         ],
-        "emotional_texture": "mastery assembling itself while something underneath gathers force, the surface held together with elegance and will, everything looks right from outside while the courage to become keeps building, a fox in the garden watching through the studio window",
+        "emotional_texture": "the face as the only thing she can control, learning to look at herself without flinching, the practice of being seen on her own terms, the brush as the argument she cannot make with words, a raven outside every window she has ever painted from",
         "subjects": [
             "a large acrylic painting on canvas: deep cobalt blue fills the background, large white magnolia blossoms float through the composition, a female figure's face or shoulders emerge from the lower portion in cool pale tones, a fox barely visible in the dark lower corner",
             "an acrylic painting on canvas: ultramarine blue ground, pale cream-white botanical forms drifting across the surface, a woman's hands reaching upward through the flowers, negative space above",
@@ -216,10 +144,10 @@ ERAS = {
             "{subject} "
             "Color: {color}. "
             "The mood: {mood}. "
-            "Emotional resonance: the figure is composed on the surface and accumulating force underneath. "
-            "Posture upright, expression controlled. She is holding something together with will. "
-            "Not distressed. Not free. The body of someone performing mastery while building courage. "
-            "Controlled but reaching. The surface composed. Something gathering underneath. "
+            "Emotional resonance: the figure is concentrated, guarded, and completely present. "
+            "Her expression is not soft and not hard. It is the face of someone deciding who she is "
+            "before the world decides for her. She does not perform vulnerability. She studies herself. "
+            "The painting is an act of self-determination. "
             "No text anywhere in the image. Square format."
         ),
         "moods": [
@@ -227,6 +155,77 @@ ERAS = {
             "polished and controlled, everything in its place except the one thing still accumulating",
             "elegant and slightly held, the brushwork of someone performing mastery while building courage",
             "cool and aspirational, confident marks, the blue vast and the figure small within it"
+        ],
+    },
+
+    "proving": {
+        "label": "Proving Years",
+        "age_range": "Early Adulthood (~18-29)",
+        "slider_position": 3,
+        "bio_poem": (
+            "Ups and downs and turn arounds,\n"
+            "two steps forward and one step back.\n"
+            "Everything looks perfect from the outside.\n"
+            "You are building the courage to finally take flight."
+        ),
+        "description": (
+            "The paintings got bigger. The palette got more ambitious. "
+            "She raised her siblings and lost herself to a marriage that was too easy. "
+            "Botanical and figurative, cobalt blue and white magnolias. "
+            "Everything looked composed from the outside. "
+            "A fox watched from the garden. She kept painting."
+        ),
+        "developmental_frame": "Erikson's intimacy vs. isolation. Levinson's early adult transition.",
+        "color_palette": [
+            "cool gray-green flesh tones over a warm umber underpainting, the skin of someone learning their own face",
+            "raw sienna shadows and titanium white highlights, honest about the asymmetry",
+            "deep burnt umber in the darks, pale yellow ochre in the light planes of the face",
+            "muted warm neutrals with one saturated color breaking through like something she couldn't contain",
+            "gray-blue shadow against cream highlight, the palette of a single window in a new room"
+        ],
+        "art_references": [
+            "naturalistic acrylic self-portrait painted from the mirror, careful and unflinching",
+            "observational life painting in acrylic on canvas, the face as first serious subject",
+            "realist portrait study with visible brushwork, someone learning to look without flinching",
+            "academic portrait approach made personal and urgent",
+            "acrylic on canvas with layered skin tones, honest asymmetry, nothing idealized"
+        ],
+        "emotional_texture": "mastery assembling itself while something underneath gathers force, the surface held together with elegance and will, everything looks right from outside while the courage to become keeps building, a fox in the garden watching through the studio window",
+        "subjects": [
+            "a naturalistic acrylic self-portrait of a young woman, three-quarter view, direct gaze that holds the viewer without aggression, skin tones built in cool layers over a warm ground, a raven barely visible in the dark background",
+            "a close-up acrylic portrait study of a woman, face occupying most of the canvas, hair painted in long dark sweeping strokes, the face slightly asymmetrical and completely honest",
+            "a self-portrait lit from a single window source, one side of the face in warm highlight the other in cool gray shadow, painted with quiet observational precision in acrylic, a fox reflected faintly in the mirror behind her",
+            "an acrylic portrait in profile, strong jawline, hair loose, the sitter looking away from the viewer toward something outside the frame, a black dog sitting at the edge of the composition",
+            "a naturalistic acrylic figure study from the waist up, one hand resting near the chin, the posture of someone sitting for her own portrait with complete seriousness",
+            "a self-portrait where the eyes look slightly downward in concentration, painted in careful acrylic layers, skin tones mixing warm and cool the way real skin does, nothing dramatized",
+            "an acrylic portrait where the subject looks directly back at the viewer with the expressionless focus of serious self-study, dark hair against a neutral background, a raven's wing just visible at the edge of the canvas",
+            "a mirror self-portrait in acrylic where the reflection is slightly more certain than the painter, as if the canvas version of her knows something she is still working out"
+        ],
+        "prompt_template": (
+            "Naturalistic acrylic portrait on canvas, painted from direct observation. "
+            "From the mirror, from life, from the kind of looking that is also a form of argument. "
+            "The technique is careful and layered: warm umber ground visible in places, "
+            "cool gray-green flesh tones built over it, highlights in pale ochre or cream. "
+            "Brushwork visible but controlled. The marks show the work of looking, not expressive abandon. "
+            "Canvas texture shows through in the mid-tones. "
+            "The subject is always female. Always the artist herself, or someone who is her. "
+            "A spirit animal, a raven or fox or black dog, may appear at the edge of the composition "
+            "as a witness. It does not demand attention. It is simply there. "
+            "{subject} "
+            "Color palette: {color}. "
+            "The mood: {mood}. "
+            "Single natural light source. Shadows honest, not dramatized. "
+            "Emotional resonance: the figure is composed on the surface and accumulating force underneath. "
+            "Posture upright, expression controlled. She is holding something together with will. "
+            "Not distressed. Not free. The body of someone performing mastery while building courage. "
+            "Controlled but reaching. The surface composed. Something gathering underneath. "
+            "No text anywhere in the image. Square format."
+        ),
+        "moods": [
+            "self-conscious and steady, the look of someone who has decided to stop looking away",
+            "concentrated and frank, the face of someone who has been painting herself for years and knows what she is doing",
+            "guarded but present, honest about what the mirror shows without performing vulnerability",
+            "searching and still, the quiet intensity of someone using paint to decide who she is before the world decides for her"
         ],
     },
 
