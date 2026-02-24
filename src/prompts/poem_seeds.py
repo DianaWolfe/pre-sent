@@ -14,7 +14,7 @@ Rules:
 - No rhyming
 - No metaphors that feel "literary" or performed
 - Use concrete sensory details (smells, textures, sounds, light)
-- Write in second person ("you") or fragmented first person
+- Write in first person "i" (lowercase). Do not use "you" — address nothing outside the memory
 - Include at least one imperfect or contradictory detail
 - The tone is intimate, like talking to yourself at 2am
 - No titles. No punctuation at the end of lines

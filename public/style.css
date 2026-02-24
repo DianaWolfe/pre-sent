@@ -164,6 +164,20 @@ body {
     letter-spacing: 0.02em;
 }
 
+/* The machine's identity confusion: ~~i~~ WE */
+.canvas-poem__text del {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    opacity: 0.6;
+}
+
+.canvas-poem__text .we {
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    margin-left: 0.2em;
+}
+
 .canvas img {
     position: relative;
     z-index: 1;

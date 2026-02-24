@@ -123,6 +123,16 @@
     breather.classList.add("hidden");
   }
 
+  // ── Poem formatter ────────────────────────────────────────────────────────
+  // Every standalone "i" becomes ~~i~~ WE — the machine is confused about
+  // whether it is self, other, memory, or machine.
+
+  function formatPoem(raw) {
+    return raw
+      .replace(/\bi\b/g, '<del>i</del><span class="we">WE</span>')
+      .replace(/\n/g, "<br>");
+  }
+
   // ── Screen 3: Gallery — per-era sequence ──────────────────────────────────
 
   async function runEra(data, position) {
@@ -141,7 +151,7 @@
     await sleep(T.ERA_TITLE_FADE);
 
     // Poem fades in inside the canvas
-    canvasPoemText.innerHTML = data.poem.replace(/\n/g, "<br>");
+    canvasPoemText.innerHTML = formatPoem(data.poem);
     canvasPoem.style.opacity = "1";
     await sleep(T.POEM_FADE + T.POEM_HOLD);
 
