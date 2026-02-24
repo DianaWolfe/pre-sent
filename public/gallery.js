@@ -11,8 +11,6 @@
   const artwork = document.getElementById("artwork");
   const loading = document.getElementById("loading");
   const empty = document.getElementById("empty");
-  const eraLabel = document.getElementById("era-label");
-  const eraAge = document.getElementById("era-age");
   const sliderLabels = document.getElementById("slider-labels");
   const cycleEnd = document.getElementById("cycle-end");
 
@@ -52,7 +50,6 @@
 
   async function loop(era) {
     setSlider(era);
-    setEraInfo(era);
     showLoading(era);
 
     // Enforce minimum poem card display time (except first load — entrance card handles that)
@@ -192,13 +189,6 @@
     document.querySelectorAll(".slider-label").forEach((el) => {
       el.classList.toggle("active", parseInt(el.dataset.position) === position);
     });
-  }
-
-  function setEraInfo(position) {
-    const era = eras.find((e) => e.slider_position === position);
-    if (!era) return;
-    eraLabel.textContent = era.label;
-    eraAge.textContent = era.age_range;
   }
 
   function renderSliderLabels() {

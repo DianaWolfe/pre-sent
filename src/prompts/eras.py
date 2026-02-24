@@ -47,14 +47,14 @@ ERAS = {
         ],
         "emotional_texture": "pure observation before self-consciousness arrived, drawing everything because drawing is how she understands it, the raven as the only constant across seventeen schools, wonder applied equally to forests and military housing blocks and the faces of strangers",
         "subjects": [
-            "a child's earnest crayon drawing of a raven perched on a fence post, the iridescent wings attempted in overlapping dark blue and purple, the feet gripping the wire drawn with careful wobbly lines",
-            "a pencil and colored pencil study of a fox sitting in snow, the orange fur rendered in the closest available crayon color which is not quite right, the snow overworked where the brush went back too many times",
-            "an early observational drawing of a black dog lying in a patch of sunlight, the fur built up in overlapping dark pencil strokes, the shadow underneath in muddy grey-blue, the dog's face looking straight out",
-            "a child's detailed pencil drawing of a frog on a lily pad, the eyes too large and perfectly round, the lily pad a careful green circle, water suggested by wavy lines extending to the edges",
-            "a learner's colored pencil drawing of a deer standing at the edge of a forest, the trees scribbled green behind it, each spot on the deer's back carefully dotted in the same white crayon",
-            "a child's sketchbook page of a raven in flight, wings spread, multiple pencil lines visible where the shape was redrawn and worked out, the primary feathers indicated with short careful strokes",
-            "an earnest pencil and crayon drawing of a caterpillar on a large leaf, the leaf veins drawn with a ruler, the caterpillar's stripes in available colors that are not quite right but carefully applied",
-            "a child's watercolor of a wolf standing in a forest clearing, the trees behind it in muddy greens, the wolf's eyes given extra attention — too large and too intense, the most finished thing on the page"
+            "a child's pencil and crayon drawing: a raven fills most of the page, drawn very large because it deserves the space, the eye given special attention — a careful oval with a smaller oval inside, the beak redrawn twice to get it right",
+            "a pencil and colored pencil drawing: a fox sits small at the center of a mostly empty page, sky scribbled blue above, ground white with careful gray shadows, the whole scene observed quietly from a distance",
+            "a child's detailed pencil drawing: a frog seen from nearly above, sitting in the center of a carefully drawn lily pad, the eyes too large and perfectly round, wavy lines radiating outward to the page edges",
+            "an earnest pencil and crayon drawing: a caterpillar takes up most of the page, each segment carefully outlined and colored, the leaf drawn with ruler-straight veins, the whole composition filling the paper edge to edge",
+            "a child's sketchbook page: four small animal sketches in different corners — a raven profile, a fox sitting, a deer head, a black dog — each drawn with the same careful attention, the page full of looking",
+            "a child's watercolor: a wolf stands in a forest clearing, trees surrounding it on three sides creating a natural frame, the wolf's eyes the most carefully painted thing on the page, too large and too intense",
+            "a learner's colored pencil drawing: a deer half in the trees and half in open meadow, the line between forest and clearing a visible seam in the drawing, every detail on both sides given equal serious attention",
+            "a child's pencil drawing: a raven in flight, wings spread wide from one side of the paper to the other, the primary feathers carefully counted and drawn, pencil lines visible where the wingspan was restarted to get it right"
         ],
         "prompt_template": (
             "Early learner art. A child who draws everything she sees, every day, because she must. "
@@ -116,14 +116,14 @@ ERAS = {
         ],
         "emotional_texture": "the face as the only thing she can control, learning to look at herself without flinching, the practice of being seen on her own terms, the brush as the argument she cannot make with words, a raven outside every window she has ever painted from",
         "subjects": [
-            "a large acrylic painting on canvas: deep cobalt blue fills the background, large white magnolia blossoms float through the composition, a female figure's face or shoulders emerge from the lower portion in cool pale tones, a fox barely visible in the dark lower corner",
-            "an acrylic painting on canvas: ultramarine blue ground, pale cream-white botanical forms drifting across the surface, a woman's hands reaching upward through the flowers, negative space above",
-            "a large acrylic painting on canvas: cool dark blue background with white magnolia petals scattered across it like something released, a female figure's profile visible at the left edge looking inward",
-            "an acrylic painting on canvas: prussian blue fills the frame, white and pale gray botanical forms in the upper two-thirds, a woman's face upturned in the lower third as if surfacing from deep water",
-            "a large acrylic painting on canvas: deep blue ground, a female figure standing within it in cool pale tones, white flowers surrounding her, the composition spare and the blue vast around everything",
-            "an acrylic painting on canvas: midnight blue background, a single large magnolia blossom in cool white at center, a woman's silhouette in the lower portion, most of the canvas empty blue",
-            "a large acrylic painting on canvas: cobalt blue ground with loose white botanical brushstrokes moving through it, a female face barely distinguishable from the flowers, dissolved into the composition",
-            "an acrylic painting on canvas: deep blue fills most of the frame, white petals in the upper portion, a woman's figure in cool blue-gray at the bottom, the painting spare and the silence enormous"
+            "a large acrylic painting on canvas: a young woman's face occupies nearly the entire canvas in cool pale tones, her gaze direct and unresolved, cobalt blue pressing in at the very edges",
+            "an acrylic painting on canvas: ultramarine blue fills nearly the entire frame, a small female figure stands at the very bottom barely distinguishable from the dark, white magnolia petals drifting down from above like slow snow",
+            "an acrylic painting on canvas: a close-up study of two hands held open against deep cobalt blue, white flowers resting in the palms, no face visible — only the hands and the offering",
+            "a large acrylic painting on canvas: a woman's back and loosely painted hair face the blue interior of the canvas, white botanical forms floating on either side of her, we see only what she will not show",
+            "an acrylic painting on canvas: vast botanical forms in cream and white occupy most of the frame, a woman's profile barely distinguishable among the magnolias — her face and the flowers made of the same pale paint",
+            "an acrylic painting on canvas: prussian blue fills the background, a young woman in strong profile at center, chin lifted, white magnolia petals moving through the composition, the painting spare and certain",
+            "an acrylic painting on canvas: the view is straight down at white magnolia petals scattered across a cobalt blue surface, a woman's dark hair just entering the frame from one edge, the angle intimate and unexpected",
+            "an acrylic painting on canvas: midnight blue fills the entire canvas, a woman's shoulders and the back of her head emerge from the lower portion as if rising from the blue itself, white petals floating in the space above"
         ],
         "prompt_template": (
             "THIS IS A LARGE-SCALE ACRYLIC PAINTING ON CANVAS. "
@@ -190,14 +190,14 @@ ERAS = {
         ],
         "emotional_texture": "mastery assembling itself while something underneath gathers force, the surface held together with elegance and will, everything looks right from outside while the courage to become keeps building, a fox in the garden watching through the studio window",
         "subjects": [
-            "a naturalistic acrylic self-portrait of a young woman, three-quarter view, direct gaze that holds the viewer without aggression, skin tones built in cool layers over a warm ground, a raven barely visible in the dark background",
-            "a close-up acrylic portrait study of a woman, face occupying most of the canvas, hair painted in long dark sweeping strokes, the face slightly asymmetrical and completely honest",
-            "a self-portrait lit from a single window source, one side of the face in warm highlight the other in cool gray shadow, painted with quiet observational precision in acrylic, a fox reflected faintly in the mirror behind her",
-            "an acrylic portrait in profile, strong jawline, hair loose, the sitter looking away from the viewer toward something outside the frame, a black dog sitting at the edge of the composition",
-            "a naturalistic acrylic figure study from the waist up, one hand resting near the chin, the posture of someone sitting for her own portrait with complete seriousness",
-            "a self-portrait where the eyes look slightly downward in concentration, painted in careful acrylic layers, skin tones mixing warm and cool the way real skin does, nothing dramatized",
-            "an acrylic portrait where the subject looks directly back at the viewer with the expressionless focus of serious self-study, dark hair against a neutral background, a raven's wing just visible at the edge of the canvas",
-            "a mirror self-portrait in acrylic where the reflection is slightly more certain than the painter, as if the canvas version of her knows something she is still working out"
+            "a naturalistic acrylic portrait: a young woman's face and shoulders, three-quarter view, direct composed gaze, skin tones built in careful cool layers over a warm ground, a raven barely visible in the shadowed background",
+            "an acrylic painting: an extreme close-up of the eye area only — two eyes level and frank, the flesh around them painted with honest asymmetry, the rest of the face outside the frame, only what matters most",
+            "an acrylic painting on canvas: a close-up study of a woman's hands, one resting open, painted with the same observational precision usually given to a face, the palette muted and honest, nothing decorative",
+            "an acrylic painting on canvas: a woman from behind, her dark hair against a neutral background, every strand of the upswept hair painted with the careful attention usually applied to a face, the nape of the neck, the line of shoulder",
+            "an acrylic painting on canvas: a woman in profile at an easel in a spare studio, small within the room, her back to the viewer, a black dog resting near the door, the room given as much care as she is",
+            "a naturalistic acrylic portrait: the subject sits facing her mirror, her reflection visible in it — the painted version of her looks slightly more certain than the woman looking, a raven perched on the mirror frame",
+            "an acrylic painting on canvas: a woman seated in a plain room, figure rendered small within the composition, the empty walls and light of the room painted with the same careful attention as the figure, a fox barely visible at the edge",
+            "a naturalistic acrylic portrait: a close profile, the subject looking at nothing in the frame, painted with unflinching observational focus, the strong jawline and loose hair, honest asymmetry, nothing idealized"
         ],
         "prompt_template": (
             "Naturalistic acrylic portrait on canvas, painted from direct observation. "
@@ -338,14 +338,14 @@ ERAS = {
         ],
         "emotional_texture": "movement after stillness, the body trusting itself again, wolves as the pack she chose not the one she was assigned, the fox as intelligence and survival and forward motion, the raven as the part of her that always knew she would make it, grounded grace rather than performed elegance",
         "subjects": [
-            "a sophisticated ink and watercolor illustration of a woman in profile, a wolf at her side and a raven on her shoulder, all three moving in the same direction through autumn, rendered in cool blue-gray with rust-red leaf accents",
-            "an ink and watercolor illustration of a woman in full stride with two wolves flanking her as chosen companions, a fox running ahead, cool gray-blue palette with warm autumn color in the leaves",
-            "an ink and watercolor drawing of a woman standing in birch trees, wolves in the trees around her, rendered in loose gray-blue washes around a confident ink outline, red-orange leaves falling",
-            "a narrative illustration in pen and ink with watercolor of a woman and a wolf sitting back to back, both looking outward, the palette cool and restrained, a raven overhead",
-            "an ink and watercolor illustration of a woman in motion, arms loose and confident, a fox running alongside her, the movement fluid and sure, blue-gray tones with warm rust accents",
-            "a pen and ink illustration with watercolor wash of a woman in profile, strong jaw, hair loose, looking ahead with quiet certainty, a wolf behind her and a raven above, cool palette with one warm element",
-            "an ink and watercolor composition of a woman and her pack, two wolves and a fox, emerging from a forest into open space, her form in confident ink line, the palette moving from cool shadow to first warm light",
-            "a sophisticated ink and watercolor illustration of a woman with a raven on one arm and a fox at her feet, autumn light around her, everything rendered in muted blue and cream except for the rust-red of the fox and the leaves"
+            "a sophisticated ink and watercolor illustration: a woman in profile, a wolf at her side and a raven on her shoulder, all three moving in the same direction through autumn, blue-gray wash and rust-red leaf accents",
+            "an ink and watercolor illustration: a wide autumn landscape in cool blue-gray wash, sparse birch trees, a small female figure at the center with two wolves beside her, the space vast and welcoming, not threatening",
+            "a pen and ink illustration with watercolor: a woman seen from behind walking toward open light, a wolf on each side, figures rendered as silhouettes against the warm pale edge of the composition, the direction unmistakable",
+            "an ink and watercolor drawing: an extreme close-up of a woman's hands, a fox pressing its nose against her palm, rendered in careful pen line with gray-blue wash and warm rust on the fox, nothing else in the frame",
+            "a narrative ink and watercolor illustration: a woman and a wolf sitting back to back, both looking outward in opposite directions, the composition square and still, cool gray palette, a raven overhead",
+            "an ink and watercolor illustration: side-by-side close-up of a woman's face and a wolf's face at the same level, both looking in the same direction, rendered in the same confident line quality with gray-blue watercolor",
+            "an ink and watercolor composition: a woman and her pack emerging from dark forest into open space, the composition moving from heavy ink-dark trees on the left to pale wash on the right, movement and arrival unmistakable",
+            "a sophisticated ink and watercolor illustration: overhead view of a woman and a fox at her feet, autumn leaves scattered around them on the ground, the figure seen from above, the rust-red of the fox and the leaves the only warmth"
         ],
         "prompt_template": (
             "Pen and ink illustration with controlled watercolor washes. "
@@ -414,14 +414,14 @@ ERAS = {
         ],
         "emotional_texture": "sovereignty without performance, the collected life rendered in storybook style, ravens as familiars not omens, wolves as guardians not threats, foxes as companions not tricksters, the dark sublime as aesthetic home, warmth chosen rather than performed, the artist who finally owns her own mythology completely",
         "subjects": [
-            "a richly detailed storybook illustration of a woman in a candlelit library surrounded by books and botanical specimens and objects of power, two black dogs sleeping at her feet, a raven on the back of her chair, rendered in dark warm illustrative style",
-            "a dark storybook illustration of a woman standing in a doorway of a candlelit stone house at night, wolves in the moonlit garden behind her, a raven on her shoulder, the light from within warm against the cool night",
-            "a refined narrative illustration of a woman at a long table she built herself, objects arranged with intention around her, a fox curled at one end, a raven on her arm, the room dark and deeply inhabited",
-            "a storybook illustration of a woman in a garden at dusk, old roses and iron gates, two wolves standing guard among the plants, a raven in the rose canes above her, rendered in rich dark illustrative style with warm candlelit accents",
-            "a dark elegant storybook illustration of a woman at a desk by lamplight, papers and research and objects collected over years spread around her, a black dog at her feet and a raven on the lamp, the room hers completely",
-            "a refined gothic storybook illustration of a woman moving through a candlelit room hung with her own paintings, a wolf at her side, a fox in the doorway, a raven overhead, everything chosen and in its place",
-            "a dark and warm storybook illustration of a woman with a raven on one shoulder and a wolf pressing against her leg, standing in a moonlit room full of objects she has collected over a lifetime, sovereign and unhurried",
-            "a richly illustrated storybook scene of a woman in a stone garden at night, sitting among the wolves and foxes and ravens she has gathered, not performing peace but actually in it, the dark beautiful and chosen"
+            "a richly detailed storybook illustration: a woman in a candlelit library surrounded by books and objects of power, two black dogs sleeping at her feet, a raven on the back of her chair, warm amber light from one lamp",
+            "a dark storybook illustration: a woman standing in a doorway at night, wolves visible in the moonlit garden behind her, the view is from outside looking in, warm interior light against cool night air, a raven on the door frame above",
+            "a refined storybook illustration: extreme close-up of a woman's hands holding a meaningful object — a raven feather, a ring, a small dark book — a fox nose just entering the frame from below, the dark warm background out of focus",
+            "a storybook illustration: overhead view of a woman's desk at night, lamplight illuminating papers and objects from above, a raven standing among them, a black dog curled at the edge, the woman herself barely visible at the bottom of the frame",
+            "a dark elegant storybook illustration: a woman in profile at a high window at night, a wolf sitting beside her at the same level, both looking out at the same dark garden, the glass reflecting both their faces faintly back",
+            "a refined gothic storybook illustration: wide view of a candlelit room hung with paintings, a woman small at the far end moving through it, a wolf at her side, a fox in the near doorway, the room itself the main character",
+            "a dark storybook illustration: a close-up portrait of a woman and a raven in direct eye contact, her face turned slightly toward it, the raven on her shoulder, the background dark and inhabited, mutual recognition in both faces",
+            "a richly illustrated storybook scene: a stone garden at night seen from above, wolves and foxes and ravens arranged in the space below, the woman a still figure at the center, the dark beautiful and entirely chosen"
         ],
         "prompt_template": (
             "Refined storybook illustration style, dark and warm and deeply narrative. "
