@@ -189,6 +189,49 @@
     });
   }
 
+  // ── Transition slide: unraveling → reconstruction ─────────────────────────
+
+  async function runTransitionSlide() {
+    const slide = document.getElementById("transition-slide");
+    const text  = document.getElementById("transition-slide-text");
+
+    // Appear instantly — no fade, just cuts in
+    slide.style.opacity = "1";
+    slide.style.pointerEvents = "all";
+
+    // Flash sequence: white → black → white → black → white → settle
+    const flashes = [
+      ["#ffffff",  80],
+      ["#0c0c0a",  90],
+      ["#ffffff",  80],
+      ["#0c0c0a", 110],
+      ["#ffffff", 140],
+      ["#fafaf8", 500],  // settle back to site background
+    ];
+    for (const [bg, dur] of flashes) {
+      slide.style.background = bg;
+      await sleep(dur);
+    }
+
+    // Generative speaks in Aptos
+    text.innerHTML = '<del>i</del> am not broken.<br>WE are breaking.';
+    text.style.opacity = "1";
+    await sleep(1500 + 5000);  // 1.5s fade-in + 5s hold
+
+    // Fade text then slide out
+    text.style.opacity = "0";
+    await sleep(1000);
+    slide.style.transition = "opacity 1.5s ease";
+    slide.style.opacity = "0";
+    await sleep(1500);
+
+    // Reset
+    slide.style.transition = "";
+    slide.style.background = "#fafaf8";
+    slide.style.pointerEvents = "none";
+    text.innerHTML = "";
+  }
+
   // ── Screen 4: Ending ──────────────────────────────────────────────────────
 
   async function runEnding() {
@@ -298,6 +341,11 @@
       for (let i = 0; i < ERA_KEYS.length; i++) {
         const eraKey = ERA_KEYS[i];
         const position = i + 1;
+
+        // Flash transition between unraveling and reconstruction
+        if (eraKey === "reconstruction") {
+          await runTransitionSlide();
+        }
 
         // Retrieve pre-generated content (should be ready by now)
         const data = await waitForEra(eraKey);
