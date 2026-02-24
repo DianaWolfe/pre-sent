@@ -47,14 +47,14 @@ ERAS = {
         ],
         "emotional_texture": "pure observation before self-consciousness arrived, drawing everything because drawing is how she understands it, the raven as the only constant across seventeen schools, wonder applied equally to forests and military housing blocks and the faces of strangers",
         "subjects": [
-            "a child's pencil and colored pencil drawing of a girl standing in a forest, proportions earnest and slightly wrong, a raven perched on a branch above her drawn with the same careful attention as everything else",
-            "a learner's crayon drawing of a girl and her black dog, both figures simplified but observed, the background a child's version of a backyard with a fence and trees that don't quite recede",
-            "a child's sketchbook drawing of a fox sitting in tall grass, pencil lines showing the artist working out the shape, a small female figure watching from the edge of the page",
-            "an early colored pencil drawing of a girl reading under a tree, the tree rendered in careful green scribbles, a raven in the branches above drawn larger than it would be because it matters more",
-            "a child's observational drawing of a moving van with a girl sitting on the bumper, pencil lines slightly wobbly, a fox watching from the roadside in the same earnest style",
-            "a learner's figure drawing of a girl standing alone in what might be a school hallway, proportions slightly stiff, a raven visible through the window behind her",
-            "a child's watercolor and pencil drawing of a forest clearing, the trees outlined in pencil and filled with overlapping green crayon, a small figure and a black dog at the center",
-            "an early sketchbook page: a girl's face in pencil, studied from the mirror, the lines redrawn where she was not sure, the proportions honest and slightly large-eyed the way children draw themselves"
+            "a child's earnest crayon drawing of a raven perched on a fence post, the iridescent wings attempted in overlapping dark blue and purple, the feet gripping the wire drawn with careful wobbly lines",
+            "a pencil and colored pencil study of a fox sitting in snow, the orange fur rendered in the closest available crayon color which is not quite right, the snow overworked where the brush went back too many times",
+            "an early observational drawing of a black dog lying in a patch of sunlight, the fur built up in overlapping dark pencil strokes, the shadow underneath in muddy grey-blue, the dog's face looking straight out",
+            "a child's detailed pencil drawing of a frog on a lily pad, the eyes too large and perfectly round, the lily pad a careful green circle, water suggested by wavy lines extending to the edges",
+            "a learner's colored pencil drawing of a deer standing at the edge of a forest, the trees scribbled green behind it, each spot on the deer's back carefully dotted in the same white crayon",
+            "a child's sketchbook page of a raven in flight, wings spread, multiple pencil lines visible where the shape was redrawn and worked out, the primary feathers indicated with short careful strokes",
+            "an earnest pencil and crayon drawing of a caterpillar on a large leaf, the leaf veins drawn with a ruler, the caterpillar's stripes in available colors that are not quite right but carefully applied",
+            "a child's watercolor of a wolf standing in a forest clearing, the trees behind it in muddy greens, the wolf's eyes given extra attention — too large and too intense, the most finished thing on the page"
         ],
         "prompt_template": (
             "Early learner art. A child who draws everything she sees, every day, because she must. "

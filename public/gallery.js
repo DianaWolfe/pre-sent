@@ -34,6 +34,14 @@
       const res = await fetch("/api/eras");
       eras = await res.json();
       renderSliderLabels();
+
+      // Populate era 1 poem in entrance card
+      const era1 = eras.find((e) => e.slider_position === 1);
+      if (era1) {
+        const poemEl = document.getElementById("entrance-poem");
+        if (poemEl) poemEl.innerHTML = era1.bio_poem.replace(/\n/g, "<br>");
+      }
+
       loop(1);
     } catch (e) {
       console.error("Failed to load eras:", e);

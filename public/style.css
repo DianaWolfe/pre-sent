@@ -195,6 +195,18 @@ body {
     margin-bottom: 28px;
 }
 
+.entrance-card__poem {
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #8a8a85;
+    letter-spacing: 0.03em;
+    line-height: 2;
+    text-align: center;
+    max-width: 320px;
+    margin-bottom: 28px;
+}
+
 .entrance-card__waiting {
     font-size: 0.85rem;
     font-weight: 300;
@@ -242,22 +254,22 @@ body {
 }
 
 .poem-card__era {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: #3a3a35;
+    color: #6a6a62;
     margin-bottom: 28px;
 }
 
 .poem-card__poem {
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 300;
     font-style: italic;
     color: #c8c4be;
     line-height: 2.1;
     text-align: center;
     letter-spacing: 0.03em;
-    max-width: 340px;
+    max-width: 380px;
     margin-bottom: 32px;
 }
 
