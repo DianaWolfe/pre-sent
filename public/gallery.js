@@ -1,195 +1,223 @@
 /**
- * pre.SENT - Gallery
+ * pre.SENT v2 — Gallery
  *
- * A performance. Six eras. One cycle.
- * Begins with a breathing exercise. Moves through an artist's life.
- * Ends in white. Requires a refresh to re-enter.
+ * A performance in four screens. No viewer control.
+ * Screen 1: Explainer  (~15s)
+ * Screen 2: Breather   (~13s)
+ * Screen 3: Gallery    (~2.5 min, 6 eras auto-advancing)
+ * Screen 4: Ending     (black, sequential text, holds indefinitely)
  */
 
 (function () {
-  const slider = document.getElementById("era-slider");
-  const artwork = document.getElementById("artwork");
-  const loading = document.getElementById("loading");
-  const empty = document.getElementById("empty");
+  // ── Elements ──────────────────────────────────────────────────────────────
+
+  const slider       = document.getElementById("era-slider");
+  const artwork      = document.getElementById("artwork");
+  const cycleEnd     = document.getElementById("cycle-end");
+  const explainer    = document.getElementById("explainer");
+  const explainerBody= document.getElementById("explainer-body");
+  const eraDisplay   = document.getElementById("era-display");
+  const eraName      = document.getElementById("era-display-name");
+  const eraAge       = document.getElementById("era-display-age");
+  const eraPoem      = document.getElementById("era-display-poem");
+  const breather     = document.getElementById("breather");
   const sliderLabels = document.getElementById("slider-labels");
-  const cycleEnd = document.getElementById("cycle-end");
+
+  // ── State ─────────────────────────────────────────────────────────────────
 
   let eras = [];
-  let firstLoad = true;
+  let sessionId = null;
 
-  const DISPLAY_DURATION = 20000;   // 20s per image
-  const POEM_MIN_DURATION = 7000;   // poem card shows for at least 7s
-  const PREFETCH_DELAY = 9000;      // start prefetch 9s after image appears
-  const RATE_LIMIT_RETRY = 10000;   // wait 10s if rate limited
+  const ERA_KEYS = [
+    "wonder", "becoming", "proving",
+    "unraveling", "reconstruction", "sovereign",
+  ];
 
-  // Single prefetch slot
-  let prefetch = { era: null, data: null, promise: null };
+  // Timing (ms) — mirrors performance_text.py GALLERY_TIMING
+  const T = {
+    ERA_TITLE_FADE:   1500,
+    POEM_FADE:        2000,
+    POEM_HOLD:        5000,
+    IMAGE_FADE:       2500,
+    IMAGE_HOLD:       10000,
+    ERA_FADE_OUT:     2000,
+    INTER_ERA_PAUSE:  1500,
+    UNRAVELING_PAUSE: 4000,  // white silence before reconstruction
+  };
 
-  // ── Init ─────────────────────────────────────────────────────────────────
+  // ── Utilities ─────────────────────────────────────────────────────────────
 
-  async function init() {
-    try {
-      const res = await fetch("/api/eras");
-      eras = await res.json();
-      renderSliderLabels();
-
-      loop(1);
-    } catch (e) {
-      console.error("Failed to load eras:", e);
-    }
+  function sleep(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
-  // ── Main loop ─────────────────────────────────────────────────────────────
+  // ── Screen 1: Explainer ───────────────────────────────────────────────────
 
-  async function loop(era) {
-    setSlider(era);
-    showLoading(era);
+  const EXPLAINER_GROUPS = [
+    { text: "you are about to watch a machine remember someone's life.", hold: 3500 },
+    {
+      text: "an artist left her memories here.\nnot her paintings. her words.\ndecades of color and loss and recovery\ntranslated into instructions a machine can follow.",
+      hold: 4500,
+    },
+    {
+      text: "the machine has never seen her work.\nit inherits. it interprets. it may betray.\nthat uncertainty is the art.",
+      hold: 4500,
+    },
+    {
+      text: "what happens next will not repeat.\nnot the same poem. not the same image.\nnot the same machine.\nyou cannot pause it. you cannot keep it.",
+      hold: 4500,
+    },
+    { text: "nothing is saved.", hold: 2500, final: true },
+  ];
 
-    // Enforce minimum poem card display time (except first load — entrance card handles that)
-    const imagePromise = getImage(era);
-    const timerPromise = firstLoad ? Promise.resolve() : sleep(POEM_MIN_DURATION);
-    const [data] = await Promise.all([imagePromise, timerPromise]);
+  async function runExplainer() {
+    for (let i = 0; i < EXPLAINER_GROUPS.length; i++) {
+      const { text, hold, final } = EXPLAINER_GROUPS[i];
 
-    await revealImage(data.image);
+      const el = document.createElement("p");
+      el.className = "explainer__group" + (final ? " explainer__group--final" : "");
+      el.innerHTML = text.replace(/\n/g, "<br>");
+      el.style.opacity = "0";
+      explainerBody.innerHTML = "";
+      explainerBody.appendChild(el);
 
-    // Prefetch next era in background
-    const next = era < 6 ? era + 1 : null;
-    if (next) {
-      setTimeout(() => startPrefetch(next), PREFETCH_DELAY);
-    }
+      // Trigger fade in
+      await sleep(50);
+      el.style.opacity = "1";
+      await sleep(1500 + hold);
 
-    await sleep(DISPLAY_DURATION);
-
-    if (era >= 6) {
-      endCycle();
-      return;
-    }
-
-    loop(next);
-  }
-
-  // ── Image retrieval ───────────────────────────────────────────────────────
-
-  async function getImage(era) {
-    if (prefetch.era === era && prefetch.data) {
-      const data = prefetch.data;
-      prefetch = { era: null, data: null, promise: null };
-      return data;
-    }
-
-    if (prefetch.era === era && prefetch.promise) {
-      await prefetch.promise;
-      if (prefetch.data) {
-        const data = prefetch.data;
-        prefetch = { era: null, data: null, promise: null };
-        return data;
+      // Fade out (except final group — whole explainer fades)
+      if (!final) {
+        el.style.transition = "opacity 1s ease";
+        el.style.opacity = "0";
+        await sleep(1000);
       }
     }
 
-    return await fetchWithRetry(era);
+    // Fade entire explainer out
+    explainer.classList.add("fading");
+    await sleep(1500);
+    explainer.style.display = "none";
   }
 
-  async function fetchWithRetry(era) {
-    while (true) {
-      const res = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ era }),
-      });
+  // ── Screen 2: Breather ────────────────────────────────────────────────────
 
-      if (res.status === 429) {
-        const body = await res.json();
-        const wait = body.wait ? body.wait * 1000 : RATE_LIMIT_RETRY;
-        await sleep(wait + 500);
-        continue;
-      }
+  async function runBreather() {
+    // Breather is visible from HTML load; voice lines start hidden (opacity 0 in CSS)
+    const line1 = document.getElementById("breather-line-1");
+    const line2 = document.getElementById("breather-line-2");
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return await res.json();
-    }
+    // Let breathing animation play for ~7s before machine speaks
+    await sleep(7000);
+
+    // The generative speaks (roman type — tonal shift)
+    line1.style.opacity = "1";
+    await sleep(2500);
+    line2.style.opacity = "1";
+    await sleep(3000);
+
+    // Fade out breather
+    breather.style.opacity = "0";
+    await sleep(1500);
+    breather.classList.add("hidden");
   }
 
-  function startPrefetch(era) {
-    if (prefetch.era === era) return;
-    prefetch = { era, data: null, promise: null };
+  // ── Screen 3: Gallery — per-era sequence ──────────────────────────────────
 
-    prefetch.promise = fetchWithRetry(era)
-      .then((data) => {
-        if (prefetch.era === era) prefetch.data = data;
-      })
-      .catch(() => {
-        if (prefetch.era === era) prefetch = { era: null, data: null, promise: null };
-      });
-  }
+  async function runEra(data, position) {
+    setSlider(position);
 
-  // ── Display ───────────────────────────────────────────────────────────────
-
-  function showLoading(era) {
+    // Reset state
     artwork.classList.remove("visible");
+    eraPoem.style.opacity = "0";
+    eraPoem.textContent = "";
 
-    if (firstLoad) {
-      // Entrance card is already visible — don't activate poem card
-      return;
+    // Fade in era name + age
+    eraName.textContent = data.era_label;
+    eraAge.textContent = data.age_range;
+    eraDisplay.style.opacity = "1";
+    await sleep(T.ERA_TITLE_FADE);
+
+    // Fade in poem
+    eraPoem.innerHTML = data.poem.replace(/\n/g, "<br>");
+    eraPoem.style.opacity = "1";
+    await sleep(T.POEM_FADE + T.POEM_HOLD);
+
+    // Fade in image
+    if (data.image) {
+      await revealImage(data.image);
     }
+    await sleep(T.IMAGE_HOLD);
 
-    empty.classList.add("hidden");
+    // Fade out era display + artwork together
+    eraDisplay.style.transition = `opacity ${T.ERA_FADE_OUT}ms ease`;
+    eraDisplay.style.opacity = "0";
+    artwork.style.transition = `opacity ${T.ERA_FADE_OUT}ms ease`;
+    artwork.style.opacity = "0";
+    await sleep(T.ERA_FADE_OUT);
 
-    const eraData = eras.find((e) => e.slider_position === era);
-    if (eraData) {
-      document.getElementById("loading-era-name").textContent = eraData.label;
-      document.getElementById("loading-poem-text").innerHTML =
-        eraData.bio_poem.replace(/\n/g, "<br>");
-    }
-
-    loading.classList.add("active");
+    // Reset for next era
+    artwork.classList.remove("visible");
+    artwork.style.transition = "";
+    artwork.style.opacity = "";
+    eraDisplay.style.transition = "";
   }
 
   function revealImage(src) {
     return new Promise((resolve) => {
       artwork.onload = () => {
-        if (firstLoad) {
-          firstLoad = false;
-          const card = document.querySelector(".entrance-card");
-          if (card) card.classList.add("fading");
-
-          // After entrance card fades, show Wonder poem card
-          setTimeout(() => {
-            empty.classList.add("hidden");
-            const era1 = eras.find((e) => e.slider_position === 1);
-            if (era1) {
-              document.getElementById("loading-era-name").textContent = era1.label;
-              document.getElementById("loading-poem-text").innerHTML =
-                era1.bio_poem.replace(/\n/g, "<br>");
-              loading.classList.add("active");
-            }
-            // After poem minimum time, reveal artwork
-            setTimeout(() => {
-              loading.classList.remove("active");
-              artwork.classList.add("visible");
-              resolve();
-            }, POEM_MIN_DURATION);
-          }, 2200);
-        } else {
-          loading.classList.remove("active");
-          artwork.classList.add("visible");
-          resolve();
-        }
+        artwork.classList.add("visible");
+        setTimeout(resolve, T.IMAGE_FADE);
       };
       artwork.src = src;
     });
   }
 
-  // ── End of cycle ─────────────────────────────────────────────────────────
+  // ── Screen 4: Ending ──────────────────────────────────────────────────────
 
-  function endCycle() {
+  async function runEnding() {
+    const line1 = document.getElementById("cycle-end-line-1");
+    const line2 = document.getElementById("cycle-end-line-2");
+    const line3 = document.getElementById("cycle-end-line-3");
+
+    // Fade to black (3s transition)
     cycleEnd.classList.add("active");
+    await sleep(3000 + 2000); // fade + 2s black silence
+
+    // "the moment has ended." — holds 4s
+    line1.style.opacity = "1";
+    await sleep(2000 + 4000);
+
+    // "what you saw was hers..." — holds 5s
+    line2.style.opacity = "1";
+    await sleep(2000 + 5000);
+
+    // "did the machine know her?" — holds indefinitely
+    line3.style.opacity = "1";
   }
 
-  // ── UI helpers ────────────────────────────────────────────────────────────
+  // ── Session ───────────────────────────────────────────────────────────────
+
+  async function startSession() {
+    const res = await fetch("/api/session/start", { method: "POST" });
+    const data = await res.json();
+    return data.session_id;
+  }
+
+  async function waitForEra(eraKey) {
+    while (true) {
+      const res = await fetch(`/api/session/${sessionId}/era/${eraKey}`);
+      const data = await res.json();
+      if (data.ready) return data;
+      await sleep(2000);
+    }
+  }
+
+  // ── Slider helpers ────────────────────────────────────────────────────────
 
   function setSlider(position) {
     slider.value = position;
-    document.querySelectorAll(".slider-label").forEach((el) => {
+    document.querySelectorAll(".slider-label-wrapper").forEach((el) => {
       el.classList.toggle("active", parseInt(el.dataset.position) === position);
     });
   }
@@ -197,11 +225,21 @@
   function renderSliderLabels() {
     sliderLabels.innerHTML = "";
     eras.forEach((era) => {
-      const label = document.createElement("span");
-      label.className = "slider-label";
-      label.textContent = era.label;
-      label.dataset.position = era.slider_position;
-      sliderLabels.appendChild(label);
+      const wrapper = document.createElement("div");
+      wrapper.className = "slider-label-wrapper";
+      wrapper.dataset.position = era.slider_position;
+
+      const name = document.createElement("span");
+      name.className = "slider-label";
+      name.textContent = era.label;
+
+      const age = document.createElement("span");
+      age.className = "slider-label-age";
+      age.textContent = era.age_range;
+
+      wrapper.appendChild(name);
+      wrapper.appendChild(age);
+      sliderLabels.appendChild(wrapper);
     });
     setSlider(1);
     requestAnimationFrame(positionLabels);
@@ -213,18 +251,57 @@
     const max = parseInt(slider.max);
     const range = max - min;
     const trackWidth = slider.offsetWidth - thumbWidth;
-    document.querySelectorAll(".slider-label").forEach((label) => {
-      const value = parseInt(label.dataset.position);
+    document.querySelectorAll(".slider-label-wrapper").forEach((wrapper) => {
+      const value = parseInt(wrapper.dataset.position);
       const left = thumbWidth / 2 + ((value - min) / range) * trackWidth;
-      label.style.left = left + "px";
+      wrapper.style.left = left + "px";
     });
   }
 
-  function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+  // ── Init ──────────────────────────────────────────────────────────────────
+
+  async function init() {
+    try {
+      // Start session + load era labels in parallel (maximise generation buffer)
+      const [erasData, sessionData] = await Promise.all([
+        fetch("/api/eras").then((r) => r.json()),
+        fetch("/api/session/start", { method: "POST" }).then((r) => r.json()),
+      ]);
+
+      eras = erasData;
+      sessionId = sessionData.session_id;
+      renderSliderLabels();
+
+      // Screen 1: Explainer (~15s, generation runs in background)
+      await runExplainer();
+
+      // Screen 2: Breather (~13s, more buffer)
+      await runBreather();
+
+      // Screen 3: Gallery
+      for (let i = 0; i < ERA_KEYS.length; i++) {
+        const eraKey = ERA_KEYS[i];
+        const position = i + 1;
+
+        // 4-second white silence before reconstruction (the most important moment)
+        if (eraKey === "reconstruction") {
+          await sleep(T.UNRAVELING_PAUSE);
+        }
+
+        // Retrieve pre-generated content (should be ready by now)
+        const data = await waitForEra(eraKey);
+        await runEra(data, position);
+        await sleep(T.INTER_ERA_PAUSE);
+      }
+
+      // Screen 4: Ending
+      await runEnding();
+
+    } catch (e) {
+      console.error("pre.SENT error:", e);
+    }
   }
 
   window.addEventListener("resize", positionLabels);
-
   init();
 })();

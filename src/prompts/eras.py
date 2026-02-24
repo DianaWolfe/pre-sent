@@ -15,8 +15,8 @@ import random
 
 ERAS = {
     "wonder": {
-        "label": "Wonder",
-        "age_range": "Childhood (~0-12)",
+        "label": "wonder",
+        "age_range": "0–12",
         "slider_position": 1,
         "bio_poem": (
             "Born different with a heart full of gold,\n"
@@ -83,8 +83,8 @@ ERAS = {
     },
 
     "becoming": {
-        "label": "Becoming",
-        "age_range": "Adolescence (~13-17)",
+        "label": "becoming",
+        "age_range": "13–17",
         "slider_position": 2,
         "bio_poem": (
             "Anger always had a place to go, but intellect had none.\n"
@@ -157,8 +157,8 @@ ERAS = {
     },
 
     "proving": {
-        "label": "Proving Years",
-        "age_range": "Early Adulthood (~18-29)",
+        "label": "proving",
+        "age_range": "18–29",
         "slider_position": 3,
         "bio_poem": (
             "Ups and downs and turn arounds,\n"
@@ -228,8 +228,8 @@ ERAS = {
     },
 
     "unraveling": {
-        "label": "Unraveling",
-        "age_range": "Crisis (~30)",
+        "label": "unraveling",
+        "age_range": "~30",
         "slider_position": 4,
         "bio_poem": (
             "There was a time you let yourself love and believe.\n"
@@ -305,8 +305,8 @@ ERAS = {
     },
 
     "reconstruction": {
-        "label": "Reconstruction",
-        "age_range": "Rebuilding (~31-37)",
+        "label": "reconstruction",
+        "age_range": "31–37",
         "slider_position": 5,
         "bio_poem": (
             "There are no more boundaries.\n"
@@ -380,15 +380,15 @@ ERAS = {
         ],
     },
 
-    "reclamation": {
-        "label": "Reclamation",
-        "age_range": "Now",
+    "sovereign": {
+        "label": "sovereign",
+        "age_range": "now",
         "slider_position": 6,
         "bio_poem": (
             "You built the table. You chose who sits there.\n"
             "The dogs at your feet, the ring on your hand, the work that is yours.\n"
-            "Sovereignty is quiet. It does not perform.\n"
-            "You are finally the author of every room you walk into."
+            "Some nights the table feels too large.\n"
+            "Sovereignty is quiet. It does not perform."
         ),
         "description": (
             "A refined storybook aesthetic, dark and warm and entirely hers. "
@@ -466,7 +466,7 @@ def get_era_by_position(position):
     for key, era in ERAS.items():
         if era["slider_position"] == position:
             return key, era
-    return "reclamation", ERAS["reclamation"]
+    return "sovereign", ERAS["sovereign"]
 
 
 def get_era_list():

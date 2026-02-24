@@ -7,6 +7,8 @@ services:
     envVars:
       - key: OPENAI_API_KEY
         sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
       - key: MIN_INTERVAL
         value: "8"
       - key: MAX_PER_HOUR

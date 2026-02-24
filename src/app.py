@@ -12,6 +12,7 @@ from fastapi.responses import FileResponse, JSONResponse
 from dotenv import load_dotenv
 
 from api.generate import ImageGenerator
+from api.session import start_session, get_era_data
 from prompts.assembler import assemble_prompt
 from prompts.eras import get_era_list
 from gallery.rate_limiter import RateLimiter
@@ -93,6 +94,22 @@ async def generate(request: Request):
             "description": prompt_data["era_description"],
         },
     })
+
+
+@app.post("/api/session/start")
+async def create_session():
+    """Start a new session and kick off parallel generation for all 6 eras."""
+    session_id = await start_session()
+    return JSONResponse({"session_id": session_id})
+
+
+@app.get("/api/session/{session_id}/era/{era_key}")
+async def get_era(session_id: str, era_key: str):
+    """Return pre-generated era content (poem + image) once ready."""
+    data = get_era_data(session_id, era_key)
+    if data is None:
+        return JSONResponse({"ready": False})
+    return JSONResponse(data)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-/* pre.SENT - Gallery Styles
+/* pre.SENT v2 — Gallery Styles
    Wabi-sabi minimal white. The art is the only color. */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap');
@@ -12,7 +12,7 @@
 body {
     font-family: 'Cormorant Garamond', Georgia, serif;
     background: #fafaf8;
-    color: #2a2a28;
+    color: #4a4a47;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
 }
@@ -27,7 +27,8 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
+/* ── Header ───────────────────────────────────────────────────────────────── */
+
 .gallery-header {
     text-align: center;
     margin-bottom: 48px;
@@ -38,7 +39,7 @@ body {
     font-weight: 300;
     letter-spacing: 0.3em;
     text-transform: lowercase;
-    color: #2a2a28;
+    color: #4a4a47;
 }
 
 .gallery-subtitle {
@@ -50,7 +51,94 @@ body {
     margin-top: 4px;
 }
 
-/* Canvas */
+/* ── Screen 1: Explainer ─────────────────────────────────────────────────── */
+
+.explainer {
+    position: fixed;
+    inset: 0;
+    background: #fafaf8;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    transition: opacity 1.5s ease;
+}
+
+.explainer.fading {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.explainer__body {
+    max-width: 440px;
+    text-align: center;
+}
+
+.explainer__group {
+    font-size: 0.9rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #4a4a47;
+    letter-spacing: 0.03em;
+    line-height: 2.2;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.explainer__group--final {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    font-style: normal;
+    font-weight: 400;
+}
+
+/* ── Era display: name, age, poem above canvas ────────────────────────────── */
+
+.era-display {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+    opacity: 0;
+    margin-bottom: 24px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    transition: opacity 1.5s ease;
+}
+
+.era-display__name {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: lowercase;
+    color: #4a4a47;
+    margin-bottom: 4px;
+}
+
+.era-display__age {
+    font-size: 0.75rem;
+    font-style: italic;
+    color: #8a8a85;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+}
+
+.era-display__poem {
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #4a4a47;
+    line-height: 2.1;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+/* ── Canvas ───────────────────────────────────────────────────────────────── */
+
 .canvas-container {
     width: 100%;
     max-width: 560px;
@@ -77,36 +165,31 @@ body {
     opacity: 1;
 }
 
-/* ── Entrance card ───────────────────────────────────────────────────── */
+/* ── Screen 2: Breather ───────────────────────────────────────────────────── */
 
-.empty-state {
-    position: absolute;
-    inset: 0;
-}
-
-.empty-state.hidden {
-    display: none;
-}
-
-.entrance-card {
+.breather-state {
     position: absolute;
     inset: 0;
     background: #f2f2ee;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: opacity 1.5s ease;
+}
+
+.breather-state.hidden {
+    display: none;
+}
+
+.breather-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 40px;
     gap: 0;
-    opacity: 1;
-    transition: opacity 2s ease;
 }
 
-.entrance-card.fading {
-    opacity: 0;
-}
-
-.entrance-card__intro {
+.breather-card__intro {
     font-size: 0.8rem;
     font-weight: 300;
     font-style: italic;
@@ -116,7 +199,7 @@ body {
     margin-bottom: 36px;
 }
 
-.entrance-card__breath {
+.breather-card__animation {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,147 +267,27 @@ body {
     95%, 100% { opacity: 0; }
 }
 
-.entrance-card__sub {
-    font-size: 0.75rem;
-    font-weight: 300;
-    font-style: italic;
-    color: #8a8a85;
-    letter-spacing: 0.06em;
-    text-align: center;
-    line-height: 1.9;
-    margin-bottom: 28px;
-}
-
-.entrance-card__poem {
-    font-size: 0.8rem;
-    font-weight: 300;
-    font-style: italic;
-    color: #8a8a85;
-    letter-spacing: 0.03em;
-    line-height: 2;
-    text-align: center;
-    max-width: 320px;
-    margin-bottom: 28px;
-}
-
-.entrance-card__waiting {
-    font-size: 0.85rem;
-    font-weight: 300;
-    font-style: italic;
-    color: #2a2a28;
-    letter-spacing: 0.1em;
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.entrance-card__entering {
-    font-size: 0.55rem;
-    letter-spacing: 0.35em;
-    text-transform: lowercase;
-    color: #bbb;
-    animation: pulse-entering 3s ease-in-out infinite;
-}
-
-@keyframes pulse-entering {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
-}
-
-/* ── Between-era poem card ───────────────────────────────────────────── */
-
-.loading-state {
-    position: absolute;
-    inset: 0;
-    display: none;
-}
-
-.loading-state.active {
-    display: block;
-}
-
-.poem-card {
-    position: absolute;
-    inset: 0;
-    background: #f2f2ee;
+/* The generative speaks — tonal shift to roman */
+.breather-card__voice {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 40px;
+    gap: 8px;
 }
 
-.poem-card__era {
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #2a2a28;
-    margin-bottom: 28px;
-}
-
-.poem-card__poem {
-    font-size: 1.25rem;
-    font-weight: 300;
-    font-style: italic;
-    color: #2a2a28;
-    line-height: 2.1;
-    text-align: center;
-    letter-spacing: 0.03em;
-    max-width: 380px;
-    margin-bottom: 32px;
-    animation: fade-in-poem 2.5s ease both;
-}
-
-@keyframes fade-in-poem {
-    from { opacity: 0; transform: translateY(6px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.poem-card__spinner {
-    width: 18px;
-    height: 18px;
-    border: 1px solid #d4d4cf;
-    border-top-color: #2a2a28;
-    border-radius: 50%;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Era info */
-.era-info {
-    text-align: center;
-    margin-bottom: 40px;
-    max-width: 480px;
-    min-height: 120px;
-}
-
-.era-label {
-    font-size: 1.4rem;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    margin-bottom: 4px;
-}
-
-.era-age {
+.breather-card__voice-line {
     font-size: 0.8rem;
-    font-style: italic;
-    color: #8a8a85;
-    margin-bottom: 16px;
-    letter-spacing: 0.05em;
-}
-
-.era-poem {
-    font-size: 0.9rem;
     font-weight: 300;
-    font-style: italic;
-    line-height: 1.8;
-    color: #666;
-    letter-spacing: 0.02em;
+    font-style: normal;  /* roman — marks the tonal shift */
+    color: #4a4a47;
+    letter-spacing: 0.1em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 2s ease;
 }
 
-/* Slider */
+/* ── Slider ───────────────────────────────────────────────────────────────── */
+
 .slider-container {
     width: 100%;
     max-width: 480px;
@@ -338,7 +301,7 @@ body {
     height: 1px;
     background: #d4d4cf;
     outline: none;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .era-slider::-webkit-slider-thumb {
@@ -358,10 +321,6 @@ body {
     cursor: default;
 }
 
-.era-slider:disabled::-webkit-slider-thumb {
-    cursor: default;
-}
-
 .era-slider::-moz-range-thumb {
     width: 16px;
     height: 16px;
@@ -373,46 +332,49 @@ body {
 
 .slider-labels {
     position: relative;
-    height: 24px;
+    height: 32px;
+}
+
+/* Wrapper holds label name + age stacked */
+.slider-label-wrapper {
+    position: absolute;
+    text-align: center;
+    transform: translateX(-50%);
+    cursor: default;
+    user-select: none;
+    transition: color 0.3s ease;
 }
 
 .slider-label {
-    position: absolute;
-    font-size: 0.65rem;
+    display: block;
+    font-size: 0.62rem;
     color: #aaa;
     letter-spacing: 0.03em;
-    text-align: center;
     white-space: nowrap;
-    transform: translateX(-50%);
-    cursor: default;
     transition: color 0.3s ease;
-    user-select: none;
 }
 
-.slider-label.active {
+.slider-label-age {
+    display: block;
+    font-size: 0.52rem;
+    color: #ccc;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+    font-style: italic;
+    transition: color 0.3s ease;
+}
+
+.slider-label-wrapper.active .slider-label {
     color: #2a2a28;
     font-weight: 400;
 }
 
-/* Footer */
-.gallery-footer {
-    text-align: center;
-    margin-top: auto;
-    padding-top: 40px;
-    border-top: 1px solid #e8e8e4;
-    width: 100%;
-    max-width: 480px;
+.slider-label-wrapper.active .slider-label-age {
+    color: #8a8a85;
 }
 
-.gallery-footer p {
-    font-size: 0.75rem;
-    font-style: italic;
-    color: #aaa;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-}
+/* ── Info section ─────────────────────────────────────────────────────────── */
 
-/* Info sections */
 .info-section {
     width: 100%;
     max-width: 560px;
@@ -458,19 +420,22 @@ body {
 }
 
 .info-section__link:hover {
-    color: #2a2a28;
+    color: #4a4a47;
 }
 
-/* ── End-of-cycle dissolve ───────────────────────────────────────────── */
+/* ── Screen 4: Ending — fades to black ───────────────────────────────────── */
 
 .cycle-end {
     position: fixed;
     inset: 0;
-    background: #fafaf8;
+    background: #0c0c0a;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 5s ease;
+    transition: opacity 3s ease;
     z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cycle-end.active {
@@ -478,27 +443,41 @@ body {
     pointer-events: all;
 }
 
-.cycle-end__message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.85rem;
+.cycle-end__messages {
+    text-align: center;
+    padding: 40px;
+    max-width: 440px;
+}
+
+.cycle-end__line {
     font-weight: 300;
     font-style: italic;
-    color: #2a2a28;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.08em;
+    line-height: 2;
+    color: #fafaf8;
     opacity: 0;
     transition: opacity 2s ease;
-    white-space: nowrap;
 }
 
-.cycle-end.active .cycle-end__message {
-    opacity: 1;
-    transition-delay: 5s;
+#cycle-end-line-1 {
+    font-size: 1rem;
+    margin-bottom: 32px;
 }
 
-/* Responsive */
+#cycle-end-line-2 {
+    font-size: 0.85rem;
+    margin-bottom: 40px;
+}
+
+.cycle-end__line--final {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    font-style: normal;
+    font-weight: 300;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+
 @media (max-width: 600px) {
     .gallery {
         padding: 40px 16px 24px;
@@ -509,10 +488,22 @@ body {
     }
 
     .slider-label {
-        font-size: 0.55rem;
+        font-size: 0.52rem;
     }
 
-    .era-label {
+    .slider-label-age {
+        font-size: 0.44rem;
+    }
+
+    .era-display__name {
         font-size: 1.2rem;
+    }
+
+    .era-display__poem {
+        font-size: 0.9rem;
+    }
+
+    .explainer__group {
+        font-size: 0.85rem;
     }
 }

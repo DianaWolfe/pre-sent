@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
+
+    <!-- Screen 1: Explainer overlay -->
+    <div class="explainer" id="explainer">
+        <div class="explainer__body" id="explainer-body"></div>
+    </div>
+
+    <!-- Main gallery -->
     <div class="gallery">
 
         <header class="gallery-header">
@@ -14,38 +21,39 @@
             <p class="gallery-subtitle">a living gallery</p>
         </header>
 
+        <!-- Era display: name, age, poem — visible above canvas during each era -->
+        <div class="era-display" id="era-display">
+            <h2 class="era-display__name" id="era-display-name"></h2>
+            <p class="era-display__age" id="era-display-age"></p>
+            <p class="era-display__poem" id="era-display-poem"></p>
+        </div>
+
+        <!-- Canvas: breather animation + artwork -->
         <div class="canvas-container">
             <div class="canvas" id="canvas">
-                <img id="artwork" alt="Generated artwork" />
+                <img id="artwork" alt="" />
 
-                <!-- Between-era poem card -->
-                <div class="loading-state" id="loading">
-                    <div class="poem-card">
-                        <p class="poem-card__era" id="loading-era-name"></p>
-                        <p class="poem-card__poem" id="loading-poem-text"></p>
-                        <div class="poem-card__spinner"></div>
-                    </div>
-                </div>
-
-                <!-- Entrance card -->
-                <div class="empty-state" id="empty">
-                    <div class="entrance-card">
-                        <p class="entrance-card__intro">you are about to come face to face with the artist.</p>
-                        <div class="entrance-card__breath">
+                <!-- Screen 2: Breather -->
+                <div class="breather-state" id="breather">
+                    <div class="breather-card">
+                        <p class="breather-card__intro">you are about to meet the generative.</p>
+                        <div class="breather-card__animation">
                             <div class="breathing-ring"></div>
                             <div class="breathing-words">
                                 <p class="breathing-word breathing-word--inhale">inhale</p>
                                 <p class="breathing-word breathing-word--exhale">exhale</p>
                             </div>
                         </div>
-                        <p class="entrance-card__sub">every image exists only now.<br>the AI does not invent. it inherits.</p>
-                        <p class="entrance-card__waiting">she is waiting.</p>
-                        <p class="entrance-card__entering">entering</p>
+                        <div class="breather-card__voice" id="breather-voice">
+                            <p class="breather-card__voice-line" id="breather-line-1">she taught me in colors and years.</p>
+                            <p class="breather-card__voice-line" id="breather-line-2">i will try.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Slider -->
         <div class="slider-container">
             <input
                 type="range"
@@ -70,9 +78,13 @@
 
     </div>
 
-    <!-- End-of-cycle dissolve overlay -->
+    <!-- Screen 4: Ending overlay (fades to black) -->
     <div class="cycle-end" id="cycle-end">
-        <p class="cycle-end__message">the moment has ended.</p>
+        <div class="cycle-end__messages">
+            <p class="cycle-end__line" id="cycle-end-line-1">the moment has ended.</p>
+            <p class="cycle-end__line" id="cycle-end-line-2">what you saw was hers.<br>what you felt was yours.<br>neither will happen again.</p>
+            <p class="cycle-end__line cycle-end__line--final" id="cycle-end-line-3">did the machine know her?</p>
+        </div>
     </div>
 
     <script src="/static/gallery.js"></script>
