@@ -199,17 +199,18 @@ body {
 }
 
 .slider-labels {
-    display: flex;
-    justify-content: space-between;
-    padding: 0 2px;
+    position: relative;
+    height: 24px;
 }
 
 .slider-label {
+    position: absolute;
     font-size: 0.65rem;
     color: #aaa;
     letter-spacing: 0.03em;
     text-align: center;
-    flex: 1;
+    white-space: nowrap;
+    transform: translateX(-50%);
     cursor: pointer;
     transition: color 0.3s ease;
     user-select: none;

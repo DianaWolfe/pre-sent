@@ -57,6 +57,21 @@
       sliderLabels.appendChild(label);
     });
     highlightLabel(1);
+    // Position after paint so slider has rendered width
+    requestAnimationFrame(positionLabels);
+  }
+
+  function positionLabels() {
+    const thumbWidth = 16;
+    const min = parseInt(slider.min);
+    const max = parseInt(slider.max);
+    const range = max - min;
+    const trackWidth = slider.offsetWidth - thumbWidth;
+    document.querySelectorAll(".slider-label").forEach((label) => {
+      const value = parseInt(label.dataset.position);
+      const left = thumbWidth / 2 + ((value - min) / range) * trackWidth;
+      label.style.left = left + "px";
+    });
   }
 
   function highlightLabel(position) {
@@ -185,6 +200,7 @@
   }
 
   slider.addEventListener("input", onSliderChange);
+  window.addEventListener("resize", positionLabels);
 
   // Initialize
   loadEras();
