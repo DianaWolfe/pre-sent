@@ -48,7 +48,7 @@ async def debug_apis():
                 return {"status": "error", "error": "ANTHROPIC_API_KEY not set"}
             client = anthropic.Anthropic(api_key=key)
             resp = client.messages.create(
-                model="claude-sonnet-4-6",
+                model="claude-haiku-4-5-20251001",
                 max_tokens=10,
                 messages=[{"role": "user", "content": "say ok"}],
             )
