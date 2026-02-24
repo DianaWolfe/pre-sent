@@ -299,11 +299,6 @@
         const eraKey = ERA_KEYS[i];
         const position = i + 1;
 
-        // 4-second white silence before reconstruction (the most important moment)
-        if (eraKey === "reconstruction") {
-          await sleep(T.UNRAVELING_PAUSE);
-        }
-
         // Retrieve pre-generated content (should be ready by now)
         const data = await waitForEra(eraKey);
         await runEra(data, position);
