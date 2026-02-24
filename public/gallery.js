@@ -1,9 +1,9 @@
 /**
  * pre.SENT - Gallery
  *
- * Runs a continuous loop through all six eras.
- * Prefetches the next era in the background while the current one displays.
- * No user controls — the gallery advances on its own.
+ * A performance. Six eras. One cycle.
+ * Begins with a breathing exercise. Moves through an artist's life.
+ * Ends in white. Requires a refresh to re-enter.
  */
 
 (function () {
@@ -15,20 +15,19 @@
   const eraAge = document.getElementById("era-age");
   const eraPoem = document.getElementById("era-poem");
   const sliderLabels = document.getElementById("slider-labels");
+  const cycleEnd = document.getElementById("cycle-end");
 
   let eras = [];
+  let firstLoad = true;
 
-  // How long to show each image (ms)
-  const DISPLAY_DURATION = 30000;
-  // When to start prefetching the next image (ms after current image appears)
-  const PREFETCH_DELAY = 9000;
-  // How long to wait before retrying a rate-limited request (ms)
-  const RATE_LIMIT_RETRY = 10000;
+  const DISPLAY_DURATION = 30000;   // 30s per image
+  const PREFETCH_DELAY = 9000;      // start prefetch 9s after image appears
+  const RATE_LIMIT_RETRY = 10000;   // wait 10s if rate limited
 
-  // Prefetch slot — holds at most one upcoming image
+  // Single prefetch slot
   let prefetch = { era: null, data: null, promise: null };
 
-  // ── Initialization ───────────────────────────────────────────────────────
+  // ── Init ─────────────────────────────────────────────────────────────────
 
   async function init() {
     try {
@@ -41,37 +40,41 @@
     }
   }
 
-  // ── Main loop ────────────────────────────────────────────────────────────
+  // ── Main loop ─────────────────────────────────────────────────────────────
 
   async function loop(era) {
     setSlider(era);
     setEraInfo(era);
-    showLoading();
+    showLoading(era);
 
     const data = await getImage(era);
-
     await revealImage(data.image);
 
-    // Start prefetching the next era in the background
-    const next = era >= 6 ? 1 : era + 1;
-    setTimeout(() => startPrefetch(next), PREFETCH_DELAY);
+    // Prefetch next era in background
+    const next = era < 6 ? era + 1 : null;
+    if (next) {
+      setTimeout(() => startPrefetch(next), PREFETCH_DELAY);
+    }
 
     await sleep(DISPLAY_DURATION);
+
+    if (era >= 6) {
+      endCycle();
+      return;
+    }
 
     loop(next);
   }
 
-  // ── Image retrieval ──────────────────────────────────────────────────────
+  // ── Image retrieval ───────────────────────────────────────────────────────
 
   async function getImage(era) {
-    // Cache hit
     if (prefetch.era === era && prefetch.data) {
       const data = prefetch.data;
       prefetch = { era: null, data: null, promise: null };
       return data;
     }
 
-    // Prefetch in-flight for this era — wait for it
     if (prefetch.era === era && prefetch.promise) {
       await prefetch.promise;
       if (prefetch.data) {
@@ -81,7 +84,6 @@
       }
     }
 
-    // No cache — generate on demand
     return await fetchWithRetry(era);
   }
 
@@ -107,42 +109,71 @@
 
   function startPrefetch(era) {
     if (prefetch.era === era) return;
-
     prefetch = { era, data: null, promise: null };
 
     prefetch.promise = fetchWithRetry(era)
       .then((data) => {
-        if (prefetch.era === era) {
-          prefetch.data = data;
-        }
+        if (prefetch.era === era) prefetch.data = data;
       })
       .catch(() => {
-        if (prefetch.era === era) {
-          prefetch = { era: null, data: null, promise: null };
-        }
+        if (prefetch.era === era) prefetch = { era: null, data: null, promise: null };
       });
   }
 
-  // ── Display ──────────────────────────────────────────────────────────────
+  // ── Display ───────────────────────────────────────────────────────────────
+
+  function showLoading(era) {
+    artwork.classList.remove("visible");
+
+    if (firstLoad) {
+      // Entrance card is already visible — don't activate poem card
+      return;
+    }
+
+    empty.classList.add("hidden");
+
+    const eraData = eras.find((e) => e.slider_position === era);
+    if (eraData) {
+      document.getElementById("loading-era-name").textContent = eraData.label;
+      document.getElementById("loading-poem-text").innerHTML =
+        eraData.bio_poem.replace(/\n/g, "<br>");
+    }
+
+    loading.classList.add("active");
+  }
 
   function revealImage(src) {
     return new Promise((resolve) => {
       artwork.onload = () => {
         loading.classList.remove("active");
-        artwork.classList.add("visible");
-        resolve();
+
+        if (firstLoad) {
+          firstLoad = false;
+          const card = document.querySelector(".entrance-card");
+          if (card) card.classList.add("fading");
+          // Cross-fade: start showing artwork while entrance card fades
+          setTimeout(() => artwork.classList.add("visible"), 400);
+          // After fade completes, hide the empty state and resolve
+          setTimeout(() => {
+            empty.classList.add("hidden");
+            resolve();
+          }, 2200);
+        } else {
+          artwork.classList.add("visible");
+          resolve();
+        }
       };
       artwork.src = src;
     });
   }
 
-  function showLoading() {
-    empty.classList.add("hidden");
-    artwork.classList.remove("visible");
-    loading.classList.add("active");
+  // ── End of cycle ─────────────────────────────────────────────────────────
+
+  function endCycle() {
+    cycleEnd.classList.add("active");
   }
 
-  // ── UI ───────────────────────────────────────────────────────────────────
+  // ── UI helpers ────────────────────────────────────────────────────────────
 
   function setSlider(position) {
     slider.value = position;
@@ -184,8 +215,6 @@
       label.style.left = left + "px";
     });
   }
-
-  // ── Utilities ────────────────────────────────────────────────────────────
 
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));

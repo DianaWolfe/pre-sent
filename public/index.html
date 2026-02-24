@@ -17,11 +17,31 @@
         <div class="canvas-container">
             <div class="canvas" id="canvas">
                 <img id="artwork" alt="Generated artwork" />
+
+                <!-- Between-era poem card -->
                 <div class="loading-state" id="loading">
-                    <div class="paint-reveal"></div>
+                    <div class="poem-card">
+                        <p class="poem-card__era" id="loading-era-name"></p>
+                        <p class="poem-card__poem" id="loading-poem-text"></p>
+                        <div class="poem-card__spinner"></div>
+                    </div>
                 </div>
+
+                <!-- Entrance card -->
                 <div class="empty-state" id="empty">
-                    <p>Beginning.</p>
+                    <div class="entrance-card">
+                        <p class="entrance-card__intro">you are about to come face to face with an artist.</p>
+                        <div class="entrance-card__breath">
+                            <div class="breathing-ring"></div>
+                            <div class="breathing-words">
+                                <p class="breathing-word breathing-word--inhale">inhale</p>
+                                <p class="breathing-word breathing-word--exhale">exhale</p>
+                            </div>
+                        </div>
+                        <p class="entrance-card__sub">every image exists only now.<br>the AI does not invent. it inherits.</p>
+                        <p class="entrance-card__waiting">she is waiting.</p>
+                        <p class="entrance-card__entering">entering</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,12 +70,6 @@
             <p>Every image exists only now. Nothing is saved.</p>
         </footer>
 
-        <section class="info-section" id="what-is-this">
-            <h3 class="info-section__title">What is this?</h3>
-            <p class="info-section__body">pre.SENT is AI performance art trained on the visual DNA of a real artist. It traces one woman's life through six psychological eras, from the cartoonish sarcasm of a child who moved seventeen times to the refined storybook sovereignty of the artist she became. Every image is generated in real time by gpt-image-1, guided by the actual aesthetic and emotional fingerprint of each period. The AI does not invent. It inherits.</p>
-
-        </section>
-
         <section class="info-section info-section--about" id="about">
             <h3 class="info-section__title">About the Artist</h3>
             <p class="info-section__body">Diana Wolfe, PhD is an AI researcher, strategist, and artist. pre.SENT is one experiment in a larger question: what happens when a generative system is given not a style to imitate but a life to understand? The visual arc here, from childhood wonder to illustrative maturity to refined personal mythology, is real. The AI did not invent it. It was handed it.</p>
@@ -65,6 +79,9 @@
         </section>
 
     </div>
+
+    <!-- End-of-cycle dissolve overlay -->
+    <div class="cycle-end" id="cycle-end"></div>
 
     <script src="/static/gallery.js"></script>
 </body>

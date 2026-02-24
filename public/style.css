@@ -77,51 +77,201 @@ body {
     opacity: 1;
 }
 
-/* Loading state - painterly reveal */
-.loading-state {
-    position: absolute;
-    inset: 0;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: #f2f2ee;
-}
+/* ── Entrance card ───────────────────────────────────────────────────── */
 
-.loading-state.active {
-    display: flex;
-}
-
-.paint-reveal {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #d4d4cf;
-    border-top-color: #8a8a85;
-    border-radius: 50%;
-    animation: spin 1.8s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Empty state */
 .empty-state {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.empty-state p {
-    font-size: 1rem;
-    font-style: italic;
-    color: #aaa;
-    letter-spacing: 0.05em;
 }
 
 .empty-state.hidden {
     display: none;
+}
+
+.entrance-card {
+    position: absolute;
+    inset: 0;
+    background: #141412;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 0;
+    opacity: 1;
+    transition: opacity 2s ease;
+}
+
+.entrance-card.fading {
+    opacity: 0;
+}
+
+.entrance-card__intro {
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #7a7a72;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.entrance-card__breath {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+}
+
+/* Breathing ring */
+.breathing-ring {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 1px solid rgba(200, 196, 188, 0.5);
+    animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(0.6);
+        opacity: 0.3;
+        box-shadow: 0 0 0 0 rgba(200, 196, 188, 0);
+    }
+    50% {
+        transform: scale(1.0);
+        opacity: 0.9;
+        box-shadow: 0 0 24px 4px rgba(200, 196, 188, 0.08);
+    }
+}
+
+/* Inhale / exhale labels */
+.breathing-words {
+    position: relative;
+    height: 1.2em;
+    width: 80px;
+    text-align: center;
+}
+
+.breathing-word {
+    position: absolute;
+    left: 0;
+    right: 0;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: lowercase;
+    color: #5a5a52;
+}
+
+.breathing-word--inhale {
+    animation: show-inhale 8s ease-in-out infinite;
+}
+
+.breathing-word--exhale {
+    animation: show-exhale 8s ease-in-out infinite;
+}
+
+@keyframes show-inhale {
+    0%, 5%   { opacity: 0; }
+    15%, 40% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+@keyframes show-exhale {
+    0%, 50%  { opacity: 0; }
+    60%, 85% { opacity: 1; }
+    95%, 100% { opacity: 0; }
+}
+
+.entrance-card__sub {
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #5a5a52;
+    letter-spacing: 0.06em;
+    text-align: center;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+.entrance-card__waiting {
+    font-size: 0.85rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #c8c4be;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.entrance-card__entering {
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
+    text-transform: lowercase;
+    color: #3a3a35;
+    animation: pulse-entering 3s ease-in-out infinite;
+}
+
+@keyframes pulse-entering {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* ── Between-era poem card ───────────────────────────────────────────── */
+
+.loading-state {
+    position: absolute;
+    inset: 0;
+    display: none;
+}
+
+.loading-state.active {
+    display: block;
+}
+
+.poem-card {
+    position: absolute;
+    inset: 0;
+    background: #141412;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.poem-card__era {
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #3a3a35;
+    margin-bottom: 28px;
+}
+
+.poem-card__poem {
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: #c8c4be;
+    line-height: 2.1;
+    text-align: center;
+    letter-spacing: 0.03em;
+    max-width: 340px;
+    margin-bottom: 32px;
+}
+
+.poem-card__spinner {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #2a2a25;
+    border-top-color: #5a5a52;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* Era info */
@@ -180,7 +330,7 @@ body {
     height: 16px;
     border-radius: 50%;
     background: #2a2a28;
-    cursor: pointer;
+    cursor: default;
     border: none;
     transition: transform 0.2s ease;
 }
@@ -194,16 +344,12 @@ body {
     cursor: default;
 }
 
-.era-slider::-webkit-slider-thumb:hover {
-    transform: scale(1.3);
-}
-
 .era-slider::-moz-range-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
     background: #2a2a28;
-    cursor: pointer;
+    cursor: default;
     border: none;
 }
 
@@ -246,27 +392,6 @@ body {
     color: #aaa;
     letter-spacing: 0.05em;
     margin-bottom: 8px;
-}
-
-.credit a {
-    color: #8a8a85;
-    text-decoration: none;
-    border-bottom: 1px solid #d4d4cf;
-    transition: color 0.3s ease;
-}
-
-.credit a:hover {
-    color: #2a2a28;
-}
-
-/* Rate limit message */
-.rate-limit-msg {
-    font-size: 0.8rem;
-    color: #aaa;
-    font-style: italic;
-    text-align: center;
-    margin-top: 8px;
-    min-height: 1.2em;
 }
 
 /* Info sections */
@@ -316,6 +441,23 @@ body {
 
 .info-section__link:hover {
     color: #2a2a28;
+}
+
+/* ── End-of-cycle dissolve ───────────────────────────────────────────── */
+
+.cycle-end {
+    position: fixed;
+    inset: 0;
+    background: #fafaf8;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 5s ease;
+    z-index: 100;
+}
+
+.cycle-end.active {
+    opacity: 1;
+    pointer-events: all;
 }
 
 /* Responsive */

@@ -19,7 +19,7 @@ class ImageGenerator:
     def __init__(self, api_key):
         self.client = OpenAI(api_key=api_key)
 
-    def generate(self, prompt, size="1024x1024", quality="low"):
+    def generate(self, prompt, size="1024x1024", quality="medium"):
         """
         Generate a single image from a prompt.
 
