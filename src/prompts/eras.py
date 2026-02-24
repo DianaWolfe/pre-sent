@@ -87,7 +87,7 @@ ERAS = {
     "becoming": {
         "label": "Becoming",
         "age_range": "Adolescence (~13-17)",
-        "slider_position": 2,
+        "slider_position": 3,
         "bio_poem": (
             "Anger always had a place to go, but intellect had none.\n"
             "The small world is too small. Spread your wings.\n"
@@ -159,7 +159,7 @@ ERAS = {
     "proving": {
         "label": "Proving Years",
         "age_range": "Early Adulthood (~18-29)",
-        "slider_position": 3,
+        "slider_position": 2,
         "bio_poem": (
             "Ups and downs and turn arounds,\n"
             "two steps forward and one step back.\n"
