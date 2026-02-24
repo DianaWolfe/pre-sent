@@ -96,6 +96,40 @@ async def generate(request: Request):
     })
 
 
+@app.get("/api/debug")
+async def debug_apis():
+    """Check both API keys and test the Anthropic connection."""
+    import asyncio as _aio
+    from concurrent.futures import ThreadPoolExecutor as _TPE
+
+    def _test_anthropic():
+        try:
+            import anthropic
+            key = os.getenv("ANTHROPIC_API_KEY")
+            if not key:
+                return {"status": "error", "error": "ANTHROPIC_API_KEY not set"}
+            client = anthropic.Anthropic(api_key=key)
+            resp = client.messages.create(
+                model="claude-sonnet-4-6",
+                max_tokens=10,
+                messages=[{"role": "user", "content": "say ok"}],
+            )
+            return {"status": "ok", "response": resp.content[0].text.strip()}
+        except Exception as e:
+            return {"status": "error", "error": str(e)}
+
+    loop = _aio.get_running_loop()
+    with _TPE() as ex:
+        anthropic_result = await loop.run_in_executor(ex, _test_anthropic)
+
+    openai_key = os.getenv("OPENAI_API_KEY") or ""
+    return JSONResponse({
+        "anthropic": anthropic_result,
+        "openai_key": "present" if openai_key else "missing",
+        "openai_prefix": openai_key[:8] + "..." if openai_key else None,
+    })
+
+
 @app.post("/api/session/start")
 async def create_session():
     """Start a new session and kick off parallel generation for all 6 eras."""

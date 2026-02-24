@@ -64,29 +64,39 @@ async def _generate_era(session_id: str, era_key: str) -> None:
         poem_future = loop.run_in_executor(_executor, _gen_poem, era_key)
         await asyncio.sleep(image_delay)
         image_future = loop.run_in_executor(_executor, _gen_image, era_position)
-        poem, image = await asyncio.gather(poem_future, image_future)
 
-        if session_id in sessions:
-            sessions[session_id]["data"][era_key] = {
-                "era_key": era_key,
-                "era_label": era["label"],
-                "age_range": era["age_range"],
-                "poem": poem,
-                "image": image,
-                "ready": True,
-            }
-            logger.info(f"Session {session_id[:8]} era '{era_key}' ready")
+        # return_exceptions=True so a failed image doesn't discard a good poem
+        poem_result, image_result = await asyncio.gather(
+            poem_future, image_future, return_exceptions=True
+        )
+
+        if isinstance(poem_result, Exception):
+            logger.error(f"Session {session_id[:8]} '{era_key}' poem failed: {poem_result}", exc_info=poem_result)
+            poem = era.get("bio_poem", "the memory held\nbut the words came out wrong\nsomething was here\nand now it isn't")
+        else:
+            poem = poem_result
+
+        if isinstance(image_result, Exception):
+            logger.error(f"Session {session_id[:8]} '{era_key}' image failed: {image_result}", exc_info=image_result)
+            image = None
+        else:
+            image = image_result
+
     except Exception as exc:
-        logger.error(f"Session {session_id[:8]} era '{era_key}' failed: {exc}", exc_info=True)
-        if session_id in sessions:
-            sessions[session_id]["data"][era_key] = {
-                "era_key": era_key,
-                "era_label": era["label"],
-                "age_range": era["age_range"],
-                "poem": era.get("bio_poem", "the memory held\nbut the words came out wrong\nsomething was here\nand now it isn't"),
-                "image": None,
-                "ready": True,  # mark ready so gallery doesn't hang
-            }
+        logger.error(f"Session {session_id[:8]} '{era_key}' setup failed: {exc}", exc_info=True)
+        poem = era.get("bio_poem", "the memory held\nbut the words came out wrong\nsomething was here\nand now it isn't")
+        image = None
+
+    if session_id in sessions:
+        sessions[session_id]["data"][era_key] = {
+            "era_key": era_key,
+            "era_label": era["label"],
+            "age_range": era["age_range"],
+            "poem": poem,
+            "image": image,
+            "ready": True,
+        }
+        logger.info(f"Session {session_id[:8]} '{era_key}' ready (image={'yes' if image else 'no'})")
 
 
 def _gen_poem(era_key: str) -> str:
