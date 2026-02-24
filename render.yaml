@@ -8,7 +8,7 @@ services:
       - key: OPENAI_API_KEY
         sync: false
       - key: MIN_INTERVAL
-        value: "15"
+        value: "8"
       - key: MAX_PER_HOUR
         value: "30"
       - key: GLOBAL_MAX_PER_HOUR

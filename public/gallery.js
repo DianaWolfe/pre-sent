@@ -34,8 +34,8 @@
   const AUTO_ADVANCE_DELAY = 30000;
   // How long after manual interaction before auto-play resumes (ms)
   const RESUME_DELAY = 30000;
-  // Delay before firing prefetch — must exceed server rate limit (15s)
-  const PREFETCH_DELAY = 16000;
+  // Delay before firing prefetch — must exceed server rate limit (8s)
+  const PREFETCH_DELAY = 9000;
 
   // Load era definitions from server
   async function loadEras() {
