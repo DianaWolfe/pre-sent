@@ -11,17 +11,18 @@
 (function () {
   // ── Elements ──────────────────────────────────────────────────────────────
 
-  const slider       = document.getElementById("era-slider");
-  const artwork      = document.getElementById("artwork");
-  const cycleEnd     = document.getElementById("cycle-end");
-  const explainer    = document.getElementById("explainer");
-  const explainerBody= document.getElementById("explainer-body");
-  const eraDisplay   = document.getElementById("era-display");
-  const eraName      = document.getElementById("era-display-name");
-  const eraAge       = document.getElementById("era-display-age");
-  const eraPoem      = document.getElementById("era-display-poem");
-  const breather     = document.getElementById("breather");
-  const sliderLabels = document.getElementById("slider-labels");
+  const slider        = document.getElementById("era-slider");
+  const artwork       = document.getElementById("artwork");
+  const cycleEnd      = document.getElementById("cycle-end");
+  const explainer     = document.getElementById("explainer");
+  const explainerBody = document.getElementById("explainer-body");
+  const eraDisplay    = document.getElementById("era-display");
+  const eraName       = document.getElementById("era-display-name");
+  const eraAge        = document.getElementById("era-display-age");
+  const canvasPoem    = document.getElementById("canvas-poem");
+  const canvasPoemText= document.getElementById("canvas-poem-text");
+  const breather      = document.getElementById("breather");
+  const sliderLabels  = document.getElementById("slider-labels");
 
   // ── State ─────────────────────────────────────────────────────────────────
 
@@ -37,7 +38,7 @@
   const T = {
     ERA_TITLE_FADE:   1500,
     POEM_FADE:        2000,
-    POEM_HOLD:        5000,
+    POEM_HOLD:        10000,
     IMAGE_FADE:       2500,
     IMAGE_HOLD:       10000,
     ERA_FADE_OUT:     2000,
@@ -127,33 +128,38 @@
   async function runEra(data, position) {
     setSlider(position);
 
-    // Reset state
+    // Reset
     artwork.classList.remove("visible");
-    eraPoem.style.opacity = "0";
-    eraPoem.textContent = "";
+    artwork.style.opacity = "";
+    canvasPoem.style.opacity = "0";
+    canvasPoemText.innerHTML = "";
 
-    // Fade in era name + age
+    // Fade in era name + age above canvas
     eraName.textContent = data.era_label;
     eraAge.textContent = data.age_range;
     eraDisplay.style.opacity = "1";
     await sleep(T.ERA_TITLE_FADE);
 
-    // Fade in poem
-    eraPoem.innerHTML = data.poem.replace(/\n/g, "<br>");
-    eraPoem.style.opacity = "1";
+    // Poem fades in inside the canvas
+    canvasPoemText.innerHTML = data.poem.replace(/\n/g, "<br>");
+    canvasPoem.style.opacity = "1";
     await sleep(T.POEM_FADE + T.POEM_HOLD);
 
-    // Fade in image
+    // Crossfade: poem out, image in — or hold poem if no image
     if (data.image) {
-      await revealImage(data.image);
+      canvasPoem.style.opacity = "0";   // poem fades out
+      await revealImage(data.image);    // image fades in simultaneously
+      await sleep(T.IMAGE_HOLD);
+    } else {
+      await sleep(T.IMAGE_HOLD);        // poem holds in canvas for full image window
     }
-    await sleep(T.IMAGE_HOLD);
 
-    // Fade out era display + artwork together
+    // Fade out everything together
     eraDisplay.style.transition = `opacity ${T.ERA_FADE_OUT}ms ease`;
     eraDisplay.style.opacity = "0";
     artwork.style.transition = `opacity ${T.ERA_FADE_OUT}ms ease`;
     artwork.style.opacity = "0";
+    canvasPoem.style.opacity = "0";
     await sleep(T.ERA_FADE_OUT);
 
     // Reset for next era

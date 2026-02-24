@@ -22,7 +22,8 @@ Rules:
 - Each poem must be completely different from any other
 - No quotation marks
 - Do not introduce the poem or explain it. Just output the 4 lines.
-- Do not be beautiful on purpose. Be specific. Specificity is what makes it beautiful."""
+- Do not be beautiful on purpose. Be specific. Specificity is what makes it beautiful.
+- Never use anyone's name. Refer to people only by their relationship to the memory: the teacher, the husband, the machine, the child, the dog, the one who left. The viewer is the only witness here."""
 
 ERA_SEEDS = {
     "wonder": {

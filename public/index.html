@@ -21,16 +21,18 @@
             <p class="gallery-subtitle">a living gallery</p>
         </header>
 
-        <!-- Era display: name, age, poem — visible above canvas during each era -->
+        <!-- Era display: name + age above canvas -->
         <div class="era-display" id="era-display">
             <h2 class="era-display__name" id="era-display-name"></h2>
             <p class="era-display__age" id="era-display-age"></p>
-            <p class="era-display__poem" id="era-display-poem"></p>
         </div>
 
-        <!-- Canvas: breather animation + artwork -->
+        <!-- Canvas: poem layer + artwork + breather -->
         <div class="canvas-container">
             <div class="canvas" id="canvas">
+                <div class="canvas-poem" id="canvas-poem">
+                    <p class="canvas-poem__text" id="canvas-poem-text"></p>
+                </div>
                 <img id="artwork" alt="" />
 
                 <!-- Screen 2: Breather -->
