@@ -14,24 +14,6 @@
             <p class="gallery-subtitle">a living gallery</p>
         </header>
 
-        <div class="canvas-container">
-            <div class="canvas" id="canvas">
-                <img id="artwork" alt="Generated artwork" />
-                <div class="loading-state" id="loading">
-                    <div class="paint-reveal"></div>
-                </div>
-                <div class="empty-state" id="empty">
-                    <p>Move the slider to begin.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="era-info" id="era-info">
-            <h2 class="era-label" id="era-label"></h2>
-            <p class="era-age" id="era-age"></p>
-            <p class="era-poem" id="era-poem"></p>
-        </div>
-
         <div class="slider-container">
             <input
                 type="range"
@@ -43,6 +25,24 @@
                 class="era-slider"
             />
             <div class="slider-labels" id="slider-labels"></div>
+        </div>
+
+        <div class="canvas-container">
+            <div class="canvas" id="canvas">
+                <img id="artwork" alt="Generated artwork" />
+                <div class="loading-state" id="loading">
+                    <div class="paint-reveal"></div>
+                </div>
+                <div class="empty-state" id="empty">
+                    <p>Beginning.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="era-info" id="era-info">
+            <h2 class="era-label" id="era-label"></h2>
+            <p class="era-age" id="era-age"></p>
+            <p class="era-poem" id="era-poem"></p>
         </div>
 
         <footer class="gallery-footer">

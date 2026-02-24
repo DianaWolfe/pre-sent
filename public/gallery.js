@@ -3,6 +3,7 @@
  *
  * Handles the era slider, triggers image generation,
  * and manages the painterly reveal animation.
+ * Auto-advances through eras after each image loads.
  */
 
 (function () {
@@ -19,6 +20,14 @@
   let generating = false;
   let pendingEra = null;
   let debounceTimer = null;
+  let autoAdvanceTimer = null;
+  let userInteracting = false;
+  let userInteractTimer = null;
+
+  // How long to display each image before advancing (ms)
+  const AUTO_ADVANCE_DELAY = 12000;
+  // How long after manual interaction before auto-play resumes (ms)
+  const RESUME_DELAY = 30000;
 
   // Load era definitions from server
   async function loadEras() {
@@ -27,6 +36,8 @@
       eras = await res.json();
       renderSliderLabels();
       updateEraInfo(1);
+      // Auto-start at era 1
+      generate(1);
     } catch (e) {
       console.error("Failed to load eras:", e);
     }
@@ -60,8 +71,21 @@
 
     eraLabel.textContent = era.label;
     eraAge.textContent = era.age_range;
-    // Render poem with line breaks preserved
     eraPoem.innerHTML = era.bio_poem.replace(/\n/g, "<br>");
+  }
+
+  function scheduleAutoAdvance() {
+    clearTimeout(autoAdvanceTimer);
+    autoAdvanceTimer = setTimeout(() => {
+      if (!userInteracting) {
+        const current = parseInt(slider.value);
+        const next = current >= 6 ? 1 : current + 1;
+        slider.value = next;
+        highlightLabel(next);
+        updateEraInfo(next);
+        generate(next);
+      }
+    }, AUTO_ADVANCE_DELAY);
   }
 
   // Generate artwork for the current era
@@ -97,12 +121,12 @@
 
       const data = await res.json();
 
-      // Load image and do painterly reveal
       artwork.onload = function () {
         loading.classList.remove("active");
-        // Small delay before reveal for dramatic effect
         setTimeout(() => {
           artwork.classList.add("visible");
+          // Schedule advance to next era after image is visible
+          scheduleAutoAdvance();
         }, 200);
       };
 
@@ -111,10 +135,11 @@
     } catch (e) {
       console.error("Generation failed:", e);
       loading.classList.remove("active");
+      // Still try to advance even on error
+      scheduleAutoAdvance();
     } finally {
       generating = false;
 
-      // If a new era was requested while generating, start that one
       if (pendingEra !== null) {
         const next = pendingEra;
         pendingEra = null;
@@ -143,7 +168,16 @@
     highlightLabel(position);
     updateEraInfo(position);
 
-    // Debounce to avoid rapid generation while sliding
+    // Mark as user-interacting, pause auto-advance
+    userInteracting = true;
+    clearTimeout(autoAdvanceTimer);
+    clearTimeout(userInteractTimer);
+
+    // Resume auto-play after inactivity
+    userInteractTimer = setTimeout(() => {
+      userInteracting = false;
+    }, RESUME_DELAY);
+
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       generate(position);
