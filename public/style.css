@@ -539,6 +539,30 @@ body {
 /* ── Responsive ───────────────────────────────────────────────────────────── */
 
 @media (max-width: 600px) {
+    .canvas {
+        container-type: inline-size;
+    }
+
+    .canvas-poem {
+        padding: clamp(20px, 8.5cqi, 48px);
+    }
+
+    .canvas-poem__text {
+        font-size: 0.9rem;
+        font-size: clamp(0.83rem, 3.2cqi, 1.1rem);
+        line-height: 2.2;
+        overflow-wrap: anywhere;
+    }
+
+    .breather-card {
+        padding: clamp(20px, 7cqi, 40px);
+    }
+
+    .breather-card__intro,
+    .breather-card__animation {
+        margin-bottom: clamp(20px, 6.4cqi, 36px);
+    }
+
     .gallery {
         padding: 40px 16px 24px;
     }
@@ -557,10 +581,6 @@ body {
 
     .era-display__name {
         font-size: 1.2rem;
-    }
-
-    .canvas-poem__text {
-        font-size: 0.9rem;
     }
 
     .explainer__group {
